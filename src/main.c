@@ -203,7 +203,7 @@ int main() {
                         playlistAddSong(LPl, LP);
                     }
                     else if (IsWordEq(currentWord, word_album)) {
-                        playlistAddAlbum(LPl, LP);
+                        playlistAddAlbum(LPl,LP);
                     }
                     else
                     {

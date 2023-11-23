@@ -3,7 +3,7 @@
 #include "Load.h"
 
 static FILE *pita;
-Sentence currentLine;
+// Sentence currentLine;
 
 void Load(ListofPenyanyi *ListPenyanyi, Word CW, boolean *started) {
     const char *parent_dir = "../save";

@@ -93,7 +93,7 @@ int main() {
             if (started) {
                 ADVCOMM();
                 if (IsWordEq(currentWord, word_default)) {
-                    // List();
+                    list_default(LP);
                 }
                 else if (IsWordEq(currentWord, word_playlist)) {
                     // List();

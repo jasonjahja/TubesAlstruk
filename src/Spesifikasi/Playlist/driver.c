@@ -1,6 +1,5 @@
-// gcc -o driver driver.c ../../ADT/mesinbaris/mesinbaris.c ../../ADT/mesinkata/mesinkata.c ../../ADT/list/list.c ../../ADT/map/map.c ../../ADT/set/set.c ../../ADT/mesinkarakter/mesinkarakter.c ../../ADT/stack/stack.c ../../ADT/listdin/listdin.c ../../ADT/queue/queue.c ../../ADT/strukturberkait/listberkait.c Playlist.c
 #include <stdio.h>
-#include "playlist.h"
+#include "Playlist.c"
 
 int main(){
 
@@ -102,29 +101,28 @@ int main(){
     AddLagu(&LP.listpenyanyi[2].album.listalbum[0].listlagu,toKata("Tally"));
     // DisplayListLagu(LP.listpenyanyi[2].album.listalbum[0].listlagu);
     // playlistAddSong(kumpulanPlaylist,LP);
-    // playlistAddSong(kumpulanPlaylist,LP);
-    playlistDelete(&kumpulanPlaylist);
     // printf("\n=========================PLAYLIST=========================\n");
     // DisplayListPlaylist(&kumpulanPlaylist);
     // printf("ID Playlist >> ");
     // STARTINPUT(stdin);
-    // int IDPlaylist = WordtoNum(toKata(currentLine.kalimat))-1;
     // Word namaPlaylist = GetListPlaylist(kumpulanPlaylist,IDPlaylist);
     // printf("\n=========================ISI PLAYLIST=========================\n");
     // PrintNode(kumpulanPlaylist.list[IDPlaylist]);
 
-    // playlistAddSong(kumpulanPlaylist,LP);
+
     printf("\n=========================PLAYLIST=========================\n");
+    printf("banyak playlist = %d\n",kumpulanPlaylist.nEff);
     DisplayListPlaylist(&kumpulanPlaylist);
+
+    printf("\nDELETE PLAYLIST\n");
+    playlistDelete(&kumpulanPlaylist);
+
     // printf("ID Playlist >> ");
     // STARTINPUT(stdin);
+    // int IDPlaylist = WordtoNum(toKata(currentLine.kalimat))-1;
     // IDPlaylist = WordtoNum(toKata(currentLine.kalimat))-1;
-    // namaPlaylist = GetListPlaylist(kumpulanPlaylist,IDPlaylist);
+    // // namaPlaylist = GetListPlaylist(kumpulanPlaylist,IDPlaylist);
     // printf("\n=========================ISI PLAYLIST=========================\n");
     // PrintNode(kumpulanPlaylist.list[IDPlaylist]);
-
-    
-
-
     return 0;
 }

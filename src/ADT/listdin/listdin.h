@@ -7,7 +7,7 @@
 #include "../strukturberkait/listberkait.h"
 
 /*  Kamus Umum */
-#define Sizelist 5
+#define Sizelist 10
 typedef struct
 {
    Word *namaPlaylist;
@@ -32,11 +32,11 @@ boolean isMemberListPlaylist(ListofPlaylist l, Word X);
 
 int IndexListPlaylist(ListofPlaylist l, Word val);
 
-ListBerkait GetListPlaylist(ListofPlaylist l, int idx);
+Word GetListPlaylist(ListofPlaylist l, int idx);
 
 void InsertListPlaylist(ListofPlaylist *l, Word val);
 
-ListBerkait CopyPlaylist(ListBerkait lin, ListBerkait *lout);
+void CopyPlaylist(ListBerkait lin, ListBerkait *lout);
 
 void DeleteListPlaylist(ListofPlaylist *l, Word val);
 

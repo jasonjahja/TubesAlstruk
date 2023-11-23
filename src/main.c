@@ -20,7 +20,7 @@
 #include "Spesifikasi/Play/Play.h"
 #include "Spesifikasi/Queue/Queue.h"
 #include "Spesifikasi/Song/Song.h"
-// #include "Spesifikasi/Playlist/Playlist.h"
+#include "Spesifikasi/Playlist/Playlist.h"
 #include "Spesifikasi/Status/Status.h"
 #include "Spesifikasi/Save/Save.h"
 #include "Spesifikasi/Help/help.h"
@@ -121,7 +121,7 @@ int main() {
                 else
                 {
                     printf("ERROR: Command tidak dapat dieksekusi!\n\n");
-                    ADVCOMM();
+                    ADVCOMM(); ADVCOMM();
                 }
             } else {
                 printf("ERROR: Command tidak dapat dieksekusi!\n\n");
@@ -137,7 +137,7 @@ int main() {
                     if (!started)
                     {
                         printf("ERROR: Command tidak dapat dieksekusi!\n\n");
-                        ADVCOMM();
+                        ADVCOMM(); ADVCOMM();
                     }
                     else
                     {   
@@ -183,7 +183,7 @@ int main() {
                 else
                 {
                     printf("ERROR: Command tidak dapat dieksekusi!\n\n");
-                    ADVCOMM();
+                    ADVCOMM(); ADVCOMM();
                 }
             } else {
                 printf("ERROR: Command tidak dapat dieksekusi!\n\n");
@@ -196,24 +196,40 @@ int main() {
             if (started) {
                 ADVCOMM();
                 if (IsWordEq(currentWord, word_create)) {
-                    // Song();
+                    playlistCreate(&LPl);
                 }
                 else if (IsWordEq(currentWord, word_add)) {
-                    // List();
+                    ADVCOMM();
+                    if (IsWordEq(currentWord, word_song)) {
+                        playlistAddSong(LPl, LP);
+                    }
+                    else if (IsWordEq(currentWord, word_album)) {
+                        // playlistAddAlbum();
+                    }
+                    else
+                    {
+                        printf("ERROR: Command tidak dapat dieksekusi!\n\n");
+                        ADVCOMM(); ADVCOMM(); ADVCOMM();
+                    }
                 }
                 else if (IsWordEq(currentWord, word_swap)) {
-                    // List();
+                    int id = WordtoNum(currentWord);
+                    ADVCOMM() ; int x = WordtoNum(currentWord);
+                    ADVCOMM() ; int y = WordtoNum(currentWord);
+                    playlistSwap(&LPl, id, x, y);
                 }
                 else if (IsWordEq(currentWord, word_remove)) {
-                    // List();
+                    int id = WordtoNum(currentWord);
+                    ADVCOMM() ; int n = WordtoNum(currentWord);
+                    playlistRemove(&LPl, n, id);
                 }
                 else if (IsWordEq(currentWord, word_delete)) {
-                    // List();
+                    // playlistDelete(&LPl);
                 }
                 else
                 {
                     printf("ERROR: Command tidak dapat dieksekusi!\n\n");
-                    ADVCOMM();
+                    ADVCOMM(); ADVCOMM();
                 }
             } else {
                 printf("ERROR: Command tidak dapat dieksekusi!\n\n");
@@ -226,7 +242,7 @@ int main() {
                 Status(CS, Q);
             } else {
                 printf("ERROR: Command tidak dapat dieksekusi!\n\n");
-                ADVCOMM();
+                ADVCOMM(); ADVCOMM();
             }
         }
 

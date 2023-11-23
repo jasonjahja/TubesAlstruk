@@ -159,6 +159,7 @@ void TulisWordNoNL(Word kata) {
     }
 }
 
+// MASIH SALAH
 boolean IsWordEq (Word kata1, Word kata2) {
     for (int i = 0; i < kata1.Length; i++) {
         if (kata1.TabWord[i] != kata2.TabWord[i]) {
@@ -265,7 +266,7 @@ void IgnoreTK() {
     }
 }
 
-// SALAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+// MASIH SALAH
 int stringLength(char *str) {
 /*  Fungsi yang menerima sebuah parameter str bertipe string
     Kemudian mengembalikan panjang dari string tersebut */

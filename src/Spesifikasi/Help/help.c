@@ -2,9 +2,9 @@
 #include "../../boolean.h"
 
 void Help (boolean entered) {
+    printf("\n=====================================================[ Menu Help WayangWave ]=======================================================\n\n");
     // Ketika perintah dipanggil sebelum memasuki sesi
     if (!entered) {
-    printf("=====[ Menu Help WayangWave ]=====\n");
     printf("1. START -> Untuk masuk sesi baru\n");
     printf("2. LOAD -> Untuk memulai sesi berdasarkan file konfigurasi\n");
     }
@@ -14,7 +14,7 @@ void Help (boolean entered) {
     printf("=====[ Menu Help WayangWave ]=====\n");
     printf("1. START -> Untuk masuk sesi baru\n");
     printf("2. LOAD -> Untuk memulai sesi berdasarkan file konfigurasi\n");
-    printf("3a. LIST DEFAULT -> Untuk melihat list penyanyi yang ada, kemudian jika mau dapat melihat album dari penyanyi tersebut lalu lagu dari album yang dipilih untuk lihat lebih lanjut\n");
+    printf("3a. LIST DEFAULT -> Untuk melihat list penyanyi, album, dan lagu yang ada\n");
     printf("3b. LIST PLAYLIST -> Untuk menampilkan playlist yang ada pada pengguna\n");
     printf("4a. PLAY SONG -> Untuk memainkan lagu berdasarkan masukan nama penyanyi, nama album, dan id lagu\n");
     printf("4b. PLAY PLAYLIST -> Untuk memainkan lagu berdasarkan id playlist\n");
@@ -34,4 +34,6 @@ void Help (boolean entered) {
     printf("9. SAVE -> Untuk menyimpan state ke dalam file\n");
     printf("10. QUIT -> Untuk keluar dari sesi\n");
     }
+
+    printf("\n====================================================================================================================================\n\n");
 }

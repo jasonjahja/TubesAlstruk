@@ -78,10 +78,6 @@ boolean isAlbumAvail (ListBerkait L, infoLagu X){
 }
 
 
-void insertSongtoPlaylist(ListBerkait L,infoLagu X){
-  
-}
-
 boolean isSongAvail (ListBerkait L, infoLagu X){
   address P;
   boolean bFound = false;
@@ -107,6 +103,7 @@ boolean isSongAvail (ListBerkait L, infoLagu X){
   }
 }
 
+//=================INSERT/DEL infolagu============================
 void InsVFirst (ListBerkait *L, infoLagu X){
   address P = Alokasi(X);
   if (P != NilNode) {
@@ -148,8 +145,8 @@ void DelVLast (ListBerkait *L, infoLagu *X)
     First(*L) = NilNode;
   }
   Dealokasi(&P);
-
 }
+
 void InsertFirst (ListBerkait *L, address P)
 {
   Next(P) = First(*L);
@@ -292,7 +289,6 @@ void InversListBerkait (ListBerkait *L)
 {
 	address P;
 	address Prec = NilNode;
-
 	address Succ;
 	
 	if (!IsEmpty(*L)) {

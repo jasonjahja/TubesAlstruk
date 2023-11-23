@@ -44,29 +44,30 @@ boolean isMemberListPlaylist(ListofPlaylist l, Word X)
 
 int  IndexListPlaylist(ListofPlaylist l, Word val)
 {
-    int idx = 0;
-    for (int i = 0; i < LengthListPlaylist(l); i++)
+    if (isMemberListPlaylist(l, val))
     {
-        if (IsWordEq(val, l.namaPlaylist[i]))
+        int count = 0;
+        for (int i = 0; i< LengthListPlaylist(l); i++)
         {
-            return idx;
-        }
-        else
-        {
-            idx++;
+            if (IsWordEq(l.namaPlaylist[count], val))
+            {
+                return count;
+            }
+            count++;
         }
     }
     return -1;
 }
 
-ListBerkait GetListPlaylist(ListofPlaylist l, int idx)
+
+Word GetListPlaylist(ListofPlaylist l, int idx)
 {
-    return l.list[idx];
+    return l.namaPlaylist[idx];
 }
 
 void InsertListPlaylist(ListofPlaylist *l, Word val)
 {
-    CreateEmptyPlaylist(&(*l).list[(*l).nEff]);
+    CreateEmptyPlaylist(&((*l).list[(*l).nEff]));
     (*l).namaPlaylist[(*l).nEff] = val;
     (*l).nEff++;
 }
@@ -94,7 +95,7 @@ void DeleteListPlaylist(ListofPlaylist *l, Word val)
     }
 }
 
-ListBerkait CopyPlaylist(ListBerkait lin, ListBerkait *lout)
+void CopyPlaylist(ListBerkait lin, ListBerkait *lout)
 {
     CreateEmptyPlaylist(lout);
     (*lout).First = lin.First;
@@ -104,7 +105,8 @@ void DisplayListPlaylist(ListofPlaylist *l)
 {
     for (int i = 0; i < LengthListPlaylist(*l);i++)
     {
-        TulisWord((*l).namaPlaylist[i]);
+        printf("     %d. ",i+1);
+        TulisWordNoNL((*l).namaPlaylist[i]);
         printf("\n");
     }
 }

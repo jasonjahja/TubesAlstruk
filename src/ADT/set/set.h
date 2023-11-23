@@ -41,4 +41,6 @@ void DisplayListLagu(SetofSong S);
 
 int IndeksLagu(SetofSong S, Word Elmt);
 
+Word IndeksSong(SetofSong S,int idx);
+
 #endif

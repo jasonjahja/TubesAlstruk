@@ -42,7 +42,7 @@ boolean isMemberListPlaylist(ListofPlaylist l, Word X)
     return false;
 }
 
-int  IndexListPlaylist(ListofPlaylist l, Word val)
+int IndexListPlaylist(ListofPlaylist l, Word val)
 {
     if (isMemberListPlaylist(l, val))
     {
@@ -72,26 +72,32 @@ void InsertListPlaylist(ListofPlaylist *l, Word val)
     (*l).nEff++;
 }
 
-void DeleteListPlaylist(ListofPlaylist *l, Word val)
+void DeletePlaylist(ListBerkait *L)
 {
-    int index = -1;
-    for (int i = 0; i < (*l).nEff; i++)
-    {
-        if (IsWordEq((*l).namaPlaylist[i], val))
-        {
-            index = i;
-            break;
-        }
-    }
+    address current = L->First;
+    address nextNode;
 
-    if (index != -1)
-    {
-        free((*l).namaPlaylist[index].TabWord);
-        for (int i = index; i < (*l).nEff - 1; i++)
-        {
-            (*l).namaPlaylist[i] = (*l).namaPlaylist[i + 1];
+    while (current != NULL) {
+        nextNode = current->next;
+        free(current);
+        current = nextNode;
+    }
+}
+
+void DeleteListPlaylist(ListofPlaylist *l, int idx)
+{
+    if (idx >= 0 && idx < l->nEff) {
+        int i;
+        // Deallocate the playlist name
+        for (i = idx; i < l->nEff - 1; i++) {
+            l->namaPlaylist[i] = l->namaPlaylist[i + 1];
         }
-        (*l).nEff--;
+        // Deallocate the associated linked list
+        DeletePlaylist(&(l->list[idx]));
+        // Decrement the number of elements in the list
+        l->nEff--;
+    } else {
+        printf("Error: Invalid index for deletion.\n");
     }
 }
 

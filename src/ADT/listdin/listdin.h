@@ -38,7 +38,9 @@ void InsertListPlaylist(ListofPlaylist *l, Word val);
 
 void CopyPlaylist(ListBerkait lin, ListBerkait *lout);
 
-void DeleteListPlaylist(ListofPlaylist *l, Word val);
+void DeleteListPlaylist(ListofPlaylist *l, int idx); 
+
+void DeletePlaylist(ListBerkait *L);
 
 void DisplayListPlaylist(ListofPlaylist *l);
 

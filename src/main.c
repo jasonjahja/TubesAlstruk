@@ -96,7 +96,7 @@ int main() {
                     list_default(LP);
                 }
                 else if (IsWordEq(currentWord, word_playlist)) {
-                    // List();
+                    list_playlist(LPl);
                 }
                 else
                 {

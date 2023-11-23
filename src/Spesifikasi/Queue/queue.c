@@ -90,6 +90,9 @@ void queueSong (ListofPenyanyi daftarpenyanyi, Queue * queue)
 
 void queuePlaylist(ListofPlaylist daftarplaylist, Queue * queue)
 {
+    printf("Daftar Playlist: \n");
+    DisplayListPlaylist(&daftarplaylist);
+    
     printf("\nMasukkan ID Playlist: ");
     STARTINPUT(stdin);
     int IDPlaylist = WordtoNum(currentInput) - 1;

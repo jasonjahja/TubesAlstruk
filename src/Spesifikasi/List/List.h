@@ -13,6 +13,6 @@
 
 void list_default(ListofPenyanyi List);
 
-void list_playlist(ListofPlaylist List);
+void list_playlist(ListofPlaylist L);
 
 #endif

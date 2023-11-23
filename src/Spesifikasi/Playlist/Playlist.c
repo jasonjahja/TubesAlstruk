@@ -4,6 +4,7 @@
 // run playlist
 // gcc -o Playlist ../../Spesifikasi/Start/Start.c ../../ADT/listdin/listdin.c ../../ADT/strukturberkait/listberkait.c ../../ADT/mesinbaris/mesinbaris.c ../../ADT/mesinkata/mesinkata.c ../../ADT/mesinkarakter/mesinkarakter.c ../../ADT/list/list.c ../../ADT/map/map.c ../../ADT//set/set.c
 
+
 void playlistCreate(ListofPlaylist *L){
     printf("\nMasukkan nama playlist yang ingin dibuat : ");
     STARTINPUT(stdin);

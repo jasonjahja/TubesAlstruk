@@ -1,4 +1,4 @@
-#include "inisialisasi.h"
+#include "Inisialisasi.h"
 
 void Inisialisasi() {
     char ascii_art[] = 

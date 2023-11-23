@@ -9,7 +9,7 @@
 #include "../../ADT/map/map.h"
 #include "../../ADT/set/set.h"
 #include "../../Spesifikasi/List/List.h"
-#include "../../Spesifikasi/Play/play.h"
+#include "../../Spesifikasi/Play/Play.h"
 #include "../../ADT/queue/queue.h"
 #include "../../ADT/stack/stack.h"
 

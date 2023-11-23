@@ -3,9 +3,9 @@
 
 #include <stdio.h>
 #include "../../ADT/queue/queue.h"
-#include "../Play/play.h"
-#include "../Queue/queue.h"
-#include "../Song/song.h"
+#include "../Play/Play.h"
+#include "../Queue/Queue.h"
+#include "../Song/Song.h"
 
 void Status (CurrentStat stat, Queue QL) ;
 

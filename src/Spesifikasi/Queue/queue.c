@@ -98,7 +98,7 @@ void queueSwap (Queue * queue, int id1, int id2)
     if ((idx1 < 0 || idx1 > (*queue).idxTail) && (idx2 < 0 || idx2 > (*queue).idxTail))
     {
         printf("Mencari lagu dengan urutan ke %d dan %d dalam queue. . .\n", id1, id2);
-        printf("Lagu dengan urutan ke %d dan %d tidak ada.\n");
+        printf("Lagu dengan urutan ke %d dan %d tidak ada.\n", id1, id2);
     }
     else if (idx1 < 0 || idx1 > (*queue).idxTail)
     {

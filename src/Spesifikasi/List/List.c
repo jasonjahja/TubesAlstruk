@@ -16,7 +16,7 @@ void list_default(ListofPenyanyi L)
     {
         ResetInput();
         printf("\nCommand tidak diketahui!\n");
-        printf("Ingin melihat album yang ada? (Y/N) : ");
+        printf("\nIngin melihat album yang ada? (Y/N) : ");
         STARTINPUT(stdin);
     }
 
@@ -57,7 +57,7 @@ void list_default(ListofPenyanyi L)
         {
             ResetInput();
             printf("\nCommand tidak diketahui!\n");
-            printf("Ingin melihat album yang ada? (Y/N) : ");
+            printf("\nIngin melihat album yang ada? (Y/N) : ");
             STARTINPUT(stdin);
         }
 
@@ -83,7 +83,7 @@ void list_default(ListofPenyanyi L)
 
             int idxalbum = IndeksAlbum(L.listpenyanyi[idxlagu].album, currentInput);
 
-            printf("Daftar lagu di %s: \n",currentInput);
+            printf("\nDaftar lagu di %s: \n",currentInput);
             for (int k = 0; k < BanyakLagu(L.listpenyanyi[idxlagu].album.listalbum[idxalbum].listlagu); k++)
             {
                 printf("\t %d. ", k+1);
@@ -91,6 +91,7 @@ void list_default(ListofPenyanyi L)
             }
         }
     }
+    printf("\n");
 }
 
 // void list_playlist(ListofPlaylist L)

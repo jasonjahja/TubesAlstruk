@@ -11,8 +11,8 @@
 #include "../../ADT/listdin/listdin.h"
 #include "../../ADT/strukturberkait/listberkait.h"
 
-void list_default(ListofPenyanyi L);
+void list_default(ListofPenyanyi List);
 
-void list_playlist(ListofPlaylist L);
+// void list_playlist();
 
 #endif

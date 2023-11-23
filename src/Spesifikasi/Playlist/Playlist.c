@@ -6,13 +6,13 @@
 // gcc -o Playlist ../../ADT/listdin/listdin.c ../../ADT/strukturberkait/listberkait.c ../../ADT/mesinbaris/mesinbaris.c ../../ADT/mesinkata/mesinkata.c ../../ADT/mesinkarakter/mesinkarakter.c ../../ADT/list/list.c ../../ADT/map/map.c ../../ADT//set/set.c
 
 void playlistCreate(ListofPlaylist *L){
-    printf("\nMasukkan nama playlist yang ingin dibuat : ");
+    printf("Masukkan nama playlist yang ingin dibuat : ");
     STARTINPUT(stdin);
     InsertListPlaylist(L,currentInput);
     printf("\nPlaylist ");
     TulisWordNoNL(currentInput);
-    printf(" berhasil dibuat!\n");
-    printf("Silahkan \nmasukkan lagu - lagu artis terkini kesayangan Anda!\n");
+    printf(" berhasil dibuat!\n\n");
+    printf("Silahkan \nmasukkan lagu - lagu artis terkini kesayangan Anda!\n\n");
 
 }
 
@@ -122,7 +122,7 @@ void playlistAddSong(ListofPlaylist L,ListofPenyanyi LP){
                 if (isMemberListPlaylist(L,namaPlaylist)){
                     lagu.Lagu.status = 0;
                     InsVLast(&L.list[IDPlaylist],lagu);
-                    printf("Lagu dengan judul ");
+                    printf("\nLagu dengan judul ");
                     printf("'");
                     TulisWordNoNL(judulLagu);
                     printf("'");
@@ -132,7 +132,7 @@ void playlistAddSong(ListofPlaylist L,ListofPenyanyi LP){
                     TulisWordNoNL(penyanyi);
                     printf(" berhasil ditambahkan ke dalam playlist ");
                     TulisWordNoNL(namaPlaylist);
-                    printf(".\n");                
+                    printf(".\n\n");                
                 }
 
             }

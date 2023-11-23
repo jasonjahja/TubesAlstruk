@@ -29,23 +29,17 @@ void startConfig(ListofPenyanyi *ListPenyanyi){
             ADVWORD();
             int banyakLagu = WordtoNum(currentWord);
 
- 
             ADVSENTENCE();
-            AddAlbum(&(ListPenyanyi->listpenyanyi[i].album), toKata(currentLine.kalimat));
-
-    
+            AddAlbum(&(ListPenyanyi->listpenyanyi[i].album), toKata(currentLine.kalimat));    
    
             for(int k = 0; k<banyakLagu;k++){
                 ADVSENTENCE();
                 AddLagu(&(ListPenyanyi->listpenyanyi[i].album.listalbum[j].listlagu), toKata(currentLine.kalimat));
-                printf("JUMLAH KATA : %d\n1", currentLine.lengthsentence);
             }
-            
         }
-
     }
     fclose(pita);
-    printf("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
+    printf("File konfigurasi aplikasi berhasil dibaca. WayangWave berhasil dijalankan.\n\n");
     // printf("\n");
     // printf("Jumlah Penyanyi: %d\n", BanyakPenyanyi(*ListPenyanyi));
     // printf("LIST PENYANYI : \n");

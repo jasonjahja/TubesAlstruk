@@ -9,8 +9,8 @@ void nextSong(Queue *queue, songHistory *history, CurrentStat *currentSong)
     {
         if (!IsEmptyQueue(*queue))
         {
-            printf("Memutar lagu selanjutnya. . .\n");
-            printf("Memainkan lagu \"");
+            printf("\nMemutar lagu selanjutnya. . .\n");
+            printf("\nMemainkan lagu \"");
             TulisWordNoNL(HEADSONG(*queue));
             printf("\" oleh \"");
             TulisWordNoNL(HEADSINGER(*queue));
@@ -23,16 +23,16 @@ void nextSong(Queue *queue, songHistory *history, CurrentStat *currentSong)
         }
         else
         {
-            printf("Tidak ada lagu dalam antrian.\n");
-            printf("Tidak ada lagu yang dapat diputar.\n\n");
+            printf("\nTidak ada lagu dalam antrian.\n");
+            printf("\nTidak ada lagu yang dapat diputar.\n\n");
         }
     }
     else
     {
         if (!IsEmptyQueue(*queue))
         {
-            printf("Memutar lagu selanjutnya. . .\n");
-            printf("Memainkan lagu \"");
+            printf("\nMemutar lagu selanjutnya. . .\n");
+            printf("\nMemainkan lagu \"");
             TulisWordNoNL(HEADSONG(*queue));
             printf("\" oleh \"");
             TulisWordNoNL(HEADSINGER(*queue));
@@ -45,8 +45,8 @@ void nextSong(Queue *queue, songHistory *history, CurrentStat *currentSong)
         }
         else
         {
-            printf("Tidak ada lagu dalam antrian.\n");
-            printf("Memutar kembali lagu. . .\n");
+            printf("\nTidak ada lagu dalam antrian.\n");
+            printf("\nMemutar kembali lagu. . .\n");
             printf("Memainkan lagu \"");
             TulisWordNoNL(currentSong->currentplay.judul);
             printf("\" oleh \"");
@@ -63,9 +63,9 @@ void prevSong(Queue *queue, songHistory *history, CurrentStat *currentSong)
         if (!IsEmptyStack(*history))
         {
             enqueueFirstQueue(queue, (*currentSong).currentplay.judul, (*currentSong).currentplay.album, (*currentSong).currentplay.penyanyi);
-            printf("Memutar lagu sebelumnya. . .\n");
+            printf("\nMemutar lagu sebelumnya. . .\n");
             PopStack(history, &(currentSong->currentplay.judul), &(currentSong->currentplay.album), &(currentSong->currentplay.penyanyi));
-            printf("Memainkan lagu \"");
+            printf("\nMemainkan lagu \"");
             TulisWordNoNL(currentSong->currentplay.judul);
             printf("\" oleh \"");
             TulisWordNoNL(currentSong->currentplay.penyanyi);
@@ -73,9 +73,9 @@ void prevSong(Queue *queue, songHistory *history, CurrentStat *currentSong)
         }
         else
         {
-            printf("Riwayat lagu kosong.\n");
-            printf("Memutar kembali lagu. . .\n");
-            printf("Memainkan lagu \"");
+            printf("\nRiwayat lagu kosong.\n");
+            printf("\nMemutar kembali lagu. . .\n");
+            printf("\nMemainkan lagu \"");
             TulisWordNoNL(currentSong->currentplay.judul);
             printf("\" oleh \"");
             TulisWordNoNL(currentSong->currentplay.penyanyi);
@@ -84,7 +84,7 @@ void prevSong(Queue *queue, songHistory *history, CurrentStat *currentSong)
     }
     else
     {
-        printf("Belum ada lagu yang diputar.\n\n");
+        printf("\nBelum ada lagu yang diputar.\n\n");
     }
 }
 

@@ -161,12 +161,17 @@ void TulisWordNoNL(Word kata) {
 
 // MASIH SALAH
 boolean IsWordEq (Word kata1, Word kata2) {
-    for (int i = 0; i < kata1.Length; i++) {
-        if (kata1.TabWord[i] != kata2.TabWord[i]) {
-            return false;
+    if (kata1.Length == kata2.Length) {
+        for (int i = 0; i < kata1.Length; i++) {
+            if (kata1.TabWord[i] != kata2.TabWord[i]) {
+                return false;
+            }
         }
+        return true;
+    } else {
+        return false;
     }
-    return true;
+    
 }
 
 void STARTINPUT(FILE* input)

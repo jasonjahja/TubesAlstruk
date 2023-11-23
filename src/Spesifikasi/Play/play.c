@@ -1,4 +1,4 @@
-#include "play.h"
+#include "Play.h"
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "playlist.h"
+#include "Playlist.h"
 
 
 void playlistCreate(ListofPlaylist *L){
@@ -140,7 +140,7 @@ void playlistAddSong(ListofPlaylist L,ListofPenyanyi LP){
     }
 
 }
-// void playlistAddAlbum(ListofPlaylist *L,ListofPenyanyi LP);
+void playlistAddAlbum(ListofPlaylist *L,ListofPenyanyi LP);
 void playlistSwap(ListofPlaylist *L,int idx,int x,int y){
     ElmtList *p1  =L->list[idx].First; 
     ElmtList *p2  =L->list[idx].First;

@@ -14,7 +14,7 @@
 
 void playlistCreate(ListofPlaylist *L);
 void playlistAddSong(ListofPlaylist L,ListofPenyanyi LP);
-// void playlistAddAlbum(ListofPlaylist *L,ListofPenyanyi LP);
+void playlistAddAlbum(ListofPlaylist *L,ListofPenyanyi LP);
 void playlistSwap(ListofPlaylist *L,int idx,int x,int y);
 void playlistRemove(ListofPlaylist *L,int rowsong,int idx);
 void playlistDelete(ListofPlaylist *L);

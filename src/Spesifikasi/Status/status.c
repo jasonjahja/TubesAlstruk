@@ -11,7 +11,7 @@ void Status (CurrentStat stat, Queue QL)
         if (QL.idxHead != IDX_UNDEFQueue && QL.idxTail != IDX_UNDEFQueue) // kondisi tidak ada queue
         {
             printf("\nQueue:\n");
-            printf("%sYour queue is empty.\n");
+            printf("Your queue is empty.\n");
         }
         else //kondisi ada queue
         {

@@ -96,7 +96,7 @@ int main() {
                     list_default(LP);
                 }
                 else if (IsWordEq(currentWord, word_playlist)) {
-                    // List();
+                    list_playlist(LPl);
                 }
                 else
                 {
@@ -127,7 +127,6 @@ int main() {
                 printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                 ADVCOMM();
             }
-            
         }
 
         else if (IsWordEq(currentWord, word_queue)) {
@@ -145,7 +144,7 @@ int main() {
                     }  
                 }
                 else if (IsWordEq(currentWord, word_playlist)) {
-                    // queuePlaylist();
+                    queuePlaylist(LPl, &Q);
                 }
                 else if (IsWordEq(currentWord, word_swap)) {
                     int id1 = WordtoNum(currentWord);
@@ -204,7 +203,7 @@ int main() {
                         playlistAddSong(LPl, LP);
                     }
                     else if (IsWordEq(currentWord, word_album)) {
-                        playlistAddAlbum(LPl,LP);
+                        playlistAddAlbum(LPl, LP);
                     }
                     else
                     {
@@ -259,7 +258,7 @@ int main() {
         }
 
         else if (IsWordEq(currentWord, word_quit)) {
-            printf("\nApakah kamu ingin menyimpan data sesi sekarang? ");
+            printf("\nApakah kamu ingin menyimpan data sesi sekarang? (Y/N) ");
             GetInput();
             if (IsWordEq(currentInput,toKata("Y"))) {
                 //save()

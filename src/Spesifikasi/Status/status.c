@@ -13,7 +13,12 @@ void Status (CurrentStat stat, Queue QL)
             printf("\nQueue:\n");
             for (int i = QL.idxHead; i <= QL.idxTail ; i++)
             {
-                printf("%d. %s - %s - %s\n\n", i+1, QL.singer[i].TabWord, QL.song[i].TabWord, QL.album[i].TabWord);
+                printf("%d. ", i+1);
+                TulisWordNoNL(QL.singer[i]);
+                printf(" - ");
+                TulisWordNoNL(QL.song[i]);
+                printf(" - ");
+                TulisWord(QL.album[i]);
             }
         }
         else //kondisi tidak ada queue
@@ -41,7 +46,12 @@ void Status (CurrentStat stat, Queue QL)
         } else {
             for (int i = QL.idxHead; i <= QL.idxTail; i++)
             {
-                printf("%d. %s - %s - %s\n", i+1, QL.singer[i].TabWord, QL.song[i].TabWord, QL.album[i].TabWord);
+                printf("%d. ", i+1);
+                TulisWordNoNL(QL.singer[i]);
+                printf(" - ");
+                TulisWordNoNL(QL.song[i]);
+                printf(" - ");
+                TulisWord(QL.album[i]);
             }
         }
    }

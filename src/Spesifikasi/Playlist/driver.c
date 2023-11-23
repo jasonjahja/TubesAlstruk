@@ -115,10 +115,10 @@ int main(){
     DisplayListPlaylist(&kumpulanPlaylist);
 
     // printf("\nDELETE PLAYLIST\n");
-    // playlistDelete(&kumpulanPlaylist);
+    playlistDelete(&kumpulanPlaylist);
 
     printf("\nPLAYLIST ADD ALBUM\n");
-    playlistAddAlbum(kumpulanPlaylist,LP);
+    // playlistAddAlbum(kumpulanPlaylist,LP);
     
 
     // printf("ID Playlist >> ");
@@ -126,7 +126,8 @@ int main(){
     // int IDPlaylist = WordtoNum(toKata(currentLine.kalimat))-1;
     // IDPlaylist = WordtoNum(toKata(currentLine.kalimat))-1;
     // // namaPlaylist = GetListPlaylist(kumpulanPlaylist,IDPlaylist);
-    // printf("\n=========================ISI PLAYLIST=========================\n");
+    printf("\n=========================PLAYLIST=========================\n");
+    DisplayListPlaylist(&kumpulanPlaylist);
     // PrintNode(kumpulanPlaylist.list[IDPlaylist]);
     return 0;
 }

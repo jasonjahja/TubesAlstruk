@@ -4,6 +4,7 @@
 // run playlist
 // gcc -o Playlist ../../Spesifikasi/Start/Start.c ../../ADT/listdin/listdin.c ../../ADT/strukturberkait/listberkait.c ../../ADT/mesinbaris/mesinbaris.c ../../ADT/mesinkata/mesinkata.c ../../ADT/mesinkarakter/mesinkarakter.c ../../ADT/list/list.c ../../ADT/map/map.c ../../ADT//set/set.c
 
+
 void playlistCreate(ListofPlaylist *L){
     printf("\nMasukkan nama playlist yang ingin dibuat : ");
     STARTINPUT(stdin);
@@ -234,47 +235,20 @@ void playlistRemove(ListofPlaylist *L,int rowsong,int idx){
         prev->next = p->next;
     }
     Dealokasi(&p);
-
-
 }
+
 void playlistDelete(ListofPlaylist *L){
     if (isEmptyListPlaylist(*L)) {
         printf("\nTidak ada playlist yang tersedia!\n\n");
     } else {
-        printf("\nDaftar Playlist Pengguna : \n");
-        DisplayListPlaylist(L);
-        int i = 0;
-        printf("\n\nMasukkan ID Playlist yang dipilih : ");
-        STARTINPUT(stdin);
-        // TulisWord(currentInput);
-        int IDPlaylist = WordtoNum(currentInput);
+      printf("\nDaftar Playlist Pengguna : \n");
+      DisplayListPlaylist(L);
 
-        printf("Playlist : \n");
-        // TulisWord(GetListPlaylist(*L,IDPlaylist-1));
-
-        // ElmtList *curr = L->list;
-        // ElmtList *prev = NULL;
-
-
-        
-        // printf("ID Playlist : %d\n",IDPlaylist);
-        // printf("Neff : %d\n",L->nEff);
-        for (i = 0; i < IDPlaylist; i++){
-            // prev = curr;
-            // curr = curr->next;
-            TulisWord(L->namaPlaylist[i]);
-        }
-        TulisWord(GetListPlaylist(*L,i));
-        printf("...\n");
-
-        // if (prev != NULL){
-        //     prev->next = curr->next;
-        // } else{
-        //     L->list->First = curr->next;
-        //     printf("Q\n");
-        // }
-        // Dealokasi(&curr);
-        L->nEff--;
+      printf("\n\nMasukkan ID Playlist yang dipilih : ");
+      STARTINPUT(stdin);
+      // TulisWord(currentInput);
+      int IDPlaylist = WordtoNum(currentInput);
+      DeleteListPlaylist(L,IDPlaylist);
     }
 }
 

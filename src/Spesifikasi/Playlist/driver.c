@@ -114,8 +114,12 @@ int main(){
     printf("banyak playlist = %d\n",kumpulanPlaylist.nEff);
     DisplayListPlaylist(&kumpulanPlaylist);
 
-    printf("\nDELETE PLAYLIST\n");
-    playlistDelete(&kumpulanPlaylist);
+    // printf("\nDELETE PLAYLIST\n");
+    // playlistDelete(&kumpulanPlaylist);
+
+    printf("\nPLAYLIST ADD ALBUM\n");
+    playlistAddAlbum(kumpulanPlaylist,LP);
+    
 
     // printf("ID Playlist >> ");
     // STARTINPUT(stdin);

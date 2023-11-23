@@ -64,6 +64,7 @@ int main() {
     {
         printf(">> "); 
         GetCommand();
+        // DisplayListPenyanyi(LP);
 
         if (IsWordEq(currentWord, word_start)) {
             if (!started)
@@ -204,6 +205,7 @@ int main() {
                     }
                     else if (IsWordEq(currentWord, word_album)) {
                         playlistAddAlbum(LPl,LP);
+                        PrintNode(*LPl.list);
                     }
                     else
                     {

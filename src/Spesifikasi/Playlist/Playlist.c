@@ -183,7 +183,23 @@ void playlistAddAlbum(ListofPlaylist L,ListofPenyanyi LP){
                 }
                 if (isMemberListPlaylist(L,namaPlaylist)){
                     lagu.Lagu.status = 0;
-                    InsVLast(&L.list[IDPlaylist],lagu);
+                    // InsVLast(&L.list[IDPlaylist],lagu);
+                    infoLagu x;
+                    int nLagu = BanyakLagu(LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu);
+                
+                    for (int i = 0;i < nLagu;i++){
+                            // x.Lagu.album = LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu.Lagu[i].album;
+                            x.Lagu.album = lagu.Lagu.album;
+                            x.Lagu.judul = LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu.Lagu[i].judul;
+                            x.Lagu.penyanyi = lagu.Lagu.penyanyi;
+                            // x.Lagu.penyanyi = LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu.Lagu[i].penyanyi;
+                            InsVLast(&L.list[IDPlaylist],x);
+                        } 
+
+                    }
+
+                    PrintNode(L.list[IDPlaylist]);
+
                     printf("\nAlbum dengan judul ");
                     printf("'");
                     TulisWordNoNL(namaAlbum);
@@ -194,7 +210,6 @@ void playlistAddAlbum(ListofPlaylist L,ListofPenyanyi LP){
                 }
             }
         }
-    }
 }
 
 void playlistSwap(ListofPlaylist *L,int idx,int x,int y){

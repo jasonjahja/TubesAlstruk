@@ -25,7 +25,7 @@ void playSong (ListofPenyanyi daftarpenyanyi, CurrentStat * currentSong, songHis
     }
 
     printf("Masukkan nama penyanyi yang dipilih: ");
-    STARTINPCOMMAND(stdin);
+    STARTINPUT(stdin);
     Word input = toKata(currentLine.kalimat);
     int IDPenyanyi = IndeksPenyanyi(daftarpenyanyi, input);
 
@@ -33,9 +33,8 @@ void playSong (ListofPenyanyi daftarpenyanyi, CurrentStat * currentSong, songHis
     {
         printf("Nama penyanyi tidak terdaftar!\n");
         printf("Masukkan nama penyanyi yang dipilih: ");
-        STARTINPCOMMAND(stdin);
-        Word input = toKata(currentLine.kalimat);
-        IDPenyanyi = IndeksPenyanyi(daftarpenyanyi, input);
+        STARTINPUT(stdin);        
+        IDPenyanyi = IndeksPenyanyi(daftarpenyanyi, currentInput);
     }
     
     if (IDPenyanyi != -1)
@@ -50,16 +49,15 @@ void playSong (ListofPenyanyi daftarpenyanyi, CurrentStat * currentSong, songHis
         }
 
         printf("Masukkan nama album yang dipilih: ");
-        STARTINPCOMMAND(stdin);
-        Word input = toKata(currentLine.kalimat);
-        int IDAlbum = IndeksAlbum(daftarpenyanyi.listpenyanyi[IDPenyanyi].album, input);
+        STARTINPUT(stdin);
+        int IDAlbum = IndeksAlbum(daftarpenyanyi.listpenyanyi[IDPenyanyi].album, currentInput);
         
         while (IDAlbum == -1)
         {
             printf("Nama album tidak terdaftar!\n");
             printf("Masukkan nama album yang dipilih: ");
-            STARTINPCOMMAND(stdin);
-            IDAlbum = IndeksAlbum(daftarpenyanyi.listpenyanyi[IDPenyanyi].album, input);
+            STARTINPUT(stdin);
+            IDAlbum = IndeksAlbum(daftarpenyanyi.listpenyanyi[IDPenyanyi].album, currentInput);
         }
 
         if (IDAlbum != -1)
@@ -72,7 +70,7 @@ void playSong (ListofPenyanyi daftarpenyanyi, CurrentStat * currentSong, songHis
             }
 
             printf("Masukkan ID lagu yang dipilih: ");
-            STARTINPCOMMAND(stdin);
+            STARTINPUT(stdin);
             Word input = toKata(currentLine.kalimat);
             int IDLagu = WordtoNum(input) - 1;
 
@@ -80,9 +78,8 @@ void playSong (ListofPenyanyi daftarpenyanyi, CurrentStat * currentSong, songHis
             {
                 printf("ID Lagu tidak terdaftar!\n");
                 printf("Masukkan ID lagu yang dipilih: ");
-                STARTINPCOMMAND(stdin);
-                Word input = toKata(currentLine.kalimat);
-                IDLagu = WordtoNum(input) - 1;
+                STARTINPUT(stdin);
+                IDLagu = WordtoNum(currentInput) - 1;
             }
 
             if (IDLagu < BanyakLagu(daftarpenyanyi.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu))
@@ -104,7 +101,7 @@ void playSong (ListofPenyanyi daftarpenyanyi, CurrentStat * currentSong, songHis
 void playPlaylist(ListofPlaylist daftarplaylist, CurrentStat * currentSong, songHistory * history, Queue * queue)
 {
     printf("Masukkan ID Playlist: ");
-    STARTINPCOMMAND(stdin);
+    STARTINPUT(stdin);
     Word input = toKata(currentLine.kalimat);
     int IDPlaylist = WordtoNum(input) -1;
 
@@ -112,7 +109,7 @@ void playPlaylist(ListofPlaylist daftarplaylist, CurrentStat * currentSong, song
     {
         printf("ID Playlist tidak terdaftar!\n");
         printf("Masukkan ID Playlist: ");
-        STARTINPCOMMAND(stdin);
+        STARTINPUT(stdin);
         input = toKata(currentLine.kalimat);
         IDPlaylist = WordtoNum(input) - 1;
     }

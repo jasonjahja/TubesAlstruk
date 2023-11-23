@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include "Playlist.h"
 
+// run playlist
+// gcc -o Playlist ../../Spesifikasi/Start/Start.c ../../ADT/listdin/listdin.c ../../ADT/strukturberkait/listberkait.c ../../ADT/mesinbaris/mesinbaris.c ../../ADT/mesinkata/mesinkata.c ../../ADT/mesinkarakter/mesinkarakter.c ../../ADT/list/list.c ../../ADT/map/map.c ../../ADT//set/set.c
+// gcc -o Playlist ../../ADT/listdin/listdin.c ../../ADT/strukturberkait/listberkait.c ../../ADT/mesinbaris/mesinbaris.c ../../ADT/mesinkata/mesinkata.c ../../ADT/mesinkarakter/mesinkarakter.c ../../ADT/list/list.c ../../ADT/map/map.c ../../ADT//set/set.c
 
 void playlistCreate(ListofPlaylist *L){
     printf("\nMasukkan nama playlist yang ingin dibuat : ");
@@ -25,7 +28,6 @@ void playlistAddSong(ListofPlaylist L,ListofPenyanyi LP){
     int IDPenyanyi = IndeksPenyanyi(LP,penyanyi);
     printf("Penyanyi >> ");
     TulisWord(penyanyi);
-    printf("%d\n", penyanyi.Length);
 
     while (!isMemberPenyanyi(LP,penyanyi)){
         printf("Nama penyanyi tidak terdaftar!\n");
@@ -94,7 +96,7 @@ void playlistAddSong(ListofPlaylist L,ListofPenyanyi LP){
             }
 
             if (IsMemberLagu(LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu,LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu.Lagu[IDLagu].judul)){
-                printf("Ada ga lagunya ? >>> %d\n",IsMemberLagu(LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu,LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu.Lagu[IDLagu].judul));
+                // printf("Ada ga lagunya ? >>> %d\n",IsMemberLagu(LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu,LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu.Lagu[IDLagu].judul));
                 // printf("Panjang list playlist >> %d\n",);
                 printf("Nama Lagu >>> ");
                 TulisWord(LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu.Lagu[IDLagu].judul);
@@ -186,28 +188,39 @@ void playlistDelete(ListofPlaylist *L){
     printf("Daftar Playlist Pengguna : \n");
     DisplayListPlaylist(L);
 
+    int i = 0;
     printf("\nMasukkan ID Playlist yang dipilih : ");
     STARTINPUT(stdin);
-    TulisWord(currentInput);
+    // TulisWord(currentInput);
     int IDPlaylist = WordtoNum(currentInput);
 
-    printf("%d\n",IDPlaylist);
+    printf("Playlist : \n");
+    // TulisWord(GetListPlaylist(*L,IDPlaylist-1));
 
-    ElmtList *curr = L->list->First;
-    ElmtList *prev = NULL;
+    // ElmtList *curr = L->list;
+    // ElmtList *prev = NULL;
 
-    for (int i = 0; i < IDPlaylist ; i++){
-        prev = curr;
-        curr = curr->next;
-        TulisWord(curr->info.Lagu.judul);
+
+    
+    // printf("ID Playlist : %d\n",IDPlaylist);
+    // printf("Neff : %d\n",L->nEff);
+    for (i = 0; i < IDPlaylist; i++){
+        // prev = curr;
+        // curr = curr->next;
+        TulisWord(L->namaPlaylist[i]);
     }
+    TulisWord(GetListPlaylist(*L,i));
+    printf("...\n");
 
-    if (prev != NULL){
-        prev->next = curr->next;
-    } else{
-        L->list->First = curr->next;
-    }
-    Dealokasi(&curr);
+    // if (prev != NULL){
+    //     prev->next = curr->next;
+    // } else{
+    //     L->list->First = curr->next;
+    //     printf("Q\n");
+    // }
+    // Dealokasi(&curr);
     L->nEff--;
 }
+
+
 

@@ -67,17 +67,21 @@ Song dequeueQueue(Queue * Q)
         lagu.penyanyi = HEADSINGER(*Q);
         if (LengthQueue(*Q) == 1)
         {
-            IDX_HEAD(*Q) = IDX_UNDEFQueue;
-            IDX_TAIL(*Q) = IDX_UNDEFQueue;
+            CreateEmptyQueue(Q);
         }
         else 
         {
-            IDX_HEAD(*Q)++;
-            // HEADSONG(*Q) = lagu.judul;
-            // HEADALBUM(*Q) = lagu.album;
-            // HEADSINGER(*Q) = lagu.penyanyi;
+            for (int i = 0; i < LengthQueue(*Q)-1; i++) 
+            {
+                (*Q).song[i] = (*Q).song[i+1];
+                (*Q).album[i] = (*Q).album[i+1];
+                (*Q).singer[i] = (*Q).singer[i+1];
+            }
+
+            IDX_TAIL(*Q)--;
         }
     }
+
     return lagu;
 }
 

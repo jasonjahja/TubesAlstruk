@@ -13,58 +13,58 @@ void queueSong (ListofPenyanyi daftarpenyanyi, Queue * queue)
             TulisWord(daftarpenyanyi.listpenyanyi[i].namaPenyanyi);
         }
 
-        printf("Masukkan nama penyanyi yang dipilih: ");
-        STARTWORD(stdin);
-        int IDPenyanyi = IndeksPenyanyi(daftarpenyanyi, currentWord);
+        printf("\nMasukkan nama penyanyi yang dipilih: ");
+        STARTINPUT(stdin);
+        int IDPenyanyi = IndeksPenyanyi(daftarpenyanyi, currentInput);
 
         while (IDPenyanyi == -1)
         {
-            printf("Nama penyanyi tidak terdaftar!\n");
+            printf("\nNama penyanyi tidak terdaftar!\n");
             printf("Masukkan nama penyanyi yang dipilih: ");
-            STARTWORD(stdin);
-            IDPenyanyi = IndeksPenyanyi(daftarpenyanyi, currentWord);
+            STARTINPUT(stdin);
+            IDPenyanyi = IndeksPenyanyi(daftarpenyanyi, currentInput);
         }
 
         if (IDPenyanyi != -1)
         {
-            printf("Daftar Album:\n");
+            printf("\nDaftar Album:\n");
             for (int j = 0; j < BanyakAlbum(daftarpenyanyi.listpenyanyi[IDPenyanyi].album); j++)
             {
                 printf("%d. ", j+1);
                 TulisWord(daftarpenyanyi.listpenyanyi[IDPenyanyi].album.listalbum[j].namaAlbum);
             }
 
-            printf("Masukkan nama album yang dipilih: ");
-            STARTWORD(stdin);
-            int IDAlbum = IndeksAlbum(daftarpenyanyi.listpenyanyi[IDPenyanyi].album, currentWord);
+            printf("\nMasukkan nama album yang dipilih: ");
+            STARTINPUT(stdin);
+            int IDAlbum = IndeksAlbum(daftarpenyanyi.listpenyanyi[IDPenyanyi].album, currentInput);
             
             while (IDAlbum == -1)
             {
-                printf("Nama album tidak terdaftar!\n");
-                printf("Masukkan nama album yang dipilih: ");
-                STARTWORD(stdin);
-                IDAlbum = IndeksAlbum(daftarpenyanyi.listpenyanyi[IDPenyanyi].album, currentWord);
+                printf("\nNama album tidak terdaftar!\n");
+                printf("\nMasukkan nama album yang dipilih: ");
+                STARTINPUT(stdin);
+                IDAlbum = IndeksAlbum(daftarpenyanyi.listpenyanyi[IDPenyanyi].album, currentInput);
             }
 
             if (IDAlbum != -1)
             {
-                printf("Daftar Lagu:\n"); 
+                printf("\nDaftar Lagu:\n"); 
                 for (int k = 0; k < BanyakLagu(daftarpenyanyi.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu); k++)
                 {
                     printf("%d. ", k+1);
                     TulisWord(daftarpenyanyi.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu.Lagu[k].judul);
                 }
 
-                printf("Masukkan ID lagu yang dipilih: ");
-                STARTWORD(stdin);
-                int IDLagu = WordtoNum(currentWord) - 1;
+                printf("\nMasukkan ID lagu yang dipilih: ");
+                STARTINPUT(stdin);
+                int IDLagu = WordtoNum(currentInput) - 1;
 
                 while (IDLagu <= -1 && IDLagu > BanyakLagu(daftarpenyanyi.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu))
                 {
-                    printf("ID Lagu tidak terdaftar!\n");
-                    printf("Masukkan ID lagu yang dipilih: ");
-                    STARTWORD(stdin);
-                    IDLagu = WordtoNum(currentWord) - 1;
+                    printf("\nID Lagu tidak terdaftar!\n");
+                    printf("\nMasukkan ID lagu yang dipilih: ");
+                    STARTINPUT(stdin);
+                    IDLagu = WordtoNum(currentInput) - 1;
                 }
 
                 if (IDLagu < BanyakLagu(daftarpenyanyi.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu))
@@ -74,9 +74,9 @@ void queueSong (ListofPenyanyi daftarpenyanyi, Queue * queue)
                     Word singer = daftarpenyanyi.listpenyanyi[IDPenyanyi].namaPenyanyi;
                     enqueueQueue(queue, song, album, singer);
 
-                    printf("Menambahkan lagu. . .\n");
-                    printf("Berhasil menambahkan lagu \""); TulisWordNoNL(song);
-                    printf("\" oleh \""); TulisWordNoNL(singer); printf("\" ke queue.\n");
+                    printf("\nMenambahkan lagu. . .\n");
+                    printf("\nBerhasil menambahkan lagu \""); TulisWordNoNL(song);
+                    printf("\" oleh \""); TulisWordNoNL(singer); printf("\" ke queue.\n\n");
                 }
             }
         }
@@ -84,7 +84,7 @@ void queueSong (ListofPenyanyi daftarpenyanyi, Queue * queue)
 
     else
     {
-        printf("Queue penuh. Tidak dapat menambahkan lagu ke queue.\n");
+        printf("\nQueue penuh. Tidak dapat menambahkan lagu ke queue.\n\n");
     }
 }
 
@@ -97,17 +97,17 @@ void queueSwap (Queue * queue, int id1, int id2)
 
     if ((idx1 < 0 || idx1 > (*queue).idxTail) && (idx2 < 0 || idx2 > (*queue).idxTail))
     {
-        printf("Mencari lagu dengan urutan ke %d dan %d dalam queue. . .\n", id1, id2);
+        printf("\nMencari lagu dengan urutan ke %d dan %d dalam queue. . .\n\n", id1, id2);
         printf("Lagu dengan urutan ke %d dan %d tidak ada.\n", id1, id2);
     }
     else if (idx1 < 0 || idx1 > (*queue).idxTail)
     {
-        printf("Mencari lagu dengan urutan ke %d dan %d dalam queue. . .\n", id1, id2);
+        printf("\nMencari lagu dengan urutan ke %d dan %d dalam queue. . .\n\n", id1, id2);
         printf("Lagu dengan urutan ke %d tidak ada.\n", id1);
     }
     else if (idx2 < 0 || idx2 > (*queue).idxTail)
     {
-        printf("Mencari lagu dengan urutan ke %d dan %d dalam queue. . .\n", id1, id2);
+        printf("\nMencari lagu dengan urutan ke %d dan %d dalam queue. . .\n\n", id1, id2);
         printf("Lagu dengan urutan ke %d tidak ada.\n", id2);
     }
     else
@@ -125,9 +125,9 @@ void queueSwap (Queue * queue, int id1, int id2)
         (*queue).album[idx1] = temp.album;
         (*queue).singer[idx1] = temp.penyanyi;
 
-        printf("Mencari lagu dengan urutan ke %d dan %d dalam queue. . .\n", id1, id2);
+        printf("\nMencari lagu dengan urutan ke %d dan %d dalam queue. . .\n\n", id1, id2);
         printf("Lagu \""); TulisWordNoNL((*queue).song[idx2]); 
-        printf("\" berhasil ditukar dengan \""); TulisWordNoNL((*queue).song[idx1]); printf("\".");
+        printf("\" berhasil ditukar dengan \""); TulisWordNoNL((*queue).song[idx1]); printf("\".\n\n");
     }
 }
 
@@ -136,8 +136,8 @@ void queueRemove (Queue * queue, int id)
     int idx = id-1;
     if (idx < 0 || idx > (*queue).idxTail)
     {
-        printf("Mencari lagu dengan urutan ke %d dalam queue. . .\n", id);
-        printf("Lagu dengan urutan ke %d tidak ada.\n", id);
+        printf("\nMencari lagu dengan urutan ke %d dalam queue. . .\n", id);
+        printf("\nLagu dengan urutan ke %d tidak ada.\n", id);
     }
     else
     {
@@ -145,18 +145,18 @@ void queueRemove (Queue * queue, int id)
         Word album = (*queue).album[idx];
         Word singer = (*queue).singer[idx];
         dequeueSong(queue, id); 
-        printf("Mencari lagu dengan urutan ke %d dalam queue. . .\n", id);
-        printf("Lagu \""); TulisWordNoNL(song);
+        printf("\nMencari lagu dengan urutan ke %d dalam queue. . .\n", id);
+        printf("\nLagu \""); TulisWordNoNL(song);
         printf("\" oleh \""); TulisWordNoNL(singer);
-        printf("\" telah dihapus dari queue.\n");
+        printf("\" telah dihapus dari queue.\n\n");
     }
 }
 
 void queueClear (Queue * queue)
 {
     CreateEmptyQueue(queue);
-    printf("Mengosongkan queue. . .\n");
-    printf("Queue berhasil dikosongkan.\n");
+    printf("\nMengosongkan queue. . .\n");
+    printf("\nQueue berhasil dikosongkan.\n\n");
 }
 
 void dequeueSong (Queue * queue, int id)

@@ -96,7 +96,7 @@ int main() {
                     list_default(LP);
                 }
                 else if (IsWordEq(currentWord, word_playlist)) {
-                    // List();
+                    list_playlist(LPl);
                 }
                 else
                 {
@@ -127,7 +127,6 @@ int main() {
                 printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                 ADVCOMM();
             }
-            
         }
 
         else if (IsWordEq(currentWord, word_queue)) {
@@ -145,7 +144,7 @@ int main() {
                     }  
                 }
                 else if (IsWordEq(currentWord, word_playlist)) {
-                    // queuePlaylist();
+                    queuePlaylist(LPl, &Q);
                 }
                 else if (IsWordEq(currentWord, word_swap)) {
                     int id1 = WordtoNum(currentWord);

@@ -71,7 +71,7 @@ Song dequeueQueue(Queue * Q)
         }
         else 
         {
-            for (int i = 0; i < LengthQueue(*Q)-1; i++) 
+            for (int i = 0; i < LengthQueue(*Q); i++) 
             {
                 (*Q).song[i] = (*Q).song[i+1];
                 (*Q).album[i] = (*Q).album[i+1];

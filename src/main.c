@@ -260,9 +260,9 @@ int main() {
         else if (IsWordEq(currentWord, word_quit)) {
             printf("\nApakah kamu ingin menyimpan data sesi sekarang? (Y/N) ");
             GetInput();
-            if (currentInput.TabWord == "Y") {
+            if (IsWordEq(currentInput,toKata("Y"))) {
                 //save()
-            } else if (currentInput.TabWord == "N"){
+            } else if (IsWordEq(currentInput,toKata("N"))){
                 printf("\nKamu keluar dari WayangWave.\n");
                 printf("Dadah ^_^\n\n");
             }

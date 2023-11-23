@@ -73,7 +73,7 @@ int main() {
             }   
             else
             {
-                printf("ERROR: Command tidak dapat dieksekusi!\n\n");
+                printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                 ADVCOMM();
             }
         }
@@ -84,7 +84,7 @@ int main() {
                 started = true;
                 Load(&LP, currentWord, &started);
             } else {
-                printf("ERROR: Command tidak dapat dieksekusi!\n\n");
+                printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                 ADVCOMM();
             }
         }
@@ -100,11 +100,11 @@ int main() {
                 }
                 else
                 {
-                    printf("ERROR: Command tidak dapat dieksekusi!\n\n");
+                    printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                     ADVCOMM();
                 }
             } else {
-                printf("ERROR: Command tidak dapat dieksekusi!\n\n");
+                printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                 ADVCOMM();
             }
         }
@@ -120,11 +120,11 @@ int main() {
                 }
                 else
                 {
-                    printf("ERROR: Command tidak dapat dieksekusi!\n\n");
+                    printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                     ADVCOMM(); ADVCOMM();
                 }
             } else {
-                printf("ERROR: Command tidak dapat dieksekusi!\n\n");
+                printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                 ADVCOMM();
             }
             
@@ -136,7 +136,7 @@ int main() {
                 if (IsWordEq(currentWord, word_song)) {
                     if (!started)
                     {
-                        printf("ERROR: Command tidak dapat dieksekusi!\n\n");
+                        printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                         ADVCOMM(); ADVCOMM();
                     }
                     else
@@ -161,11 +161,11 @@ int main() {
                 }
                 else
                 {
-                    printf("ERROR: Command tidak dapat dieksekusi!\n\n");
+                    printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                     ADVCOMM();
                 }
             } else {
-                printf("ERROR: Command tidak dapat dieksekusi!\n\n");
+                printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                 ADVCOMM();
             }
             
@@ -182,11 +182,11 @@ int main() {
                 }
                 else
                 {
-                    printf("ERROR: Command tidak dapat dieksekusi!\n\n");
+                    printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                     ADVCOMM(); ADVCOMM();
                 }
             } else {
-                printf("ERROR: Command tidak dapat dieksekusi!\n\n");
+                printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                 ADVCOMM();
             }
             
@@ -208,7 +208,7 @@ int main() {
                     }
                     else
                     {
-                        printf("ERROR: Command tidak dapat dieksekusi!\n\n");
+                        printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                         ADVCOMM(); ADVCOMM(); ADVCOMM();
                     }
                 }
@@ -228,11 +228,11 @@ int main() {
                 }
                 else
                 {
-                    printf("ERROR: Command tidak dapat dieksekusi!\n\n");
+                    printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                     ADVCOMM(); ADVCOMM();
                 }
             } else {
-                printf("ERROR: Command tidak dapat dieksekusi!\n\n");
+                printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                 ADVCOMM();
             }
         }
@@ -241,7 +241,7 @@ int main() {
             if (started) {
                 Status(CS, Q);
             } else {
-                printf("ERROR: Command tidak dapat dieksekusi!\n\n");
+                printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                 ADVCOMM(); ADVCOMM();
             }
         }
@@ -249,7 +249,7 @@ int main() {
         else if (IsWordEq(currentWord, word_save)) {
             if (!started)
             {
-                printf("ERROR: Command tidak dapat dieksekusi!\n\n");
+                printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                 ADVCOMM();
             }
             else
@@ -268,7 +268,7 @@ int main() {
         }
 
         else {
-            printf("Command tidak diketahui!\n\n");
+            printf("\nCommand tidak diketahui!\n\n");
             ADVCOMM();
         }
     }

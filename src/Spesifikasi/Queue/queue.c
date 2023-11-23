@@ -6,7 +6,7 @@ void queueSong (ListofPenyanyi daftarpenyanyi, Queue * queue)
 {
     if (!IsFullQueue(*queue))
     {
-        printf("Daftar Penyanyi:\n");
+        printf("\nDaftar Penyanyi:\n");
         for (int i = 0; i < BanyakPenyanyi(daftarpenyanyi); i++)
         {
             printf("%d. ", i+1);

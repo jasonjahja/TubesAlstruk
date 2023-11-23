@@ -22,7 +22,7 @@
 #include "Spesifikasi/Song/Song.h"
 #include "Spesifikasi/Playlist/Playlist.h"
 #include "Spesifikasi/Status/Status.h"
-// #include "Spesifikasi/Save/Save.h"
+#include "Spesifikasi/Save/Save.h"
 #include "Spesifikasi/Help/help.h"
 
 int main() {
@@ -82,7 +82,7 @@ int main() {
             if (!started) {
                 ADVCOMM();
                 started = true;
-                Load(&LP, currentWord, &started);
+                Load(&LP, &CS, &Q, &SH, &LPl, currentWord, &started);
             } else {
                 printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
                 ADVCOMM();
@@ -261,7 +261,7 @@ int main() {
             printf("\nApakah kamu ingin menyimpan data sesi sekarang? (Y/N) ");
             GetInput();
             if (IsWordEq(currentInput,toKata("Y"))) {
-                //save()
+                
             } else if (IsWordEq(currentInput,toKata("N"))){
                 printf("\nKamu keluar dari WayangWave.\n");
                 printf("Dadah ^_^\n\n");

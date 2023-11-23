@@ -10,9 +10,8 @@
 #include "../../ADT/map/map.h"
 //#include "../ADT/strukturberkait/listberkait.h"
 #include "../../ADT/set/set.h"
+#include "../../Spesifikasi/Play/Play.h"
+#include "../../Spesifikasi/Playlist/Playlist.h"
 
-
-void Load(ListofPenyanyi *ListPenyanyi, Word CW, boolean *started);
-
-
+void Load(ListofPenyanyi *ListPenyanyi, CurrentStat *CS, Queue *Q, songHistory *SH, ListofPlaylist *LPl, Word CW, boolean *started);
 #endif

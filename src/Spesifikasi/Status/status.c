@@ -19,6 +19,7 @@ void Status (CurrentStat stat, Queue QL)
                 TulisWordNoNL(QL.song[i]);
                 printf(" - ");
                 TulisWord(QL.album[i]);
+                printf("\n");
             }
         }
         else //kondisi tidak ada queue
@@ -39,6 +40,7 @@ void Status (CurrentStat stat, Queue QL)
         TulisWordNoNL(stat.currentplay.judul);
         printf(" - ");
         TulisWord(stat.currentplay.album);
+        printf("\n");
 
         printf("\nQueue:\n");
         if (QL.idxHead == IDX_UNDEFQueue && QL.idxTail == IDX_UNDEFQueue) {
@@ -52,6 +54,7 @@ void Status (CurrentStat stat, Queue QL)
                 TulisWordNoNL(QL.song[i]);
                 printf(" - ");
                 TulisWord(QL.album[i]);
+                printf("\n");
             }
         }
    }

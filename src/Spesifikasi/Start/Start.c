@@ -24,17 +24,20 @@ void startConfig(ListofPenyanyi *ListPenyanyi){
         int jumlahAlbum = WordtoNum(currentWord);  
         ADVSENTENCE();
         AddPenyanyi(ListPenyanyi, toKata(currentLine.kalimat));
+        printf("penyanyi %s: %d\n", currentLine.kalimat, currentLine.lengthsentence);
       
         for (int j = 0; j<jumlahAlbum;j++){
             ADVWORD();
             int banyakLagu = WordtoNum(currentWord);
 
             ADVSENTENCE();
-            AddAlbum(&(ListPenyanyi->listpenyanyi[i].album), toKata(currentLine.kalimat));    
+            AddAlbum(&(ListPenyanyi->listpenyanyi[i].album), toKata(currentLine.kalimat)); 
+            printf("album %s: %d\n", currentLine.kalimat, currentLine.lengthsentence);   
    
             for(int k = 0; k<banyakLagu;k++){
                 ADVSENTENCE();
                 AddLagu(&(ListPenyanyi->listpenyanyi[i].album.listalbum[j].listlagu), toKata(currentLine.kalimat));
+                printf("lagu %s: %d\n", currentLine.kalimat, currentLine.lengthsentence);
             }
         }
     }

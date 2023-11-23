@@ -12,7 +12,7 @@ void playlistCreate(ListofPlaylist *L){
     printf("\nPlaylist ");
     TulisWordNoNL(currentInput);
     printf(" berhasil dibuat!\n\n");
-    printf("Silahkan \nmasukkan lagu - lagu artis terkini kesayangan Anda!\n\n");
+    printf("Silahkan masukkan lagu - lagu artis terkini kesayangan Anda!\n\n");
 
 }
 
@@ -158,13 +158,13 @@ void playlistSwap(ListofPlaylist *L,int idx,int x,int y){
     p1->info.Lagu = p2->info.Lagu;
     p2->info.Lagu = temp;
 
-    printf("Berhasil menukar lagu dengan nama '");
+    printf("\nBerhasil menukar lagu dengan nama '");
     TulisWordNoNL(p1->info.Lagu.judul);
     printf("' dengan '");
     TulisWordNoNL(p2->info.Lagu.judul);
     printf("' di playlist '");
     TulisWordNoNL(*(L->namaPlaylist));
-    printf("'.\n");
+    printf("'.\n\n");
 
 }
 void playlistRemove(ListofPlaylist *L,int rowsong,int idx){
@@ -185,11 +185,11 @@ void playlistRemove(ListofPlaylist *L,int rowsong,int idx){
 
 }
 void playlistDelete(ListofPlaylist *L){
-    printf("Daftar Playlist Pengguna : \n");
+    printf("\nDaftar Playlist Pengguna : \n");
     DisplayListPlaylist(L);
 
     int i = 0;
-    printf("\nMasukkan ID Playlist yang dipilih : ");
+    printf("\n\nMasukkan ID Playlist yang dipilih : ");
     STARTINPUT(stdin);
     // TulisWord(currentInput);
     int IDPlaylist = WordtoNum(currentInput);

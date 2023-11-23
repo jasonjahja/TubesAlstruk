@@ -1,94 +1,126 @@
-#include <stdio.h>
-#include "Save.h"
-// #include <sys/stat.h>
-#include <unistd.h>
-// #include <string.h>
-// #include <errno.h>
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include "Save.h"
 
-//Save 1
-// int save(const char *filename,const Node *S){
-    
-//     FILE *file = fopen(filename,"w");
-//     while(S->next != NULL){
-//         fprintf(file,"%d\n", S->info);
-//         S = S->next;
-//     }
+static FILE *pita;
 
-//     fclose(file);
-//     return 1;
-// }
-
-//Save 2
-void Save(const char *filename, const char *data){
-    const char *parent_dir = "../../save";
+void Save(ListofPenyanyi *LP,const char *filename){
+    const char *parent_dir = "../../../save";
     char path[255];
     snprintf(path,sizeof(path),"%s/%s",parent_dir,filename);
 
-    // char directoryPath[255];
-    // strncpy(directoryPath, path, strrchr(path, '/') - path + 1);
-    // directoryPath[strrchr(path, '/') - path + 1] = '\0';
+    pita = fopen(path,"w");
 
-    // if (access(path,F_OK) == -1){
-    //     printf("Menyimpan...\n");
-    //     printf("Membuat directory...\n");
-    //     if (mkdir(path,0777) == 0){
-    //         printf("Directory %s dibuat.\n",path);
-    //     } else{
-    //     // perror("Failed to create directory");
-    //     printf("Gagal membuat directory %s\n", path);
-    //     // return;
-    //     }
-    // } else{
-    //     printf("Directory %s sudah ada.\n",path);
-    // }
+    if (pita == NULL){
+        printf("GAGAL MENYIMPAN FILE");        
+    }
 
-    FILE *file = fopen(path,"w");
-    if(file != NULL){
-        fputs(data,file);
-        fclose(file);
-        printf("File tersimpan\n");
-    } else{
-        fclose(file);
-        printf("%s\n",path);
-        printf("Gagal menyimpan : \n");
+    fprintf(pita,"%d\n",BanyakPenyanyi(*LP));
+
+    for(int i = 0; i < BanyakPenyanyi(*LP);i++){
+        // currentWord = LP->listpenyanyi[i].namaPenyanyi;
+        CopyWordToVar(&currentWord,LP->listpenyanyi[i].namaPenyanyi);
+        // fprintf(pita,"panjang kata penyanyi = %d\n",currentWord.Length);
+        fprintf(pita,"%d %s\n",BanyakAlbum(LP->listpenyanyi[i].album),currentWord.TabWord);
+        ResetWord();
+        for (int j = 0; j < BanyakAlbum(LP->listpenyanyi[i].album);j++){
+            // currentWord = LP->listpenyanyi[i].album.listalbum[j].namaAlbum;
+            CopyWordToVar(&currentWord,LP->listpenyanyi[i].album.listalbum[j].namaAlbum);
+            // fprintf(pita,"panjang kata album = %d\n",currentWord.Length);
+            fprintf(pita,"%d %s\n",BanyakLagu(LP->listpenyanyi[i].album.listalbum[j].listlagu),currentWord.TabWord);
+            ResetWord();
+            for (int k = 0; k < BanyakLagu(LP->listpenyanyi[i].album.listalbum[j].listlagu);k++){
+                // currentWord = LP->listpenyanyi[i].album.listalbum[j].listlagu.Lagu[k].judul;
+                CopyWordToVar(&currentWord,LP->listpenyanyi[i].album.listalbum[j].listlagu.Lagu[k].judul);
+                // fprintf(pita,"panjang kata lagu = %d\n",currentWord.Length);
+                fprintf(pita,"%s\n",currentWord.TabWord);
+                ResetWord();
+            }
+        }
     }
 }
 
-    // pita = fopen("../save/config.txt", "r");
-    // if (pita == NULL) {
-    //     printf("Gagal membuka file");
-    //     return 1;
-    // }
-    // while (STARTWORD(pita) && !feof(pita)){
-    //     TulisWord(currentWord);
-    //     int jumlahpenyanyi = WordtoNum(currentWord);    
+// int main(){
+//     ListofPenyanyi mySingers = MakeList();
 
-    //     while (jumlahpenyanyi > 0 ) {
-    //     // printf("\n~~~~~~~~~~PENYANYI(%d)~~~~~~~~~~~~~~~~\n",jumlahpenyanyi);
+//     // Add the first singer
+//     Word singer1 = toKata("Marcellinoooooo");
+//     AddPenyanyi(&mySingers, singer1);
 
-    //         ADVWORD();
-    //         TulisWord(currentWord);
-    //         int jumlahAlbum = WordtoNum(currentWord);
+//     // Add albums for the first singer
+//     MapofAlbum albums1 = CreateEmptyAlbum();
+//     Word album1_1 = toKata("Me");
+//     Word album1_2 = toKata("You");
 
-    //         while (jumlahAlbum > 0){
-    //             // printf("\n==========ALBUM(%d)============\n",jumlahAlbum);
-    //             ADVWORD();
-    //             TulisWord(currentWord);
-    //             int banyakLagu = WordtoNum(currentWord);
-            
-    //             // printf("\n---------LAGU-----------\n");
-    //             banyakLagu--;
-    //             while (banyakLagu > 0){     
-    //                 ADVWORD();
-    //                 TulisWord(currentWord);
-    //                 banyakLagu--;
-    //             }
-    //             ADVWORD();
-    //             TulisWord(currentWord);            
-    //             jumlahAlbum--;                
-    //         }
-    //         jumlahpenyanyi--;
-    //     }
-    // }
-    // fclose(pita);
-    // return 0;
+//     AddAlbum(&albums1, album1_1);
+//     AddAlbum(&albums1, album1_2);
+
+//     // Add songs for each album
+//     SetofSong songs1_1 = CreateEmptySet();
+//     Word song1_1_1 = toKata("Sendiri");
+//     Word song1_1_2 = toKata("Berdua");
+//     Word song1_1_3 = toKata("Berdiri");
+
+//     AddLagu(&songs1_1, song1_1_1);
+//     AddLagu(&songs1_1, song1_1_2);
+//     AddLagu(&songs1_1, song1_1_3);
+
+//     SetofSong songs1_2 = CreateEmptySet();
+//     Word song1_2_1 = toKata("Jalan Kaki");
+//     Word song1_2_2 = toKata("Jalan Jalan");
+//     Word song1_2_3 = toKata("Kaki Jalan");
+
+//     AddLagu(&songs1_2, song1_2_1);
+//     AddLagu(&songs1_2, song1_2_2);
+//     AddLagu(&songs1_2, song1_2_3);
+
+//     // Add albums to the singer
+//     int singerIndex1 = IndeksPenyanyi(mySingers, singer1);
+//     mySingers.listpenyanyi[singerIndex1].album = albums1;
+
+//     // Add Songs to the album
+//     mySingers.listpenyanyi[singerIndex1].album.listalbum[0].listlagu = songs1_1;
+//     mySingers.listpenyanyi[singerIndex1].album.listalbum[1].listlagu = songs1_2;
+
+//     // Add the second singer
+//     Word singer2 = toKata("Afnan");
+//     AddPenyanyi(&mySingers, singer2);
+
+//     // Add albums for the second singer
+//     MapofAlbum albums2 = CreateEmptyAlbum();
+//     Word album2_1 = toKata("Cimahi Type Beat");
+//     Word album2_2 = toKata("Afnan VS Everybody");
+
+//     AddAlbum(&albums2, album2_1);
+//     AddAlbum(&albums2, album2_2);
+
+//     // Add songs for each album
+//     SetofSong songs2_1 = CreateEmptySet();
+//     Word song2_1_1 = toKata("Cimahi");
+//     Word song2_1_2 = toKata("Rumah");
+//     Word song2_1_3 = toKata("Motor");
+
+//     AddLagu(&songs2_1, song2_1_1);
+//     AddLagu(&songs2_1, song2_1_2);
+//     AddLagu(&songs2_1, song2_1_3);
+
+//     SetofSong songs2_2 = CreateEmptySet();
+//     Word song2_2_1 = toKata("Kirik");
+//     Word song2_2_2 = toKata("Jalan");
+//     Word song2_2_3 = toKata("Kiw, Ares!");
+
+//     AddLagu(&songs2_2, song2_2_1);
+//     AddLagu(&songs2_2, song2_2_2);
+//     AddLagu(&songs2_2, song2_2_3);
+
+
+//     int singerIndex2 = IndeksPenyanyi(mySingers, singer2);
+//     mySingers.listpenyanyi[singerIndex2].album = albums2;
+
+//     mySingers.listpenyanyi[singerIndex2].album.listalbum[0].listlagu = songs2_1;
+//     mySingers.listpenyanyi[singerIndex2].album.listalbum[1].listlagu = songs2_2;
+
+//     Save(&mySingers,"TestSaveMarcell.txt");
+
+//     return 0;
+// }

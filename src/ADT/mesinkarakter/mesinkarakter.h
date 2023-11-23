@@ -14,9 +14,13 @@ extern boolean EOP;
 static int retval;
 
 void START(FILE *input);
+/* Mesin siap dioperasikan. Pita disiapkan untuk dibaca.
+   Mengambil parameter nama file yang hendak dibaca */
 
 void ADV();
+/* Pita dimajukan satu karakter */
 
 void ADVFILE();
+/* */
 
 #endif

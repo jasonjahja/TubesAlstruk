@@ -259,7 +259,14 @@ int main() {
         }
 
         else if (IsWordEq(currentWord, word_quit)) {
-            printf("\nLogged Out!\n\n");
+            printf("\nApakah kamu ingin menyimpan data sesi sekarang? ");
+            GetInput();
+            if (currentInput.TabWord == "Y") {
+                //save()
+            } else if (currentInput.TabWord == "N"){
+                printf("\nKamu keluar dari WayangWave.\n");
+                printf("Dadah ^_^\n\n");
+            }
             running = false;
         }
 

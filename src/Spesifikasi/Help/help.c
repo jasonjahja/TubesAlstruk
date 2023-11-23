@@ -30,7 +30,7 @@ void Help (boolean entered) {
     printf("5e. PLAYLIST DELETE -> Untuk melakukan penghapusan suatu existing playlist dalam daftar playlist pengguna\n");
     printf("6.  STATUS -> Untuk menampilkan lagu yang sedang dimainkan beserta Queue song yang ada dan dari playlist mana lagu itu diputar\n");
     printf("7.  SAVE <filename> -> Untuk menyimpan state ke dalam file\n");
-    printf("8. QUIT -> Untuk keluar dari sesi\n");
+    printf("8.  QUIT -> Untuk keluar dari sesi\n");
     }
 
     printf("\n====================================================================================================================================\n\n");

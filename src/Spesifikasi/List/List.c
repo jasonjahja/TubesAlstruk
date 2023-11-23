@@ -10,15 +10,40 @@ void list_default(ListofPenyanyi L)
         TulisWord(L.listpenyanyi[i].namaPenyanyi);
     }
     printf("\nIngin melihat album yang ada? (Y/N) : ");
-    GetInput();
+    STARTINPUT(stdin);
 
-    if (IsWordEq(toKata(currentInput.TabWord), toKata("Y"))) 
+    while (!IsWordEq(currentInput, toKata("Y")) && !IsWordEq(currentInput, toKata("N")))
     {
-        printf("Pilih penyanyi untuk melihat album mereka : ");
-        GetInput();
+        ResetInput();
+        printf("\nCommand tidak diketahui!\n");
+        printf("Ingin melihat album yang ada? (Y/N) : ");
+        STARTINPUT(stdin);
+    }
+
+    if (IsWordEq(currentInput, toKata("Y"))) 
+    {
+        printf("\nPilih penyanyi untuk melihat album mereka : ");
+        STARTINPUT(stdin);
+
+        while (!isMemberPenyanyi(L, currentInput))
+        {
+            ResetInput();
+            printf("\nPenyanyi tidak terdapat pada List!\n");
+
+            printf("\nDaftar Penyanyi :\n");
+            for (int i = 0; i < BanyakPenyanyi(L); i++)
+            {
+                printf("\t %d. ", i+1);
+                TulisWord(L.listpenyanyi[i].namaPenyanyi);
+            }
+
+            printf("\nPilih penyanyi untuk melihat album mereka : ");
+            STARTINPUT(stdin);
+        }
+
         int idxlagu = IndeksPenyanyi(L, currentInput);
         
-        printf("\nDaftar Album oleh %s : \n", currentInput.TabWord);
+        printf("\nDaftar Album oleh %s : \n", currentInput);
         for (int j = 0; j < BanyakAlbum(L.listpenyanyi[idxlagu].album); j++)
         {
             printf("\t %d. ", j+1);
@@ -26,16 +51,39 @@ void list_default(ListofPenyanyi L)
         }
 
         printf("\nIngin melihat lagu yang ada? (Y/N) : ");
-        GetInput(); 
+        STARTINPUT(stdin); 
 
-        if (IsWordEq(toKata(currentInput.TabWord), toKata("Y")))
+        while (!IsWordEq(currentInput, toKata("Y")) && !IsWordEq(currentInput, toKata("N")))
         {
-            printf("Pilih album untuk melihat lagu yang ada di album : ");
-            GetInput();
-            printf("\n");
+            ResetInput();
+            printf("\nCommand tidak diketahui!\n");
+            printf("Ingin melihat album yang ada? (Y/N) : ");
+            STARTINPUT(stdin);
+        }
+
+        if (IsWordEq(currentInput, toKata("Y")))
+        {
+            printf("\nPilih album untuk melihat lagu yang ada di album : ");
+            STARTINPUT(stdin);
+
+            while (!IsMemberAlbum(L.listpenyanyi[idxlagu].album, currentInput))
+            {
+                ResetInput();
+                printf("\nPenyanyi tidak memiliki Album tersebut!\n");
+
+                printf("\nDaftar Album oleh %s : \n", currentInput);
+                for (int j = 0; j < BanyakAlbum(L.listpenyanyi[idxlagu].album); j++)
+                {
+                    printf("\t %d. ", j+1);
+                    TulisWord(L.listpenyanyi[idxlagu].album.listalbum[j].namaAlbum);
+                }
+                printf("\nPilih album untuk melihat lagu yang ada di album : ");
+                STARTINPUT(stdin);
+            }
+
             int idxalbum = IndeksAlbum(L.listpenyanyi[idxlagu].album, currentInput);
 
-            printf("Daftar lagu di %s: \n", currentInput.TabWord);
+            printf("Daftar lagu di %s: \n",currentInput);
             for (int k = 0; k < BanyakLagu(L.listpenyanyi[idxlagu].album.listalbum[idxalbum].listlagu); k++)
             {
                 printf("\t %d. ", k+1);
@@ -45,7 +93,7 @@ void list_default(ListofPenyanyi L)
     }
 }
 
-void list_playlist(ListofPlaylist L)
-{
+// void list_playlist(ListofPlaylist L)
+// {
     
-}
+// }

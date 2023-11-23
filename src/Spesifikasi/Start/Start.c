@@ -38,7 +38,6 @@ void startConfig(ListofPenyanyi *ListPenyanyi){
             for(int k = 0; k<banyakLagu;k++){
                 ADVSENTENCE();
                 AddLagu(&(ListPenyanyi->listpenyanyi[i].album.listalbum[j].listlagu), toKata(currentLine.kalimat));
-                printf("JUMLAH KATA : %d\n1", currentLine.lengthsentence);
             }
             
         }

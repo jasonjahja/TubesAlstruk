@@ -25,7 +25,8 @@
     "list_default.h": "c",
     "play.h": "c",
     "playlist.h": "c",
-    "TES.C": "cpp"
+    "TES.C": "cpp",
+    "inisialisasi.h": "c"
   }
 }
 

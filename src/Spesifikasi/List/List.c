@@ -100,6 +100,7 @@ void list_playlist(ListofPlaylist L)
     if (LengthListPlaylist(L) > 0)
     {
         DisplayListPlaylist(&L);
+        printf("\n");
     }
     else
     {

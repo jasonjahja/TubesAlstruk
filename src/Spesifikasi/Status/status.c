@@ -53,6 +53,7 @@ void Status (CurrentStat stat, Queue QL)
                 printf(" - ");
                 TulisWord(QL.album[i]);
             }
+            printf("\n");
         }
    }
 }

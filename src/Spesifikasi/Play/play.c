@@ -70,7 +70,7 @@ void playSong (ListofPenyanyi daftarpenyanyi, CurrentStat * currentSong, songHis
             STARTINPUT(stdin);
             int IDLagu = WordtoNum(currentInput) - 1;
 
-            while (IDLagu <= -1 && IDLagu > BanyakLagu(daftarpenyanyi.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu))
+            while (IDLagu == -1 || IDLagu >= BanyakLagu(daftarpenyanyi.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu))
             {
                 printf("\nID Lagu tidak terdaftar!\n");
                 printf("\nMasukkan ID lagu yang dipilih: ");
@@ -123,5 +123,5 @@ void playPlaylist(ListofPlaylist daftarplaylist, CurrentStat * currentSong, song
         P = Next(P);
     }
 
-    printf("\nMemutar playlist \""); TulisWord(currentSong->playlist); printf("\".\n\n");
+    printf("\nMemutar playlist \""); TulisWordNoNL(currentSong->playlist); printf("\".\n\n");
 }

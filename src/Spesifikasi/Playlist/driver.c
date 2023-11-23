@@ -101,9 +101,9 @@ int main(){
     AddLagu(&LP.listpenyanyi[2].album.listalbum[0].listlagu,toKata("Shut Down"));
     AddLagu(&LP.listpenyanyi[2].album.listalbum[0].listlagu,toKata("Tally"));
     // DisplayListLagu(LP.listpenyanyi[2].album.listalbum[0].listlagu);
-    playlistAddSong(kumpulanPlaylist,LP);
     // playlistAddSong(kumpulanPlaylist,LP);
-    // playlistDelete(&kumpulanPlaylist);
+    // playlistAddSong(kumpulanPlaylist,LP);
+    playlistDelete(&kumpulanPlaylist);
     // printf("\n=========================PLAYLIST=========================\n");
     // DisplayListPlaylist(&kumpulanPlaylist);
     // printf("ID Playlist >> ");

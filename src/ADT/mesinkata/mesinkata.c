@@ -49,7 +49,7 @@ void RemoveNewLineWord(Word kata)
     {
         if (kata.TabWord[i] == '\n')
         {
-            kata.TabWord[i] == '\0';
+            kata.TabWord[i] = '\0';
             break;
         }
     }

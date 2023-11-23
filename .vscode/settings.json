@@ -23,7 +23,9 @@
     "console.h": "c",
     "time.h": "c",
     "list_default.h": "c",
-    "play.h": "c"
+    "play.h": "c",
+    "playlist.h": "c",
+    "TES.C": "cpp"
   }
 }
 

@@ -43,7 +43,7 @@ void list_default(ListofPenyanyi L)
 
         int idxlagu = IndeksPenyanyi(L, currentInput);
         
-        printf("\nDaftar Album oleh %s : \n", currentInput);
+        printf("\nDaftar Album oleh %s : \n", currentInput.TabWord);
         for (int j = 0; j < BanyakAlbum(L.listpenyanyi[idxlagu].album); j++)
         {
             printf("\t %d. ", j+1);
@@ -71,7 +71,7 @@ void list_default(ListofPenyanyi L)
                 ResetInput();
                 printf("\nPenyanyi tidak memiliki Album tersebut!\n");
 
-                printf("\nDaftar Album oleh %s : \n", currentInput);
+                printf("\nDaftar Album oleh %s : \n", currentInput.TabWord);
                 for (int j = 0; j < BanyakAlbum(L.listpenyanyi[idxlagu].album); j++)
                 {
                     printf("\t %d. ", j+1);
@@ -83,7 +83,7 @@ void list_default(ListofPenyanyi L)
 
             int idxalbum = IndeksAlbum(L.listpenyanyi[idxlagu].album, currentInput);
 
-            printf("\nDaftar lagu di %s: \n",currentInput);
+            printf("\nDaftar lagu di %s: \n",currentInput.TabWord);
             for (int k = 0; k < BanyakLagu(L.listpenyanyi[idxlagu].album.listalbum[idxalbum].listlagu); k++)
             {
                 printf("\t %d. ", k+1);

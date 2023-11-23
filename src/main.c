@@ -204,7 +204,7 @@ int main() {
                         playlistAddSong(LPl, LP);
                     }
                     else if (IsWordEq(currentWord, word_album)) {
-                        // playlistAddAlbum();
+                        playlistAddAlbum(LPl,LP);
                     }
                     else
                     {
@@ -224,7 +224,7 @@ int main() {
                     playlistRemove(&LPl, n, id);
                 }
                 else if (IsWordEq(currentWord, word_delete)) {
-                    // playlistDelete(&LPl);
+                    playlistDelete(&LPl);
                 }
                 else
                 {
@@ -261,9 +261,9 @@ int main() {
         else if (IsWordEq(currentWord, word_quit)) {
             printf("\nApakah kamu ingin menyimpan data sesi sekarang? ");
             GetInput();
-            if (currentInput.TabWord == "Y") {
+            if (IsWordEq(currentInput,toKata("Y"))) {
                 //save()
-            } else if (currentInput.TabWord == "N"){
+            } else if (IsWordEq(currentInput,toKata("N"))){
                 printf("\nKamu keluar dari WayangWave.\n");
                 printf("Dadah ^_^\n\n");
             }

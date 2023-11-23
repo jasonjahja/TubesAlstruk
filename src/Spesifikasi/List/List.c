@@ -103,6 +103,6 @@ void list_playlist(ListofPlaylist L)
     }
     else
     {
-        printf("Kamu tidak memiliki playlist.\n");
+        printf("Kamu tidak memiliki playlist.\n\n");
     }
 }

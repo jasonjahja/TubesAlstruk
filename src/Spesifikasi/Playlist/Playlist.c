@@ -3,7 +3,7 @@
 
 
 void playlistCreate(ListofPlaylist *L){
-    printf("Masukkan nama playlist yang ingin dibuat : ");
+    printf("\nMasukkan nama playlist yang ingin dibuat : ");
     STARTINPUT(stdin);
     InsertListPlaylist(L,currentInput);
     printf("\nPlaylist ");

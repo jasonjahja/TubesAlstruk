@@ -13,7 +13,7 @@ void startConfig(ListofPenyanyi *ListPenyanyi){
     pita = fopen("../save/config.txt","r");
     
     if (pita == NULL){
-        printf("Gagal membuka file\n");
+        printf("\nGagal membuka file\n");
     }
 
     STARTFILE(pita);
@@ -39,7 +39,7 @@ void startConfig(ListofPenyanyi *ListPenyanyi){
         }
     }
     fclose(pita);
-    printf("File konfigurasi aplikasi berhasil dibaca. WayangWave berhasil dijalankan.\n\n");
+    printf("\nFile konfigurasi aplikasi berhasil dibaca. WayangWave berhasil dijalankan.\n\n");
     // printf("\n");
     // printf("Jumlah Penyanyi: %d\n", BanyakPenyanyi(*ListPenyanyi));
     // printf("LIST PENYANYI : \n");

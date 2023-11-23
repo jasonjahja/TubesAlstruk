@@ -110,5 +110,5 @@ int IndeksAlbum(MapofAlbum M, Word k)
         }
         idx++;
     }
-    return idx;
+    return -1;
 }

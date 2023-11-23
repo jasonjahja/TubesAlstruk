@@ -84,13 +84,14 @@ void DeletePlaylist(ListBerkait *L)
     }
 }
 
-void DeleteListPlaylist(ListofPlaylist *l, int idx)
-{
-    if (idx >= 0 && idx < l->nEff) {
+void DeleteListPlaylist(ListofPlaylist *l, int idx) {
+    if (idx > 0 && idx <= l->nEff) {
         int i;
         // Deallocate the playlist name
-        for (i = idx; i < l->nEff - 1; i++) {
+        for (i = idx-1; i < l->nEff; i++) {
             l->namaPlaylist[i] = l->namaPlaylist[i + 1];
+            printf(">> ");
+            TulisWord(l->namaPlaylist[i]);
         }
         // Deallocate the associated linked list
         DeletePlaylist(&(l->list[idx]));

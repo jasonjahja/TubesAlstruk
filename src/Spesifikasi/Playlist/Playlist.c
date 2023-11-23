@@ -245,38 +245,11 @@ void playlistDelete(ListofPlaylist *L){
     printf("\nDaftar Playlist Pengguna : \n");
     DisplayListPlaylist(L);
 
-    int i = 0;
     printf("\n\nMasukkan ID Playlist yang dipilih : ");
     STARTINPUT(stdin);
     // TulisWord(currentInput);
     int IDPlaylist = WordtoNum(currentInput);
-
-    printf("Playlist : \n");
-    // TulisWord(GetListPlaylist(*L,IDPlaylist-1));
-
-    // ElmtList *curr = L->list;
-    // ElmtList *prev = NULL;
-
-
-    
-    // printf("ID Playlist : %d\n",IDPlaylist);
-    // printf("Neff : %d\n",L->nEff);
-    for (i = 0; i < IDPlaylist; i++){
-        // prev = curr;
-        // curr = curr->next;
-        TulisWord(L->namaPlaylist[i]);
-    }
-    TulisWord(GetListPlaylist(*L,i));
-    printf("...\n");
-
-    // if (prev != NULL){
-    //     prev->next = curr->next;
-    // } else{
-    //     L->list->First = curr->next;
-    //     printf("Q\n");
-    // }
-    // Dealokasi(&curr);
-    L->nEff--;
+    DeleteListPlaylist(L,IDPlaylist);
 }
 
 

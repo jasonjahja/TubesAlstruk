@@ -1,20 +1,11 @@
-#ifndef SAVE_H
-#define SAVE_H
+// #ifndef SAVE_H
+// #define SAVE_H
 
-#include "../../ADT/mesinkata/mesinkata.h"
-#include "../../ADT/mesinkarakter/mesinkarakter.h"
-#include "../../ADT/listdin/listdin.h"
-#include "../../ADT/strukturberkait/listberkait.h"
-#include "../../ADT/mesinbaris/mesinbaris.h"
-#include "../../ADT/list/list.h"
-#include "../../ADT/map/map.h"
-#include "../../ADT/set/set.h"
-#include "../../Spesifikasi/List/List.h"
-#include "../../Spesifikasi/Play/Play.h"
-#include "../../ADT/queue/queue.h"
-#include "../../ADT/stack/stack.h"
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include "../../../ADT/mesinkata/mesinkata.h"
+// #include "../../../ADT/list/list.h"
 
-void Save(ListofPenyanyi *LP,const char *filename);
+// void Save(Lis,const char *data);
 
-
-#endif
+// #endif

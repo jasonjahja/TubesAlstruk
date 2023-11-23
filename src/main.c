@@ -22,7 +22,7 @@
 #include "Spesifikasi/Song/Song.h"
 #include "Spesifikasi/Playlist/Playlist.h"
 #include "Spesifikasi/Status/Status.h"
-#include "Spesifikasi/Save/Save.h"
+// #include "Spesifikasi/Save/Save.h"
 #include "Spesifikasi/Help/help.h"
 
 int main() {
@@ -131,7 +131,7 @@ int main() {
 
         else if (IsWordEq(currentWord, word_queue)) {
             if (started) {
-                ADVCOMM();
+                ADVCOMM(); 
                 if (IsWordEq(currentWord, word_song)) {
                     if (!started)
                     {
@@ -147,12 +147,12 @@ int main() {
                     queuePlaylist(LPl, &Q);
                 }
                 else if (IsWordEq(currentWord, word_swap)) {
-                    int id1 = WordtoNum(currentWord);
-                    ADVCOMM(); int id2 = WordtoNum(currentWord);
+                    ADVCOMM(); int id1 = WordtoNum(currentWord); 
+                    ADVCOMM(); int id2 = WordtoNum(currentWord); 
                     queueSwap(&Q, id1, id2);
                 }
                 else if (IsWordEq(currentWord, word_remove)) {
-                    int id = WordtoNum(currentWord);
+                    ADVCOMM(); int id = WordtoNum(currentWord); 
                     queueRemove(&Q, id);
                 }
                 else if (IsWordEq(currentWord, word_clear)) {
@@ -193,7 +193,7 @@ int main() {
 
         else if (IsWordEq(currentWord, word_playlist)) {
             if (started) {
-                ADVCOMM();
+                ADVCOMM(); 
                 if (IsWordEq(currentWord, word_create)) {
                     playlistCreate(&LPl);
                 }
@@ -212,13 +212,13 @@ int main() {
                     }
                 }
                 else if (IsWordEq(currentWord, word_swap)) {
-                    int id = WordtoNum(currentWord);
-                    ADVCOMM() ; int x = WordtoNum(currentWord);
-                    ADVCOMM() ; int y = WordtoNum(currentWord);
+                    ADVCOMM(); int id = WordtoNum(currentWord); 
+                    ADVCOMM() ; int x = WordtoNum(currentWord); 
+                    ADVCOMM() ; int y = WordtoNum(currentWord); 
                     playlistSwap(&LPl, id, x, y);
                 }
                 else if (IsWordEq(currentWord, word_remove)) {
-                    int id = WordtoNum(currentWord);
+                    ADVCOMM(); int id = WordtoNum(currentWord);
                     ADVCOMM() ; int n = WordtoNum(currentWord);
                     playlistRemove(&LPl, n, id);
                 }

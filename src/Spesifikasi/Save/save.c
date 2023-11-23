@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "Save.h"
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include "Save.h"
 
 static FILE *pita;
 

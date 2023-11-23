@@ -258,7 +258,7 @@ int main() {
         }
 
         else if (IsWordEq(currentWord, word_quit)) {
-            printf("\nApakah kamu ingin menyimpan data sesi sekarang? ");
+            printf("\nApakah kamu ingin menyimpan data sesi sekarang? (Y/N) ");
             GetInput();
             if (IsWordEq(currentInput,toKata("Y"))) {
                 //save()

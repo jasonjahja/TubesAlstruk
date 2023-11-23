@@ -96,6 +96,9 @@ void playSong (ListofPenyanyi daftarpenyanyi, CurrentStat * currentSong, songHis
 
 void playPlaylist(ListofPlaylist daftarplaylist, CurrentStat * currentSong, songHistory * history, Queue * queue)
 {
+    printf("Daftar Playlist: \n");
+    DisplayListPlaylist(&daftarplaylist);
+    
     printf("\nMasukkan ID Playlist: ");
     STARTINPUT(stdin);
     int IDPlaylist = WordtoNum(currentInput) -1;
@@ -108,14 +111,15 @@ void playPlaylist(ListofPlaylist daftarplaylist, CurrentStat * currentSong, song
         IDPlaylist = WordtoNum(currentInput) - 1;
     }
 
+    address P = daftarplaylist.list[IDPlaylist].First;
+
     currentSong->playlist = daftarplaylist.namaPlaylist[IDPlaylist];
     currentSong->statusPL = 1;
-    currentSong->currentplay.judul = daftarplaylist.list->First->info.Lagu.judul;
-    currentSong->currentplay.album = daftarplaylist.list->First->info.Lagu.album;
-    currentSong->currentplay.penyanyi = daftarplaylist.list->First->info.Lagu.penyanyi;
+    currentSong->currentplay.judul = daftarplaylist.list[IDPlaylist].First->info.Lagu.judul;
+    currentSong->currentplay.album = daftarplaylist.list[IDPlaylist].First->info.Lagu.album;
+    currentSong->currentplay.penyanyi = daftarplaylist.list[IDPlaylist].First->info.Lagu.penyanyi;
     currentSong->currentplay.status = 1;
 
-    address P = daftarplaylist.list[IDPlaylist].First;
     while (Next(P) != NilNode)
     {
         enqueueQueue(queue, Next(P)->info.Lagu.judul, Next(P)->info.Lagu.album, Next(P)->info.Lagu.penyanyi);

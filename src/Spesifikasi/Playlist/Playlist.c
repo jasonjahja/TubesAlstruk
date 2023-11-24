@@ -251,15 +251,15 @@ void playlistSwap(ListofPlaylist *L, int idx, int x,int y){
 
 }
 void playlistRemove(ListofPlaylist *L, int idx, int rowsong){
-    address p = L->list[idx-1].First;
-    address prev = NULL;
+    address p = L->list[idx].First;
+    address prev = p;
 
-    for (int i = 0;i < rowsong-1 && p != NULL;i++){
+    for (int i = 0;i < rowsong && p != NULL;i++){
         prev = p;
         p = p->next;
     }
     if (prev == NULL){
-        L->list[idx-1].First = p->next;
+        L->list[idx].First = p->next;
     } else{
         prev->next = p->next;
     }
@@ -275,7 +275,6 @@ void playlistDelete(ListofPlaylist *L){
 
       printf("\nMasukkan ID Playlist yang dipilih : ");
       STARTINPUT(stdin);
-      // TulisWord(currentInput);
       int IDPlaylist = WordtoNum(currentInput);
       DeleteListPlaylist(L,IDPlaylist);
     }

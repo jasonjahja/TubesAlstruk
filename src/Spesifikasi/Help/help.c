@@ -32,6 +32,7 @@ void Help (boolean entered) {
     printf("6.  STATUS -> Untuk menampilkan lagu yang sedang dimainkan beserta Queue song yang ada dan dari playlist mana lagu itu diputar\n");
     printf("7.  SAVE <filename> -> Untuk menyimpan state ke dalam file\n");
     printf("8.  QUIT -> Untuk keluar dari sesi\n");
+    printf("9.  ENHANCE -> Untuk menambahkan lagu random pada suatu playlist yang tersedia dan dipilih user\n");
     }
 
     printf("\n====================================================================================================================================\n\n");

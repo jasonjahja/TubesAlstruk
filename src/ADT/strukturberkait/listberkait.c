@@ -160,7 +160,6 @@ void InsertAfter (ListBerkait *L, address P, address Prec)
 }
 
 void InsertLast (ListBerkait *L, address P)
-
 {
   address Last;
 

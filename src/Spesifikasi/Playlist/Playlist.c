@@ -8,11 +8,20 @@
 void playlistCreate(ListofPlaylist *L){
     printf("\nMasukkan nama playlist yang ingin dibuat : ");
     STARTINPUT(stdin);
-    InsertListPlaylist(L,currentInput);
-    printf("\nPlaylist ");
-    TulisWordNoNL(currentInput);
-    printf(" berhasil dibuat!\n\n");
-    printf("Silahkan masukkan lagu - lagu artis terkini kesayangan Anda!\n\n");
+    while (isMemberListPlaylist(*L,currentInput)){
+        printf("Nama Playlist sudah ada, masukkan nama lain\n");
+        printf("\nMasukkan nama playlist yang ingin dibuat : ");
+        STARTINPUT(stdin);
+    }
+    
+
+    if(!isMemberListPlaylist(*L,currentInput)){
+        InsertListPlaylist(L,currentInput);
+        printf("\nPlaylist ");
+        TulisWordNoNL(currentInput);
+        printf(" berhasil dibuat!\n\n");
+        printf("Silahkan masukkan lagu - lagu artis terkini kesayangan Anda!\n\n");
+    } 
 
 }
 

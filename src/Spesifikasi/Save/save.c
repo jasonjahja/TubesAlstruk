@@ -135,150 +135,150 @@ void Save(ListofPenyanyi *LP,ListofPlaylist *listPlaylist,Queue *queueLagu,songH
     fclose(pita);
 }
 
-int main(){
-    ListofPenyanyi mySingers = MakeList();
+// int main(){
+//     ListofPenyanyi mySingers = MakeList();
 
-    // Add the first singer
-    Word singer1 = toKata("Marcellinoooooo");
-    AddPenyanyi(&mySingers, singer1);
+//     // Add the first singer
+//     Word singer1 = toKata("Marcellinoooooo");
+//     AddPenyanyi(&mySingers, singer1);
 
-    // Add albums for the first singer
-    MapofAlbum albums1 = CreateEmptyAlbum();
-    Word album1_1 = toKata("Me");
-    Word album1_2 = toKata("You");
+//     // Add albums for the first singer
+//     MapofAlbum albums1 = CreateEmptyAlbum();
+//     Word album1_1 = toKata("Me");
+//     Word album1_2 = toKata("You");
 
-    AddAlbum(&albums1, album1_1);
-    AddAlbum(&albums1, album1_2);
+//     AddAlbum(&albums1, album1_1);
+//     AddAlbum(&albums1, album1_2);
 
-    // Add songs for each album
-    SetofSong songs1_1 = CreateEmptySet();
-    Word song1_1_1 = toKata("Sendiri");
-    Word song1_1_2 = toKata("Berdua");
-    Word song1_1_3 = toKata("Berdiri");
+//     // Add songs for each album
+//     SetofSong songs1_1 = CreateEmptySet();
+//     Word song1_1_1 = toKata("Sendiri");
+//     Word song1_1_2 = toKata("Berdua");
+//     Word song1_1_3 = toKata("Berdiri");
 
-    AddLagu(&songs1_1, song1_1_1);
-    AddLagu(&songs1_1, song1_1_2);
-    AddLagu(&songs1_1, song1_1_3);
+//     AddLagu(&songs1_1, song1_1_1);
+//     AddLagu(&songs1_1, song1_1_2);
+//     AddLagu(&songs1_1, song1_1_3);
 
-    SetofSong songs1_2 = CreateEmptySet();
-    Word song1_2_1 = toKata("Jalan Kaki");
-    Word song1_2_2 = toKata("Jalan Jalan");
-    Word song1_2_3 = toKata("Kaki Jalan");
+//     SetofSong songs1_2 = CreateEmptySet();
+//     Word song1_2_1 = toKata("Jalan Kaki");
+//     Word song1_2_2 = toKata("Jalan Jalan");
+//     Word song1_2_3 = toKata("Kaki Jalan");
 
-    AddLagu(&songs1_2, song1_2_1);
-    AddLagu(&songs1_2, song1_2_2);
-    AddLagu(&songs1_2, song1_2_3);
+//     AddLagu(&songs1_2, song1_2_1);
+//     AddLagu(&songs1_2, song1_2_2);
+//     AddLagu(&songs1_2, song1_2_3);
 
-    // Add albums to the singer
-    int singerIndex1 = IndeksPenyanyi(mySingers, singer1);
-    mySingers.listpenyanyi[singerIndex1].album = albums1;
+//     // Add albums to the singer
+//     int singerIndex1 = IndeksPenyanyi(mySingers, singer1);
+//     mySingers.listpenyanyi[singerIndex1].album = albums1;
 
-    // Add Songs to the album
-    mySingers.listpenyanyi[singerIndex1].album.listalbum[0].listlagu = songs1_1;
-    mySingers.listpenyanyi[singerIndex1].album.listalbum[1].listlagu = songs1_2;
+//     // Add Songs to the album
+//     mySingers.listpenyanyi[singerIndex1].album.listalbum[0].listlagu = songs1_1;
+//     mySingers.listpenyanyi[singerIndex1].album.listalbum[1].listlagu = songs1_2;
 
-    // Add the second singer
-    Word singer2 = toKata("Afnan");
-    AddPenyanyi(&mySingers, singer2);
+//     // Add the second singer
+//     Word singer2 = toKata("Afnan");
+//     AddPenyanyi(&mySingers, singer2);
 
-    // Add albums for the second singer
-    MapofAlbum albums2 = CreateEmptyAlbum();
-    Word album2_1 = toKata("Cimahi Type Beat");
-    Word album2_2 = toKata("Afnan VS Everybody");
+//     // Add albums for the second singer
+//     MapofAlbum albums2 = CreateEmptyAlbum();
+//     Word album2_1 = toKata("Cimahi Type Beat");
+//     Word album2_2 = toKata("Afnan VS Everybody");
 
-    AddAlbum(&albums2, album2_1);
-    AddAlbum(&albums2, album2_2);
+//     AddAlbum(&albums2, album2_1);
+//     AddAlbum(&albums2, album2_2);
 
-    // Add songs for each album
-    SetofSong songs2_1 = CreateEmptySet();
-    Word song2_1_1 = toKata("Cimahi");
-    Word song2_1_2 = toKata("Rumah");
-    Word song2_1_3 = toKata("Motor");
+//     // Add songs for each album
+//     SetofSong songs2_1 = CreateEmptySet();
+//     Word song2_1_1 = toKata("Cimahi");
+//     Word song2_1_2 = toKata("Rumah");
+//     Word song2_1_3 = toKata("Motor");
 
-    AddLagu(&songs2_1, song2_1_1);
-    AddLagu(&songs2_1, song2_1_2);
-    AddLagu(&songs2_1, song2_1_3);
+//     AddLagu(&songs2_1, song2_1_1);
+//     AddLagu(&songs2_1, song2_1_2);
+//     AddLagu(&songs2_1, song2_1_3);
 
-    SetofSong songs2_2 = CreateEmptySet();
-    Word song2_2_1 = toKata("Kirik");
-    Word song2_2_2 = toKata("Jalan");
-    Word song2_2_3 = toKata("Kiw, Ares!");
+//     SetofSong songs2_2 = CreateEmptySet();
+//     Word song2_2_1 = toKata("Kirik");
+//     Word song2_2_2 = toKata("Jalan");
+//     Word song2_2_3 = toKata("Kiw, Ares!");
 
-    AddLagu(&songs2_2, song2_2_1);
-    AddLagu(&songs2_2, song2_2_2);
-    AddLagu(&songs2_2, song2_2_3);
-
-
-    int singerIndex2 = IndeksPenyanyi(mySingers, singer2);
-    mySingers.listpenyanyi[singerIndex2].album = albums2;
-
-    mySingers.listpenyanyi[singerIndex2].album.listalbum[0].listlagu = songs2_1;
-    mySingers.listpenyanyi[singerIndex2].album.listalbum[1].listlagu = songs2_2;
-
-    // Queue
-    Queue playlist;
-    CreateEmptyQueue(&playlist);
-
-    // Enqueue some songs
-    enqueueQueue(&playlist, toKata("Alstrukdat"),toKata("STI vs IF"),toKata("Jason"));
-    enqueueQueue(&playlist, toKata("cimahitypebeat"),toKata("STI"),toKata("Afnan"));
-    enqueueQueue(&playlist, toKata("Pink Venom"),toKata("BORN PINK"),toKata("BLACKPINK"));
-
-    // Enqueue more songs
-    enqueueQueue(&playlist, toKata("R U Mine?"),toKata("AM"),toKata("Arctic Monkeys"));
-    enqueueQueue(&playlist, toKata("Lagu untuk Dia"),toKata("Cibubur"),toKata("Marcell"));
-
-    //List Berkait
-    ListBerkait playlistMarcell,playlistBersama;
-    CreateEmptyPlaylist(&playlistMarcell);
-    CreateEmptyPlaylist(&playlistBersama);
-    infoLagu a = {toKata("Alstrukdat"),toKata("STI vs IF"),toKata("Jason"),0};
-    infoLagu b = {toKata("cimahitypebeat"),toKata("STI"),toKata("Afnan"),0};
-    infoLagu c = {toKata("Pink Venom"),toKata("BORN PINK"),toKata("BLACKPINk"),0};
-    infoLagu d = {toKata("R U Mine?"),toKata("AM"),toKata("Arctic Monkeys"),0};
-    infoLagu e = {toKata("Lagu untuk Dia"),toKata("Cibubur"),toKata("Marcell"),0};
-    InsVFirst(&playlistMarcell,a);
-    InsVLast(&playlistMarcell,b);
-    InsVLast(&playlistMarcell,c);
-    InsVLast(&playlistBersama,d);
-    InsVLast(&playlistBersama,e);
-
-    ListofPlaylist kumpulanPlaylist = CreateListPlaylist();
-    kumpulanPlaylist.namaPlaylist[0] = toKata("playlistMarcell");
-    kumpulanPlaylist.list[0] = playlistMarcell;
-    kumpulanPlaylist.nEff++;
-
-    kumpulanPlaylist.namaPlaylist[1] = toKata("playlistBersama");
-    kumpulanPlaylist.list[1] = playlistBersama;
-    kumpulanPlaylist.nEff++;
-
-    // Add playlists to the collection
+//     AddLagu(&songs2_2, song2_2_1);
+//     AddLagu(&songs2_2, song2_2_2);
+//     AddLagu(&songs2_2, song2_2_3);
 
 
-    // SongHistory
-    songHistory historyStack;
-    CreateEmptyStack(&historyStack);
+//     int singerIndex2 = IndeksPenyanyi(mySingers, singer2);
+//     mySingers.listpenyanyi[singerIndex2].album = albums2;
 
-    // Add songs to the history stack
-    PushStack(&historyStack, toKata("Song1"), toKata("Album1"), toKata("Singer1"));
-    PushStack(&historyStack, toKata("Lagu duaaaaa"), toKata("ALBUM DUAAAAAA"), toKata("NYANYI DUAAAAAA"));
-    PushStack(&historyStack, toKata("505"), toKata("Favourite Worst Nightmare"), toKata("Arctic Monkeys"));
+//     mySingers.listpenyanyi[singerIndex2].album.listalbum[0].listlagu = songs2_1;
+//     mySingers.listpenyanyi[singerIndex2].album.listalbum[1].listlagu = songs2_2;
 
-    // currentStat
+//     // Queue
+//     Queue playlist;
+//     CreateEmptyQueue(&playlist);
 
-    ListofPenyanyi daftarpenyanyi; // Assume this is initialized with actual data
-    ListofPlaylist daftarplaylist; // Assume this is initialized with actual data
-    CurrentStat currentSong;
-    songHistory history;
-    Queue queue;
+//     // Enqueue some songs
+//     enqueueQueue(&playlist, toKata("Alstrukdat"),toKata("STI vs IF"),toKata("Jason"));
+//     enqueueQueue(&playlist, toKata("cimahitypebeat"),toKata("STI"),toKata("Afnan"));
+//     enqueueQueue(&playlist, toKata("Pink Venom"),toKata("BORN PINK"),toKata("BLACKPINK"));
 
-    CreateEmptyCurrentStat(&currentSong);
+//     // Enqueue more songs
+//     enqueueQueue(&playlist, toKata("R U Mine?"),toKata("AM"),toKata("Arctic Monkeys"));
+//     enqueueQueue(&playlist, toKata("Lagu untuk Dia"),toKata("Cibubur"),toKata("Marcell"));
 
-    // Example 1: Play a specific song
-    // playSong(daftarpenyanyi, &currentSong, &history, &queue);
+//     //List Berkait
+//     ListBerkait playlistMarcell,playlistBersama;
+//     CreateEmptyPlaylist(&playlistMarcell);
+//     CreateEmptyPlaylist(&playlistBersama);
+//     infoLagu a = {toKata("Alstrukdat"),toKata("STI vs IF"),toKata("Jason"),0};
+//     infoLagu b = {toKata("cimahitypebeat"),toKata("STI"),toKata("Afnan"),0};
+//     infoLagu c = {toKata("Pink Venom"),toKata("BORN PINK"),toKata("BLACKPINk"),0};
+//     infoLagu d = {toKata("R U Mine?"),toKata("AM"),toKata("Arctic Monkeys"),0};
+//     infoLagu e = {toKata("Lagu untuk Dia"),toKata("Cibubur"),toKata("Marcell"),0};
+//     InsVFirst(&playlistMarcell,a);
+//     InsVLast(&playlistMarcell,b);
+//     InsVLast(&playlistMarcell,c);
+//     InsVLast(&playlistBersama,d);
+//     InsVLast(&playlistBersama,e);
+
+//     ListofPlaylist kumpulanPlaylist = CreateListPlaylist();
+//     kumpulanPlaylist.namaPlaylist[0] = toKata("playlistMarcell");
+//     kumpulanPlaylist.list[0] = playlistMarcell;
+//     kumpulanPlaylist.nEff++;
+
+//     kumpulanPlaylist.namaPlaylist[1] = toKata("playlistBersama");
+//     kumpulanPlaylist.list[1] = playlistBersama;
+//     kumpulanPlaylist.nEff++;
+
+//     // Add playlists to the collection
 
 
-    Save(&mySingers,&kumpulanPlaylist,&playlist,&historyStack,&currentSong,"TestSaveMarcell.txt");
+//     // SongHistory
+//     songHistory historyStack;
+//     CreateEmptyStack(&historyStack);
 
-    return 0;
-}
+//     // Add songs to the history stack
+//     PushStack(&historyStack, toKata("Song1"), toKata("Album1"), toKata("Singer1"));
+//     PushStack(&historyStack, toKata("Lagu duaaaaa"), toKata("ALBUM DUAAAAAA"), toKata("NYANYI DUAAAAAA"));
+//     PushStack(&historyStack, toKata("505"), toKata("Favourite Worst Nightmare"), toKata("Arctic Monkeys"));
+
+//     // currentStat
+
+//     ListofPenyanyi daftarpenyanyi; // Assume this is initialized with actual data
+//     ListofPlaylist daftarplaylist; // Assume this is initialized with actual data
+//     CurrentStat currentSong;
+//     songHistory history;
+//     Queue queue;
+
+//     CreateEmptyCurrentStat(&currentSong);
+
+//     // Example 1: Play a specific song
+//     // playSong(daftarpenyanyi, &currentSong, &history, &queue);
+
+
+//     Save(&mySingers,&kumpulanPlaylist,&playlist,&historyStack,&currentSong,"TestSaveMarcell.txt");
+
+//     return 0;
+// }

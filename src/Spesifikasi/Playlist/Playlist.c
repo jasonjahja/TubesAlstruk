@@ -220,15 +220,22 @@ void playlistAddAlbum(ListofPlaylist L,ListofPenyanyi LP){
 }
 
 void playlistSwap(ListofPlaylist *L,int idx,int x,int y){
-    ElmtList *p1  =L->list[idx].First; 
-    ElmtList *p2  =L->list[idx].First;
+    ElmtList *p1  =L->list[idx-1].First; 
+    ElmtList *p2  =L->list[idx-1].First;
 
+    // printf("-------");
     for (int i = 0; i < x;i ++){
         p1 = p1->next;
+        // printf("i = %d\n",i);
     }
-    for (int i = 0; i < y;i ++){
-        p2 = p2->next;
+    // TulisWord(p1->info.Lagu.judul);
+    // printf("-------");
+
+    for (int j = 0; j < y;j ++){
+        // p2 = p2->next;
+        // printf("j = %d\n",j);
     }
+    // TulisWord(p2->info.Lagu. judul);
 
     Song temp = p1->info.Lagu;
     p1->info.Lagu = p2->info.Lagu;

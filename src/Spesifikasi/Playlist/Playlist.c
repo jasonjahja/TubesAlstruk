@@ -207,7 +207,7 @@ void playlistAddAlbum(ListofPlaylist L,ListofPenyanyi LP){
 
                     }
 
-                    PrintNode(L.list[IDPlaylist]);
+                    // PrintNode(L.list[IDPlaylist]);
 
                     printf("\nAlbum dengan judul ");
                     printf("'");
@@ -274,6 +274,7 @@ void playlistDelete(ListofPlaylist *L){
       int IDPlaylist = WordtoNum(currentInput);
       DeleteListPlaylist(L,IDPlaylist);
     }
+    printf("Playlist berhasil dihapus!\n");
 }
 
 

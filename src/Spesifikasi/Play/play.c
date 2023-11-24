@@ -96,7 +96,7 @@ void playSong (ListofPenyanyi daftarpenyanyi, CurrentStat * currentSong, songHis
 
 void playPlaylist(ListofPlaylist daftarplaylist, CurrentStat * currentSong, songHistory * history, Queue * queue)
 {
-    printf("Daftar Playlist: \n");
+    printf("\nDaftar Playlist: \n");
     DisplayListPlaylist(&daftarplaylist);
     
     printf("\nMasukkan ID Playlist: ");

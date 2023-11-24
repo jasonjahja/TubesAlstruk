@@ -161,7 +161,7 @@ void Load(ListofPenyanyi *ListPenyanyi, CurrentStat *CS, Queue *Q, songHistory *
             //print jumlah lagu dalam playlist
 
             ADVSENTENCE();
-            LPl->namaPlaylist[n] = toKata(currentLine.kalimat);
+            InsertListPlaylist(LPl, toKata(currentLine.kalimat));
             //print nama playlist
             //insertLast_ListDin(currentLine);
 
@@ -170,20 +170,20 @@ void Load(ListofPenyanyi *ListPenyanyi, CurrentStat *CS, Queue *Q, songHistory *
             //CreateEmpty(); //createempty list berkait
             //printf("\nLOOP NAMA LAGU:\n");
 
-            // for (int o = 0; o < jLagu; o++) {
-            address p = LPl->list[n].First;
-            while(p != NilNode){
+            for (int o = 0; o < jLagu; o++) {
+            // address p = LPl->list[n].First;
+            // while(p != NilNode){
                 //infoType Data
-                ADVRECORD(); TulisKalimat(currentLine);
+                ADVRECORD();
                 Word singer = toKata(currentLine.kalimat);
                 //Data.namaPenyanyi = currentLine;
                 
-                ADVRECORD(); TulisKalimat(currentLine);
+                ADVRECORD();
                 Word album = toKata(currentLine.kalimat);
                 //Data.namaAlbum = currentLine;
                 
 
-                ADVRECORD(); TulisKalimat(currentLine);
+                ADVRECORD();
                 Word song = toKata(currentLine.kalimat);
                 //Data.namaLagu = currentLine;
                 
@@ -194,14 +194,12 @@ void Load(ListofPenyanyi *ListPenyanyi, CurrentStat *CS, Queue *Q, songHistory *
                 x.Lagu.penyanyi = singer;
                 x.Lagu.album = album;
 
-
                 InsVLast(&((*LPl).list[n]), x);
                 ADVLINE();
-                p = Next(p); 
             }
         }
 
-        printf("Save file berhasil dibaca. WayangWave berhasil dijalankan.\n\n");
+        printf("\nSave file berhasil dibaca. WayangWave berhasil dijalankan.\n\n");
 
         // printf("\n");
         // DisplayListPenyanyi(*ListPenyanyi);

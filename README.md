@@ -16,3 +16,34 @@ Program ini merupakan hasil tugas besar Alstrukdat STI. Program "WayangWave" ini
     gcc -o main Spesifikasi/Start/Start.c Spesifikasi/Help/Help.c Spesifikasi/List/List.c Spesifikasi/Play/Play.c Spesifikasi/Queue/Queue.c Spesifikasi/Save/Save.c Spesifikasi/Song/Song.c Spesifikasi/Load/Load.c ADT/list/list.c ADT/listdin/listdin.c ADT/map/map.c ADT/mesinbaris/mesinbaris.c ADT/mesinkata/mesinkata.c ADT/mesinkarakter/mesinkarakter.c ADT/queue/queue.c ADT/set/set.c ADT/stack/stack.c ADT/strukturberkait/listberkait.c main.c Spesifikasi/Status/status.c Spesifikasi/Inisialisasi/Inisialisasi.c Spesifikasi/Playlist/Playlist.c
 
     ./main
+
+'''
+├───docs
+├───save    # file-file yang disimpan oleh user
+└───src
+    ├───ADT            # Implementasi ADT-ADT yang digunakan untuk semua command
+    │   ├───list
+    │   ├───listdin
+    │   ├───map
+    │   ├───mesinbaris
+    │   ├───mesinkarakter
+    │   ├───mesinkata
+    │   ├───queue
+    │   ├───set
+    │   ├───stack
+    │   └───strukturberkait
+    ├───Spesifikasi     # Implementasi semua command
+    │   ├───Help
+    │   ├───Insialisasi
+    │   ├───List
+    │   ├───Load
+    │   ├───Play
+    │   ├───Playlist
+    │   ├───Queue
+    │   ├───Save
+    │   ├───Start
+    │   └───Status
+    ├───main.c  # memanggil semua fungsi spesifikasi
+    ├───boolean.h
+    └───MakeFile
+'''

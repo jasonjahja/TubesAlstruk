@@ -243,16 +243,16 @@ void playlistSwap(ListofPlaylist *L,int idx,int x,int y){
     printf("'.\n\n");
 
 }
-void playlistRemove(ListofPlaylist *L,int rowsong,int idx){
-    ElmtList *p = L->list[idx].First;
-    ElmtList *prev = NULL;
+void playlistRemove(ListofPlaylist *L, int idx, int rowsong){
+    address p = L->list[idx-1].First;
+    address prev = NULL;
 
-    for (int i = 0;i <rowsong && p != NULL;i++){
+    for (int i = 0;i < rowsong-1 && p != NULL;i++){
         prev = p;
-        p =p->next;
+        p = p->next;
     }
     if (prev == NULL){
-        L->list[idx].First = p->next;
+        L->list[idx-1].First = p->next;
     } else{
         prev->next = p->next;
     }

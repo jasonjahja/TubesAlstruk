@@ -266,7 +266,7 @@ void playlistRemove(ListofPlaylist *L,int rowsong,int idx){
         }
     } 
     Dealokasi(&p);
-    printf("Lagu berhasil dihapus!\n");
+    printf("\nLagu berhasil dihapus!\n");
 }
 
 void playlistDelete(ListofPlaylist *L){

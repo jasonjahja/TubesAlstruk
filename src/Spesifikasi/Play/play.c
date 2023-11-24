@@ -20,7 +20,7 @@ void playSong (ListofPenyanyi daftarpenyanyi, CurrentStat * currentSong, songHis
     printf("\nDaftar Penyanyi:\n");
     for (int i = 0; i < BanyakPenyanyi(daftarpenyanyi); i++)
     {
-        printf("%d. ", i+1);
+        printf("    %d. ", i+1);
         TulisWord(daftarpenyanyi.listpenyanyi[i].namaPenyanyi);
     }
 
@@ -41,7 +41,7 @@ void playSong (ListofPenyanyi daftarpenyanyi, CurrentStat * currentSong, songHis
         printf("\nDaftar Album:\n");
         for (int j = 0; j < BanyakAlbum(daftarpenyanyi.listpenyanyi[IDPenyanyi].album); j++)
         {
-            printf("%d. ", j+1);
+            printf("    %d. ", j+1);
             TulisWord(daftarpenyanyi.listpenyanyi[IDPenyanyi].album.listalbum[j].namaAlbum);
         }
 
@@ -62,7 +62,7 @@ void playSong (ListofPenyanyi daftarpenyanyi, CurrentStat * currentSong, songHis
             printf("\nDaftar Lagu:\n"); 
             for (int k = 0; k < BanyakLagu(daftarpenyanyi.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu); k++)
             {
-                printf("%d. ", k+1);
+                printf("    %d. ", k+1);
                 TulisWord(daftarpenyanyi.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu.Lagu[k].judul);
             }
 
@@ -96,7 +96,7 @@ void playSong (ListofPenyanyi daftarpenyanyi, CurrentStat * currentSong, songHis
 
 void playPlaylist(ListofPlaylist daftarplaylist, CurrentStat * currentSong, songHistory * history, Queue * queue)
 {
-    printf("Daftar Playlist: \n");
+    printf("\nDaftar Playlist: \n");
     DisplayListPlaylist(&daftarplaylist);
     
     printf("\nMasukkan ID Playlist: ");

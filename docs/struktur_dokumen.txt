@@ -1,0 +1,28 @@
+├───docs
+├───save    # file-file yang disimpan oleh user
+└───src
+    ├───ADT            # Implementasi ADT-ADT yang digunakan untuk semua command
+    │   ├───list
+    │   ├───listdin
+    │   ├───map
+    │   ├───mesinbaris
+    │   ├───mesinkarakter
+    │   ├───mesinkata
+    │   ├───queue
+    │   ├───set
+    │   ├───stack
+    │   └───strukturberkait
+    ├───Spesifikasi     # Implementasi semua command
+    │   ├───Help
+    │   ├───Insialisasi
+    │   ├───List
+    │   ├───Load
+    │   ├───Play
+    │   ├───Playlist
+    │   ├───Queue
+    │   ├───Save
+    │   ├───Start
+    │   └───Status
+    ├───main.c  # memanggil semua fungsi spesifikasi
+    ├───boolean.h
+    └───MakeFile

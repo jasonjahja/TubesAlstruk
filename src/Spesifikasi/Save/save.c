@@ -4,8 +4,8 @@
 
 static FILE *pita;
 
-void Save(ListofPenyanyi *LP,ListofPlaylist *listPlaylist,Queue *queueLagu,songHistory *songHistory,CurrentStat *status,const char *filename){
-    const char *parent_dir = "../../../save";
+void Save(ListofPenyanyi *LP, ListofPlaylist *listPlaylist, Queue *queueLagu, songHistory *songHistory, CurrentStat *status, const char *filename){
+    const char *parent_dir = "../save";
     char path[255];
     snprintf(path,sizeof(path),"%s/%s",parent_dir,filename);
 

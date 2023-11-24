@@ -9,7 +9,7 @@ void queueSong (ListofPenyanyi daftarpenyanyi, Queue * queue)
         printf("\nDaftar Penyanyi:\n");
         for (int i = 0; i < BanyakPenyanyi(daftarpenyanyi); i++)
         {
-            printf("%d. ", i+1);
+            printf("    %d. ", i+1);
             TulisWord(daftarpenyanyi.listpenyanyi[i].namaPenyanyi);
         }
 
@@ -30,7 +30,7 @@ void queueSong (ListofPenyanyi daftarpenyanyi, Queue * queue)
             printf("\nDaftar Album:\n");
             for (int j = 0; j < BanyakAlbum(daftarpenyanyi.listpenyanyi[IDPenyanyi].album); j++)
             {
-                printf("%d. ", j+1);
+                printf("    %d. ", j+1);
                 TulisWord(daftarpenyanyi.listpenyanyi[IDPenyanyi].album.listalbum[j].namaAlbum);
             }
 
@@ -51,7 +51,7 @@ void queueSong (ListofPenyanyi daftarpenyanyi, Queue * queue)
                 printf("\nDaftar Lagu:\n"); 
                 for (int k = 0; k < BanyakLagu(daftarpenyanyi.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu); k++)
                 {
-                    printf("%d. ", k+1);
+                    printf("    %d. ", k+1);
                     TulisWord(daftarpenyanyi.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu.Lagu[k].judul);
                 }
 
@@ -90,7 +90,7 @@ void queueSong (ListofPenyanyi daftarpenyanyi, Queue * queue)
 
 void queuePlaylist(ListofPlaylist daftarplaylist, Queue * queue)
 {
-    printf("Daftar Playlist: \n");
+    printf("\nDaftar Playlist: \n");
     DisplayListPlaylist(&daftarplaylist);
     
     printf("\nMasukkan ID Playlist: ");
@@ -139,17 +139,17 @@ void queueSwap (Queue * queue, int id1, int id2)
     if ((idx1 < 0 || idx1 > (*queue).idxTail) && (idx2 < 0 || idx2 > (*queue).idxTail))
     {
         printf("\nMencari lagu dengan urutan ke %d dan %d dalam queue. . .\n\n", id1, id2);
-        printf("Lagu dengan urutan ke %d dan %d tidak ada.\n", id1, id2);
+        printf("Lagu dengan urutan ke %d dan %d tidak ada.\n\n", id1, id2);
     }
     else if (idx1 < 0 || idx1 > (*queue).idxTail)
     {
         printf("\nMencari lagu dengan urutan ke %d dan %d dalam queue. . .\n\n", id1, id2);
-        printf("Lagu dengan urutan ke %d tidak ada.\n", id1);
+        printf("Lagu dengan urutan ke %d tidak ada.\n\n", id1);
     }
     else if (idx2 < 0 || idx2 > (*queue).idxTail)
     {
         printf("\nMencari lagu dengan urutan ke %d dan %d dalam queue. . .\n\n", id1, id2);
-        printf("Lagu dengan urutan ke %d tidak ada.\n", id2);
+        printf("Lagu dengan urutan ke %d tidak ada.\n\n", id2);
     }
     else
     {
@@ -178,7 +178,7 @@ void queueRemove (Queue * queue, int id)
     if (idx < 0 || idx > (*queue).idxTail)
     {
         printf("\nMencari lagu dengan urutan ke %d dalam queue. . .\n", id);
-        printf("\nLagu dengan urutan ke %d tidak ada.\n", id);
+        printf("\nLagu dengan urutan ke %d tidak ada.\n\n", id);
     }
     else
     {

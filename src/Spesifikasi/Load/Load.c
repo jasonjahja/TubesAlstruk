@@ -5,7 +5,7 @@
 static FILE *pita;
 // Sentence currentLine;
 
-void Load(ListofPenyanyi *ListPenyanyi, Word CW, boolean *started) {
+void Load(ListofPenyanyi *ListPenyanyi, CurrentStat *CS, Queue *Q, songHistory *SH, ListofPlaylist *LPl, Word CW, boolean *started) {
     const char *parent_dir = "../save";
     char path[255];
     snprintf(path,sizeof(path),"%s/%s",parent_dir,CW.TabWord);
@@ -70,14 +70,17 @@ void Load(ListofPenyanyi *ListPenyanyi, Word CW, boolean *started) {
 
         //CREATEEMPTYQUEUE();
         ADVRECORD();
+        CS->currentplay.penyanyi = toKata(currentLine.kalimat);
         //print lagu yang sedang dimainkan, penyanyi
         //Sentence namaPenyanyi = currenLine;
 
         ADVRECORD();
+        CS->currentplay.judul = toKata(currentLine.kalimat);
         //print lagu yang sedang dimainkan, album
         //Sentence namaAlbum = currentLine;
 
         ADVRECORD();
+        CS->currentplay.album = toKata(currentLine.kalimat);
         //print lagu yang sedang dimainkan, lagu
         //Sentence namaLagu = currentLine;
         //enqueueQueue(INISIALISASIQUEUE, namaPenyanyi, namaAlbum, namaLagu);
@@ -94,14 +97,17 @@ void Load(ListofPenyanyi *ListPenyanyi, Word CW, boolean *started) {
         //printf("\nLOOP RIWAYAT LAGU:\n");
         for (int l = 0; l < rQueue; l++) {
             ADVRECORD();
+            Q->singer[l] = toKata(currentLine.kalimat);
             //Sentence namaPenyanyi = currentLine;
             
 
             ADVRECORD();
+            Q->album[l] = toKata(currentLine.kalimat);
             //Sentence namaAlbum = currentLine;
             
 
             ADVRECORD();
+            Q->song[l] = toKata(currentLine.kalimat);
             //Sentence namaLagu = currentLine;
             
 
@@ -121,16 +127,19 @@ void Load(ListofPenyanyi *ListPenyanyi, Word CW, boolean *started) {
 
         //CREATEEMPTYSTACK();
         //printf("\nLOOP RECORD RIWAYAT PEMUTARAN LAGU:\n");
-        for (int l = 0; l < rPemutarLagu; l++) {
-            ADVRECORD();
+        for (int m = 0; m < rPemutarLagu; m++) {
+            ADVRECORD(); 
+            SH->singer[m] = toKata(currentLine.kalimat);
             //Sentence namaPenyanyi = currentLine;
             
 
-            ADVRECORD();
+            ADVRECORD(); 
+            SH->album[m] = toKata(currentLine.kalimat);
             //Sentence namaAlbum = currentLine;
             
 
-            ADVRECORD();
+            ADVRECORD(); 
+            SH->song[m] = toKata(currentLine.kalimat);
             //Sentence namaLagu = currentLine;
             
 
@@ -145,13 +154,14 @@ void Load(ListofPenyanyi *ListPenyanyi, Word CW, boolean *started) {
         //print jumlah playlist
 
         //CreateListDin();
-        for (int l = 0; l < jPlaylist; l++) {
+        for (int n = 0; n < jPlaylist; n++) {
             ADVWORD();
             int jLagu = WordtoNum(currentWord); //jumlah lagu dalam playlist
             //printf("\nJUMLAH LAGU DALAM PLAYLIST:");
             //print jumlah lagu dalam playlist
 
             ADVSENTENCE();
+            InsertListPlaylist(LPl, toKata(currentLine.kalimat));
             //print nama playlist
             //insertLast_ListDin(currentLine);
 
@@ -159,26 +169,37 @@ void Load(ListofPenyanyi *ListPenyanyi, Word CW, boolean *started) {
 
             //CreateEmpty(); //createempty list berkait
             //printf("\nLOOP NAMA LAGU:\n");
-            for (int l = 0; l < jLagu; l++) {
+
+            for (int o = 0; o < jLagu; o++) {
+            // address p = LPl->list[n].First;
+            // while(p != NilNode){
                 //infoType Data
                 ADVRECORD();
+                Word singer = toKata(currentLine.kalimat);
                 //Data.namaPenyanyi = currentLine;
                 
-
                 ADVRECORD();
+                Word album = toKata(currentLine.kalimat);
                 //Data.namaAlbum = currentLine;
                 
 
                 ADVRECORD();
+                Word song = toKata(currentLine.kalimat);
                 //Data.namaLagu = currentLine;
                 
                 //InsVLast();
 
+                infoLagu x;
+                x.Lagu.judul = song;
+                x.Lagu.penyanyi = singer;
+                x.Lagu.album = album;
+
+                InsVLast(&((*LPl).list[n]), x);
                 ADVLINE();
             }
         }
 
-        printf("Save file berhasil dibaca. WayangWave berhasil dijalankan.\n\n");
+        printf("\nSave file berhasil dibaca. WayangWave berhasil dijalankan.\n\n");
 
         // printf("\n");
         // DisplayListPenyanyi(*ListPenyanyi);

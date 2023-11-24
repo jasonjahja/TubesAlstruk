@@ -257,8 +257,7 @@ void PrintNode (ListBerkait L){
         printf("\n");
       }
       printf("Nama Penyanyi : ");
-      TulisWord(P->info.Lagu.penyanyi);
-    
+      TulisWord(P->info.Lagu.penyanyi);    
       printf("Nama Album : ");
       TulisWord(P->info.Lagu.album);
       printf("Nama Judul Lagu Pertama : ");

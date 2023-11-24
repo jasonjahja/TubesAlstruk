@@ -11,8 +11,9 @@ int main(){
 
     ListBerkait playlistMarcell;
 
-    CreateEmpty(&playlistMarcell);
+    CreateEmptyPlaylist(&playlistMarcell);
 
+    
     
 
     //----------MASUKIN INFO LAGU KE DALAM LINKED LSIT
@@ -26,7 +27,7 @@ int main(){
     InsVLast(&playlistMarcell,c);
     InsVLast(&playlistMarcell,d);
     InsVLast(&playlistMarcell,e);
-    printf("\n==================playlistMarcell(banyak isi playlist = %d)=======\n",NbElmt(playlistMarcell));
+    printf("\n==================playlistMarcell(banyak isi playlist = %d)=======\n",NbElmtListBerkait(playlistMarcell));
     PrintNode(playlistMarcell);
     printf("\n================================================================\n");
 
@@ -48,6 +49,16 @@ int main(){
     printf("---> %d \n",isAlbumAvail(playlistMarcell,a));
     printf("Apakah album Cibubur  ada di dalam playlistMarcell?\n");
     printf("---> %d \n",isAlbumAvail(playlistMarcell,e));
+
+    printf("PRINT ISI LAGU :\n");
+    address p = playlistMarcell.First;
+    while (p != NilNode){
+        TulisWord(p->info.Lagu.album);
+        TulisWord(p->info.Lagu.judul);
+        TulisWord(p->info.Lagu.penyanyi);
+        p = p->next;
+    }
+    
 
     
     return 0;

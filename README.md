@@ -17,7 +17,7 @@ Program ini merupakan hasil tugas besar Alstrukdat STI. Program "WayangWave" ini
 
     ./main
 
-'''
+```
 ├───docs
 ├───save    # file-file yang disimpan oleh user
 └───src
@@ -46,4 +46,4 @@ Program ini merupakan hasil tugas besar Alstrukdat STI. Program "WayangWave" ini
     ├───main.c  # memanggil semua fungsi spesifikasi
     ├───boolean.h
     └───MakeFile
-'''
+```

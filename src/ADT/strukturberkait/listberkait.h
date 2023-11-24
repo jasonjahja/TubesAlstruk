@@ -15,7 +15,7 @@ typedef struct tElmtlist *address;
 
 typedef struct {
     Song Lagu;
-}infoLagu;
+} infoLagu;
 // typedef infoLagu infotype;
 
 typedef struct tElmtlist { 

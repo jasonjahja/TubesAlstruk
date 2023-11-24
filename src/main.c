@@ -24,6 +24,7 @@
 #include "Spesifikasi/Status/Status.h"
 #include "Spesifikasi/Save/Save.h"
 #include "Spesifikasi/Help/help.h"
+#include "Spesifikasi/Enhance/Enhance.h"
 
 int main() {
 
@@ -48,6 +49,7 @@ int main() {
     Word word_add = {"ADD", 3};
     Word word_delete = {"DELETE", 6};
     Word word_album = {"ALBUM", 5};
+    Word word_enhance = {"ENHANCE", 7};
 
     songHistory SH; CreateEmptyStack(&SH);
     CurrentStat CS; CreateEmptyCurrentStat(&CS);
@@ -273,6 +275,18 @@ int main() {
 
         else if (IsWordEq(currentWord, word_help)) {
             Help(started);
+        }
+
+        else if (IsWordEq(currentWord, word_enhance)) {
+            if (!started)
+            {
+                printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
+                ADVCOMM();
+            }
+            else
+            {
+                Enhance(&LPl, LP);
+            }
         }
 
         else {

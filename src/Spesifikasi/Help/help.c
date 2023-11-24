@@ -24,7 +24,7 @@ void Help (boolean entered) {
     printf("4a. SONG NEXT -> Untuk memutar lagu yang berada di dalam queue\n");
     printf("4b. SONG PREVIOUS -> Untuk memutar lagu yang terakhir kali diputar\n");
     printf("5a. PLAYLIST CREATE -> Untuk membuat playlist baru dan ditambahkan pada daftar playlist pengguna\n");
-    printf("5b. PLAYLIST ADD ALBUM -> Untuk menambahkan lagu-lagu pada Album ke suatu playlist yang telah ada sebelumnya pada daftar playlist pengguna\n");
+    printf("5b. PLAYLIST ADD ALBUM -> Untuk menambahkan semua lagu pada Album ke suatu playlist yang ada pada daftar playlist pengguna\n");
     printf("5c. PLAYLIST ADD SONG -> Untuk menambahkan lagu ke suatu playlist yang telah ada sebelumnya pada daftar playlist pengguna\n");
     printf("5d. PLAYLIST SWAP <x> <y> -> Untuk menukar lagu pada urutan ke x dan juga urutan ke y di playlist dengan urutan ke id\n");
     printf("5e. PLAYLIST REMOVE <id> <n> -> Untuk menghapus lagu dengan urutan n pada playlist dengan index id\n");

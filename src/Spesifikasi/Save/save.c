@@ -4,10 +4,10 @@
 
 static FILE *pita;
 
-void Save(ListofPenyanyi *LP, ListofPlaylist *listPlaylist, Queue *queueLagu, songHistory *songHistory, CurrentStat *status, const char *filename){
+void Save(ListofPenyanyi *LP, ListofPlaylist *listPlaylist, Queue *queueLagu, songHistory *songHistory, CurrentStat *status, Word fileName){
     const char *parent_dir = "../save";
     char path[255];
-    snprintf(path,sizeof(path),"%s/%s",parent_dir,filename);
+    snprintf(path,sizeof(path),"%s/%s",parent_dir, fileName.TabWord);
 
     pita = fopen(path,"w");
 

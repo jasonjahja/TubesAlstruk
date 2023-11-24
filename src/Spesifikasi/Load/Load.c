@@ -59,7 +59,6 @@ void Load(ListofPenyanyi *ListPenyanyi, CurrentStat *CS, Queue *Q, songHistory *
                 }
                 
             }
-
         }
         // ADVSENTENCE();
         // DisplayListPenyanyi(ListPenyanyi);
@@ -69,17 +68,18 @@ void Load(ListofPenyanyi *ListPenyanyi, CurrentStat *CS, Queue *Q, songHistory *
         ADVLINE(); //lanjut ke baris selanjutnya, ke lagu yang sedang dimainkan
 
         //CREATEEMPTYQUEUE();
-        ADVRECORD();
+
+        ADVRECORD(); 
         CS->currentplay.penyanyi = toKata(currentLine.kalimat);
         //print lagu yang sedang dimainkan, penyanyi
         //Sentence namaPenyanyi = currenLine;
 
-        ADVRECORD();
+        ADVRECORD(); 
         CS->currentplay.judul = toKata(currentLine.kalimat);
         //print lagu yang sedang dimainkan, album
         //Sentence namaAlbum = currentLine;
 
-        ADVRECORD();
+        ADVRECORD(); 
         CS->currentplay.album = toKata(currentLine.kalimat);
         //print lagu yang sedang dimainkan, lagu
         //Sentence namaLagu = currentLine;
@@ -96,17 +96,17 @@ void Load(ListofPenyanyi *ListPenyanyi, CurrentStat *CS, Queue *Q, songHistory *
 
         //printf("\nLOOP RIWAYAT LAGU:\n");
         for (int l = 0; l < rQueue; l++) {
-            ADVRECORD();
+            ADVRECORD(); 
             Q->singer[l] = toKata(currentLine.kalimat);
             //Sentence namaPenyanyi = currentLine;
             
 
-            ADVRECORD();
+            ADVRECORD(); 
             Q->album[l] = toKata(currentLine.kalimat);
             //Sentence namaAlbum = currentLine;
             
 
-            ADVRECORD();
+            ADVRECORD(); 
             Q->song[l] = toKata(currentLine.kalimat);
             //Sentence namaLagu = currentLine;
             
@@ -160,7 +160,7 @@ void Load(ListofPenyanyi *ListPenyanyi, CurrentStat *CS, Queue *Q, songHistory *
             //printf("\nJUMLAH LAGU DALAM PLAYLIST:");
             //print jumlah lagu dalam playlist
 
-            ADVSENTENCE();
+            ADVSENTENCE(); 
             InsertListPlaylist(LPl, toKata(currentLine.kalimat));
             //print nama playlist
             //insertLast_ListDin(currentLine);
@@ -193,6 +193,7 @@ void Load(ListofPenyanyi *ListPenyanyi, CurrentStat *CS, Queue *Q, songHistory *
                 x.Lagu.judul = song;
                 x.Lagu.penyanyi = singer;
                 x.Lagu.album = album;
+                x.Lagu.status = 0;
 
                 InsVLast(&((*LPl).list[n]), x);
                 ADVLINE();
@@ -219,12 +220,12 @@ void Load(ListofPenyanyi *ListPenyanyi, CurrentStat *CS, Queue *Q, songHistory *
 // }
         // for (int a = 0; a < 3; a++) {
         //     ADVRECORD();
-        //     TulisKalimat(currentLine); //agar print penyanyi;album;lagu dapat terpisah
+        //      //agar print penyanyi;album;lagu dapat terpisah
         
         // }
 
             // for (int a = 0; a < 3; a++) {
             //     ADVRECORD();
-            //     TulisKalimat(currentLine); //print nama nama lagu dalam playlist agar terpisah dari penyanyi;album;lagu
+            //      //print nama nama lagu dalam playlist agar terpisah dari penyanyi;album;lagu
                 
             // }

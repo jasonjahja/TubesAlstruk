@@ -56,6 +56,7 @@ int main() {
     Queue Q; CreateEmptyQueue(&Q);
     ListofPenyanyi LP; LP = MakeList();
     ListofPlaylist LPl; LPl = CreateListPlaylist();
+    Word filename;
 
     Inisialisasi();
 
@@ -66,7 +67,7 @@ int main() {
     {
         printf(">> "); 
         GetCommand();
-        // DisplayListPenyanyi(LP);
+        // DisplayListPlaylist(&LPl);
 
         if (IsWordEq(currentWord, word_start)) {
             if (!started)
@@ -85,6 +86,7 @@ int main() {
             if (!started) {
                 ADVCOMM();
                 started = true;
+                filename = currentWord;
                 Load(&LP, &CS, &Q, &SH, &LPl, currentWord, &started);
             } else {
                 printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
@@ -250,6 +252,7 @@ int main() {
         }
 
         else if (IsWordEq(currentWord, word_save)) {
+            ADVCOMM();
             if (!started)
             {
                 printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
@@ -257,15 +260,15 @@ int main() {
             }
             else
             {
-                // SaveFile(&LP,&AP, &QL, &RL, CCommand.TabLine);
+                Save(&LP, &LPl, &Q, &SH, &CS, currentWord);
             }
         }
 
         else if (IsWordEq(currentWord, word_quit)) {
-            printf("\nApakah kamu ingin menyimpan data sesi sekarang? (Y/N) ");
+            printf("\nApakah kamu ingin menyimpan data sesi sekarang (Y/N) ? ");
             GetInput();
-            if (IsWordEq(currentInput,toKata("Y"))) {
-                Save(&LPl, "test.txt");
+            if (IsWordEq(currentInput, toKata("Y"))) {
+                Save(&LP, &LPl, &Q, &SH, &CS, filename);
             } else if (IsWordEq(currentInput,toKata("N"))){
                 printf("\nKamu keluar dari WayangWave.\n");
                 printf("Dadah ^_^\n\n");
@@ -287,6 +290,10 @@ int main() {
             {
                 Enhance(&LPl, LP);
             }
+        }
+
+        else if (IsWordEq(currentWord, toKata("display"))) {
+            PrintNode(LPl.list[0]);
         }
 
         else {

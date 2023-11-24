@@ -12,13 +12,16 @@ void Enhance(ListofPlaylist * LPl, ListofPenyanyi LP)
 
         printf("\nMasukkan id playlist yang ingin di-enhance: ");
         STARTINPUT(stdin);
-        Word NamaPL = GetListPlaylist(*LPl, WordtoNum(currentInput));
+        int ID = WordtoNum(currentInput)-1;
+        Word NamaPL;
+        CopyWordToVar(&NamaPL, LPl->namaPlaylist[ID]);
+        // Word NamaPL = LPl->namaPlaylist[ID];
 
         while (!isMemberListPlaylist(*LPl, NamaPL)){
             printf("\nID Playlist tidak terdaftar!\n");
             printf("\nMasukkan ID Playlist yang dipilih: ");
             STARTINPUT(stdin);
-            NamaPL = GetListPlaylist(*LPl, WordtoNum(currentInput));
+            NamaPL = GetListPlaylist(*LPl, WordtoNum(currentInput)-1);
         }
 
         if (isMemberListPlaylist(*LPl, NamaPL)){
@@ -39,13 +42,20 @@ void Enhance(ListofPlaylist * LPl, ListofPenyanyi LP)
 
                 if (!isSongAvail(LPl->list, x))
                 {
-                    printf("Menambahkan lagu rekomendasi: \"%s\" ke dalam playlist.\n", LP.listpenyanyi[IDSinger].album.listalbum[IDAlbum].listlagu.Lagu[IDSong].judul.TabWord);
-                    playlistAddSong(*LPl, LP);
+                    printf("\nMenambahkan lagu rekomendasi: \"");
+                    TulisWordNoNL(LP.listpenyanyi[IDSinger].album.listalbum[IDAlbum].listlagu.Lagu[IDSong].judul);
+                    printf("\" ke dalam playlist.\n");
+                    printf("%d\n", ID);
+                    PrintNode(LPl->list[ID]);
+                    InsVLast(&((*LPl).list[ID]), x);
+                    PrintNode(LPl->list[ID]);
                     count++;
                 }
             }
 
-            printf("\nPlaylist \"%s\" berhasil di-enhance!\n", NamaPL.TabWord);
+            printf("\nPlaylist \"");
+            TulisWordNoNL(NamaPL);
+            printf("\" berhasil di-enhance!\n\n");
         }
     }
 }

@@ -20,6 +20,7 @@ void Status (CurrentStat stat, Queue QL)
                 printf(" - ");
                 TulisWord(QL.album[i]);
             }
+            printf("\n");
         }
         else //kondisi tidak ada queue
         {
@@ -30,7 +31,8 @@ void Status (CurrentStat stat, Queue QL)
    else // kondisi ada lagu
    {
         if (stat.statusPL == 1) {
-            printf("\nCurrent Playlist: %s\n", stat.playlist.TabWord);
+            printf("\nCurrent Playlist:\n");
+            TulisWord(stat.playlist);
         }
 
         printf("\nNow Playing:\n");

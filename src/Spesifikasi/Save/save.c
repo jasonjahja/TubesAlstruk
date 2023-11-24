@@ -1,11 +1,11 @@
-// #include <stdio.h>
-// #include <stdlib.h>
-// #include "Save.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "Save.h"
 
 static FILE *pita;
 
 void Save(ListofPenyanyi *LP,const char *filename){
-    const char *parent_dir = "../../../save";
+    const char *parent_dir = "../save";
     char path[255];
     snprintf(path,sizeof(path),"%s/%s",parent_dir,filename);
 

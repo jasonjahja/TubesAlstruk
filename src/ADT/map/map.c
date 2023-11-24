@@ -21,7 +21,7 @@ boolean IsEmptyAlbum(MapofAlbum M)
 
 boolean IsFullAlbum(MapofAlbum M)
 {
-    return (!IsWordEq(M.listalbum[BanyakAlbum(M)-1].namaAlbum, Mark));
+    return (!IsWordEq(M.listalbum[MaxElMap-1].namaAlbum, Mark));
 }
 
 int BanyakAlbum(MapofAlbum M)
@@ -94,7 +94,7 @@ void DisplayListAlbum (MapofAlbum M)
 {
     for (int i = 0; i < BanyakAlbum(M); i++)
     {
-        printf("%d. ", i+1);
+        printf("    %d. ", i+1);
         TulisWord(M.listalbum[i].namaAlbum);
     }
 }

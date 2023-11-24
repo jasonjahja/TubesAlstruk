@@ -40,7 +40,7 @@ void playlistAddSong(ListofPlaylist L,ListofPenyanyi LP){
 
 
         while (!isMemberPenyanyi(LP,penyanyi)){
-            printf("Nama penyanyi tidak terdaftar!\n");
+            printf("\nNama penyanyi tidak terdaftar!\n");
             printf("\nMasukkan nama penyanyi yang dipilih: ");
             STARTINPUT(stdin);
             penyanyi = currentInput;
@@ -84,7 +84,7 @@ void playlistAddSong(ListofPlaylist L,ListofPenyanyi LP){
                 Word judulLagu = IndeksSong(LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu,IDLagu);
 
                 while (!IsMemberLagu(LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu,LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu.Lagu[IDLagu].judul)){
-                    printf("ID Lagu tidak terdaftar!\n");
+                    printf("\nID Lagu tidak terdaftar!\n");
                     printf("\nMasukkan ID lagu yang dipilih: ");
                     STARTINPUT(stdin);
                     
@@ -94,7 +94,7 @@ void playlistAddSong(ListofPlaylist L,ListofPenyanyi LP){
 
                 if (IsMemberLagu(LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu,LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu.Lagu[IDLagu].judul)) {
                     lagu.Lagu.judul = LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu.Lagu[IDLagu].judul;
-                    printf("Daftar Playlist Pengguna :\n");
+                    printf("\nDaftar Playlist Pengguna :\n");
                     DisplayListPlaylist(&L);
                     printf("\nMasukkan ID Playlist yang dipilih : ");
                     STARTINPUT(stdin);
@@ -103,7 +103,7 @@ void playlistAddSong(ListofPlaylist L,ListofPenyanyi LP){
                     Word namaPlaylist = GetListPlaylist(L,IDPlaylist);
                 
                     while (!isMemberListPlaylist(L,namaPlaylist)){
-                        printf("ID Playlist tidak terdaftar!\n");
+                        printf("\nID Playlist tidak terdaftar!\n");
                         printf("\nMasukkan ID Playlist yang dipilih: ");
                         STARTINPUT(stdin);
                         IDPlaylist = WordtoNum(currentInput)-1;
@@ -207,8 +207,6 @@ void playlistAddAlbum(ListofPlaylist L,ListofPenyanyi LP){
 
                     }
 
-                    // PrintNode(L.list[IDPlaylist]);
-
                     printf("\nAlbum dengan judul ");
                     printf("'");
                     TulisWordNoNL(namaAlbum);
@@ -221,21 +219,22 @@ void playlistAddAlbum(ListofPlaylist L,ListofPenyanyi LP){
         }
 }
 
-void playlistSwap(ListofPlaylist *L,int idx,int x,int y){
-    ElmtList *p1  =L->list[idx-1].First; 
-    ElmtList *p2  =L->list[idx-1].First;
+void playlistSwap(ListofPlaylist *L, int idx, int x, int y) {
+    ElmtList *p1 = L->list[idx - 1].First;
+    ElmtList *p2 = L->list[idx - 1].First;
 
-    for (int i = 0; i < x;i ++){
+    // Move to the x-th node
+    for (int i = 0; i < x && p1 != NULL; i++) {
         p1 = p1->next;
-    
     }
-    
 
-    for (int j = 0; j < y;j ++){
+    // Move to the y-th node
+    for (int j = 0; j < y && p2 != NULL; j++) {
         p2 = p2->next;
     }
-    
-    if (p1 != NULL && p2 != NULL){
+
+    // Check if both pointers are not NULL before swapping
+    if (p1 != NULL && p2 != NULL) {
         Song temp = p1->info.Lagu;
         p1->info.Lagu = p2->info.Lagu;
         p2->info.Lagu = temp;
@@ -245,16 +244,15 @@ void playlistSwap(ListofPlaylist *L,int idx,int x,int y){
         printf("' dengan '");
         TulisWordNoNL(p2->info.Lagu.judul);
         printf("' di playlist '");
-        TulisWordNoNL(*(L->namaPlaylist));
+        TulisWordNoNL(*L->namaPlaylist);
         printf("'.\n\n");
     }
-
 }
 void playlistRemove(ListofPlaylist *L,int rowsong,int idx){
     ElmtList *p = L->list[idx-1].First;
     ElmtList *prev = NULL;
 
-    for (int i = 0;i <rowsong && p != NULL;i++){
+    for (int i = 0;i < rowsong-1 && p != NULL;i++){
         prev = p;
         p =p->next;
         
@@ -278,13 +276,13 @@ void playlistDelete(ListofPlaylist *L){
       printf("\nDaftar Playlist Pengguna : \n");
       DisplayListPlaylist(L);
 
-      printf("\n\nMasukkan ID Playlist yang dipilih : ");
+      printf("\nMasukkan ID Playlist yang dipilih : ");
       STARTINPUT(stdin);
       // TulisWord(currentInput);
       int IDPlaylist = WordtoNum(currentInput);
       DeleteListPlaylist(L,IDPlaylist);
     }
-    printf("Playlist berhasil dihapus!\n");
+    printf("Playlist berhasil dihapus!\n\n");
 }
 
 

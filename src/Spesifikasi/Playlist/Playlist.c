@@ -219,7 +219,7 @@ void playlistAddAlbum(ListofPlaylist L,ListofPenyanyi LP){
         }
 }
 
-void playlistSwap(ListofPlaylist *L,int idx,int x,int y){
+void playlistSwap(ListofPlaylist *L, int idx, int x,int y){
     ElmtList *p1  =L->list[idx-1].First; 
     ElmtList *p2  =L->list[idx-1].First;
 

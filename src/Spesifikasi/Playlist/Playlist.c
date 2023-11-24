@@ -226,16 +226,10 @@ void playlistSwap(ListofPlaylist *L, int idx, int x,int y){
     // printf("-------");
     for (int i = 0; i < x;i ++){
         p1 = p1->next;
-        // printf("i = %d\n",i);
     }
-    // TulisWord(p1->info.Lagu.judul);
-    // printf("-------");
-
     for (int j = 0; j < y;j ++){
-        // p2 = p2->next;
-        // printf("j = %d\n",j);
+        p2 = p2->next;
     }
-    // TulisWord(p2->info.Lagu. judul);
 
     Song temp = p1->info.Lagu;
     p1->info.Lagu = p2->info.Lagu;
@@ -250,20 +244,25 @@ void playlistSwap(ListofPlaylist *L, int idx, int x,int y){
     printf("'.\n\n");
 
 }
-void playlistRemove(ListofPlaylist *L, int idx, int rowsong){
-    address p = L->list[idx-1].First;
-    address prev = NULL;
+void playlistRemove(ListofPlaylist *L,int rowsong,int idx){
+    ElmtList *p = L->list[idx-1].First;
+    ElmtList *prev = NULL;
 
     for (int i = 0;i < rowsong-1 && p != NULL;i++){
         prev = p;
-        p = p->next;
+        p =p->next;
+        
     }
-    if (prev == NULL){
-        L->list[idx-1].First = p->next;
-    } else{
-        prev->next = p->next;
-    }
+    
+    if (p != NULL){
+        if (prev == NULL){
+            L->list[idx-1].First = p->next;
+        } else{
+            prev->next = p->next;
+        }
+    } 
     Dealokasi(&p);
+    printf("Lagu berhasil dihapus!\n");
 }
 
 void playlistDelete(ListofPlaylist *L){

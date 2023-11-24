@@ -15,10 +15,10 @@ int main() {
         printf("%s\n", currentWord.TabWord);
         printf("benar\n");
         ADVCOMM();
-        if(IsWordEq(currentWord, b)) {
-            printf("%s\n", currentWord.TabWord);
-            printf("benar\n");
-        }
+        // if(IsWordEq(currentWord, b)) {
+        //     printf("%s\n", currentWord.TabWord);
+        //     printf("benar\n");
+        // }
     }
     else {
         printf("salah\n");

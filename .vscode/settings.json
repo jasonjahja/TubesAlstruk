@@ -26,7 +26,7 @@
     "play.h": "c",
     "playlist.h": "c",
     "TES.C": "cpp",
-    "inisialisasi.h": "c"
+    "inisialisasi.h": "c",
+    "save.h": "c"
   }
 }
-

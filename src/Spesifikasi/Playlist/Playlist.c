@@ -219,30 +219,34 @@ void playlistAddAlbum(ListofPlaylist L,ListofPenyanyi LP){
         }
 }
 
-void playlistSwap(ListofPlaylist *L, int idx, int x,int y){
-    ElmtList *p1  =L->list[idx-1].First; 
-    ElmtList *p2  =L->list[idx-1].First;
+void playlistSwap(ListofPlaylist *L, int idx, int x, int y) {
+    ElmtList *p1 = L->list[idx - 1].First;
+    ElmtList *p2 = L->list[idx - 1].First;
 
-    // printf("-------");
-    for (int i = 0; i < x;i ++){
+    // Move to the x-th node
+    for (int i = 0; i < x && p1 != NULL; i++) {
         p1 = p1->next;
     }
-    for (int j = 0; j < y;j ++){
+
+    // Move to the y-th node
+    for (int j = 0; j < y && p2 != NULL; j++) {
         p2 = p2->next;
     }
 
-    Song temp = p1->info.Lagu;
-    p1->info.Lagu = p2->info.Lagu;
-    p2->info.Lagu = temp;
+    // Check if both pointers are not NULL before swapping
+    if (p1 != NULL && p2 != NULL) {
+        Song temp = p1->info.Lagu;
+        p1->info.Lagu = p2->info.Lagu;
+        p2->info.Lagu = temp;
 
-    printf("\nBerhasil menukar lagu dengan nama '");
-    TulisWordNoNL(p1->info.Lagu.judul);
-    printf("' dengan '");
-    TulisWordNoNL(p2->info.Lagu.judul);
-    printf("' di playlist '");
-    TulisWordNoNL(*(L->namaPlaylist));
-    printf("'.\n\n");
-
+        printf("\nBerhasil menukar lagu dengan nama '");
+        TulisWordNoNL(p1->info.Lagu.judul);
+        printf("' dengan '");
+        TulisWordNoNL(p2->info.Lagu.judul);
+        printf("' di playlist '");
+        TulisWordNoNL(*L->namaPlaylist);
+        printf("'.\n\n");
+    }
 }
 void playlistRemove(ListofPlaylist *L,int rowsong,int idx){
     ElmtList *p = L->list[idx-1].First;

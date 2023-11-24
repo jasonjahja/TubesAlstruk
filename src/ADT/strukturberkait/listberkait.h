@@ -15,7 +15,7 @@ typedef struct tElmtlist *address;
 
 typedef struct {
     Song Lagu;
-}infoLagu;
+} infoLagu;
 // typedef infoLagu infotype;
 
 typedef struct tElmtlist { 
@@ -50,7 +50,7 @@ boolean isAlbumAvail (ListBerkait L, infoLagu X);
 
 void insertSongtoPlaylist(ListBerkait L,infoLagu X);
 
-boolean isSongAvail (ListBerkait L, infoLagu X);
+boolean isSongAvail (ListBerkait *L, infoLagu X);
 
 void InsVFirst (ListBerkait *L, infoLagu X);
 

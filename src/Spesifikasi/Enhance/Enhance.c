@@ -1,61 +1,51 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "Enhance.h"
 
-void EnchancePL(ListofPlaylist * LPl, ListofPenyanyi * LP)
+void Enhance(ListofPlaylist * LPl, ListofPenyanyi LP)
 {
-    printf("\nDaftar Playlist yang kamu miliki: \n");
+    if (isEmptyListPlaylist(*LPl)) {
+        printf("\nTidak ada playlist yang tersedia!\n\n");
+    } else {
+        printf("\nDaftar playlist yang kamu miliki: \n");
+        DisplayListPlaylist(LPl);
 
-    for (int i = 0; i < LPl->nEff ; i++)
-    {
-        printf("    %d. %s \n", i+1, LPl->namaPlaylist[i].TabWord);
-    }
+        printf("\nMasukkan id playlist yang ingin di-enhance: ");
+        STARTINPUT(stdin);
+        Word NamaPL = GetListPlaylist(*LPl, WordtoNum(currentInput));
 
-    printf("\nMasukkan nama playlist yang ingin di-enhance: ");
-    STARTKALIMATINPUT();
-
-    Kalimat NamaPL = CInput;
-
-    int idPL = idPlaylist(AP, NamaPL);
-
-    if (idPL != -1)
-    {
-        srand(time(NULL));
-        int jumlahLagu = rand() % 4 + 1;
-        int count = 0;
-
-        printf("\n%s..\n", CYAN);
-        while (count < jumlahLagu)
-        {
-            int idPenyanyi = rand() % (*LP).NEff;
-            int idAlbum = rand() % (*LP).PenyanyiAlbum[idPenyanyi].ListAlbum.NEff;
-            int idLagu = rand() % (*LP).PenyanyiAlbum[idPenyanyi].ListAlbum.AlbumLagu[idAlbum].IsiLagu.Count;
-
-            // printf("%d %d %d\n", idPenyanyi, idAlbum, idLagu);
-            // delay(1);
-
-            int Ada = cekLaguPL(AP, (*LP).PenyanyiAlbum[idPenyanyi].NamaPenyanyi, (*LP).PenyanyiAlbum[idPenyanyi].ListAlbum.AlbumLagu[idAlbum].NamaAlbum, (*LP).PenyanyiAlbum[idPenyanyi].ListAlbum.AlbumLagu[idAlbum].IsiLagu.JudulLagu[idLagu], idPL);
-            // printf("%d", Ada);
-            if (Ada != -1)
-            {
-                AnimasiPlaylistEnhance();
-                printf("%sMenambahkan lagu rekomendasi: %s%s ke dalam playlist.\n", GREEN, WHITE, (*LP).PenyanyiAlbum[idPenyanyi].ListAlbum.AlbumLagu[idAlbum].IsiLagu.JudulLagu[idLagu].TabLine);
-                delay(1);
-                AddSongToPlaylist(LP, AP, idPenyanyi, idAlbum, idLagu, idPL);
-                count++;
-            }
+        while (!isMemberListPlaylist(*LPl, NamaPL)){
+            printf("\nID Playlist tidak terdaftar!\n");
+            printf("\nMasukkan ID Playlist yang dipilih: ");
+            STARTINPUT(stdin);
+            NamaPL = GetListPlaylist(*LPl, WordtoNum(currentInput));
         }
 
-        printf("%s..\n", CYAN);
-        delay(1);
+        if (isMemberListPlaylist(*LPl, NamaPL)){
+            int songAdded = rand() % 3;
+            int count = 0;
+            
+            while (count < songAdded)
+            {
+                int IDSinger = rand() % BanyakPenyanyi(LP);
+                int IDAlbum = rand() % BanyakAlbum(LP.listpenyanyi->album);
+                int IDSong = rand() % BanyakLagu(LP.listpenyanyi->album.listalbum->listlagu);
 
-        printf("\n%sOutput: %sPlaylist \"%s\" berhasil di-enhance!\n",GREEN, WHITE, NamaPL.TabLine);
+                infoLagu x;
+                x.Lagu.penyanyi = LP.listpenyanyi[IDSinger].namaPenyanyi;
+                x.Lagu.album = LP.listpenyanyi[IDSinger].album.listalbum[IDAlbum].namaAlbum;
+                x.Lagu.judul = LP.listpenyanyi[IDSinger].album.listalbum[IDAlbum].listlagu.Lagu[IDSong].judul;
+                x.Lagu.status = 0;
 
+                if (!isSongAvail(LPl->list, x))
+                {
+                    printf("Menambahkan lagu rekomendasi: \"%s\" ke dalam playlist.\n", LP.listpenyanyi[IDSinger].album.listalbum[IDAlbum].listlagu.Lagu[IDSong].judul.TabWord);
+                    playlistAddSong(*LPl, LP);
+                    count++;
+                }
+            }
+
+            printf("\nPlaylist \"%s\" berhasil di-enhance!\n", NamaPL.TabWord);
+        }
     }
-    else
-    {
-        printf("%sERROR: %sTidak ada playlist dengan nama \"%s\".\n", RED, WHITE, NamaPL.TabLine);
-    }
-
 }

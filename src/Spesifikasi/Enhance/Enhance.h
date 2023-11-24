@@ -1,3 +1,6 @@
+#ifndef __ENHANCE_H__
+#define __ENHANCE_H__
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -11,3 +14,7 @@
 
 #include "../Playlist/Playlist.h"
 #include "../Inisialisasi/inisialisasi.h"
+
+void Enhance(ListofPlaylist * LPl, ListofPenyanyi LP);
+
+# endif

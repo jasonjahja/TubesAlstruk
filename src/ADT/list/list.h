@@ -49,10 +49,7 @@ boolean isMemberPenyanyi(ListofPenyanyi L, Word X);
 		Mengirimkan false jika nama Penyanyi tidak terdapat dalam ListofPenyanyi */
 
 int IndeksPenyanyi (ListofPenyanyi L, Word X);
-/* Mengirimkan indeks nilai Elmt Penyanyi X yang ada dalam ListofPenyanyi */
-/* I.S. Menerima input nama Penyanyi X */
-/* F.S. Mengirimkan nilai indeks dari Penyanyi X di ListofPenyanyi
-		Mengirimkan -1 jika Penyanyi tidak terdapat di ListofPenyanyi*/
+/* Mengirimkan indeks nilai Elmt Penyanyi X yang ada dalam ListofPenyanyi,  */
 
 Word GetPenyanyi(ListofPenyanyi L, Word singer);
 /* Mendapatkan nama album yang sesuai dengan input K di MapofAlbum */

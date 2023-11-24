@@ -21,7 +21,6 @@ ListofPenyanyi MakeList()
 }
 
 boolean IsEmptyList(ListofPenyanyi L)
-/* Mengirimkan true jika list L kosong, mengirimkan false jika tidak */
 {
     return (IsWordEq(L.listpenyanyi[0].namaPenyanyi, Mark));
 }
@@ -45,15 +44,6 @@ int BanyakPenyanyi (ListofPenyanyi L)
     return count;
 }
 
-// COdingan lama afnan
-// void AddPenyanyi (ListofPenyanyi *L, Word singer)
-// {
-//     if (BanyakPenyanyi(*L) < MaxElList)
-//     {
-//         CopyWordToVar(&(*L).listpenyanyi[BanyakPenyanyi(*L)].namaPenyanyi, singer);
-//     }
-// }
-
 void AddPenyanyi (ListofPenyanyi *L, Word singer)
 {
     
@@ -63,23 +53,8 @@ void AddPenyanyi (ListofPenyanyi *L, Word singer)
         CopyWordToVar(&(*L).listpenyanyi[index].namaPenyanyi, singer);
         index++;
     }
-    // printf("PENYANYI YANG DIINPUT : %s\n", singer.TabWord);
 }
 
-
-// Gua komen bentar yak
-// void DelPenyanyi (ListofPenyanyi *L, Word singer)
-// {
-//     if (isMemberPenyanyi(*L, singer))
-//     {
-//         int idx = IndeksPenyanyi(*L, singer);
-//         for (int j = idx; j < (BanyakPenyanyi(*L)); j++)
-//         {
-//             CopyWordToVar(&(*L).listpenyanyi[j].namaPenyanyi, (*L).listpenyanyi[j+1].namaPenyanyi);
-//         }
-//         CopyWordToVar(&(*L).listpenyanyi[BanyakPenyanyi(*L)].namaPenyanyi, Mark);
-//     }
-// }
 
 Word GetPenyanyi(ListofPenyanyi L, Word singer)
 {

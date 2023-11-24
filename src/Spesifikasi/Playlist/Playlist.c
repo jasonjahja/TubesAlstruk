@@ -8,11 +8,20 @@
 void playlistCreate(ListofPlaylist *L){
     printf("\nMasukkan nama playlist yang ingin dibuat : ");
     STARTINPUT(stdin);
-    InsertListPlaylist(L,currentInput);
-    printf("\nPlaylist ");
-    TulisWordNoNL(currentInput);
-    printf(" berhasil dibuat!\n\n");
-    printf("Silahkan masukkan lagu - lagu artis terkini kesayangan Anda!\n\n");
+    while (isMemberListPlaylist(*L,currentInput)){
+        printf("Nama Playlist sudah ada, masukkan nama lain\n");
+        printf("\nMasukkan nama playlist yang ingin dibuat : ");
+        STARTINPUT(stdin);
+    }
+    
+
+    if(!isMemberListPlaylist(*L,currentInput)){
+        InsertListPlaylist(L,currentInput);
+        printf("\nPlaylist ");
+        TulisWordNoNL(currentInput);
+        printf(" berhasil dibuat!\n\n");
+        printf("Silahkan masukkan lagu - lagu artis terkini kesayangan Anda!\n\n");
+    } 
 
 }
 
@@ -31,7 +40,7 @@ void playlistAddSong(ListofPlaylist L,ListofPenyanyi LP){
 
 
         while (!isMemberPenyanyi(LP,penyanyi)){
-            printf("Nama penyanyi tidak terdaftar!\n");
+            printf("\nNama penyanyi tidak terdaftar!\n");
             printf("\nMasukkan nama penyanyi yang dipilih: ");
             STARTINPUT(stdin);
             penyanyi = currentInput;
@@ -75,7 +84,7 @@ void playlistAddSong(ListofPlaylist L,ListofPenyanyi LP){
                 Word judulLagu = IndeksSong(LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu,IDLagu);
 
                 while (!IsMemberLagu(LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu,LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu.Lagu[IDLagu].judul)){
-                    printf("ID Lagu tidak terdaftar!\n");
+                    printf("\nID Lagu tidak terdaftar!\n");
                     printf("\nMasukkan ID lagu yang dipilih: ");
                     STARTINPUT(stdin);
                     
@@ -85,7 +94,7 @@ void playlistAddSong(ListofPlaylist L,ListofPenyanyi LP){
 
                 if (IsMemberLagu(LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu,LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu.Lagu[IDLagu].judul)) {
                     lagu.Lagu.judul = LP.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu.Lagu[IDLagu].judul;
-                    printf("Daftar Playlist Pengguna :\n");
+                    printf("\nDaftar Playlist Pengguna :\n");
                     DisplayListPlaylist(&L);
                     printf("\nMasukkan ID Playlist yang dipilih : ");
                     STARTINPUT(stdin);
@@ -94,7 +103,7 @@ void playlistAddSong(ListofPlaylist L,ListofPenyanyi LP){
                     Word namaPlaylist = GetListPlaylist(L,IDPlaylist);
                 
                     while (!isMemberListPlaylist(L,namaPlaylist)){
-                        printf("ID Playlist tidak terdaftar!\n");
+                        printf("\nID Playlist tidak terdaftar!\n");
                         printf("\nMasukkan ID Playlist yang dipilih: ");
                         STARTINPUT(stdin);
                         IDPlaylist = WordtoNum(currentInput)-1;

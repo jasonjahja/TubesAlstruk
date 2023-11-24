@@ -145,7 +145,6 @@ void CopyWordToVar(Word *kata1, Word kata2)
 }
 
 
-
 void TulisWord(Word kata) {
     for (int i = 0; i < kata.Length && kata.TabWord[i] != '\0'; i++) {
         printf("%c", kata.TabWord[i]);

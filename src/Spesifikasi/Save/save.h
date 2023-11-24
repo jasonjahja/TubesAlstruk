@@ -3,7 +3,6 @@
 
 #include "../../ADT/mesinkata/mesinkata.h"
 #include "../../ADT/mesinkarakter/mesinkarakter.h"
-#include "../../ADT/listdin/listdin.h"
 #include "../../ADT/strukturberkait/listberkait.h"
 #include "../../ADT/mesinbaris/mesinbaris.h"
 #include "../../ADT/list/list.h"
@@ -13,8 +12,8 @@
 #include "../../Spesifikasi/Play/Play.h"
 #include "../../ADT/queue/queue.h"
 #include "../../ADT/stack/stack.h"
+#include "../../ADT/listdin/listdin.h"
 
-void Save(ListofPenyanyi *LP,const char *filename);
-
+void Save(ListofPenyanyi *LP,ListofPlaylist *listPlaylist,Queue *queueLagu,songHistory *songHistory,CurrentStat *status, Word fileName);
 
 #endif

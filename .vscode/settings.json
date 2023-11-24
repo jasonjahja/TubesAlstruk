@@ -27,7 +27,7 @@
     "playlist.h": "c",
     "TES.C": "cpp",
     "inisialisasi.h": "c",
-    "save.h": "c"
+    "save.h": "c",
+    "__locale": "c"
   }
 }
-

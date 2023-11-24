@@ -24,6 +24,7 @@
 #include "Spesifikasi/Status/Status.h"
 #include "Spesifikasi/Save/Save.h"
 #include "Spesifikasi/Help/help.h"
+#include "Spesifikasi/Enhance/Enhance.h"
 
 int main() {
 
@@ -48,12 +49,14 @@ int main() {
     Word word_add = {"ADD", 3};
     Word word_delete = {"DELETE", 6};
     Word word_album = {"ALBUM", 5};
+    Word word_enhance = {"ENHANCE", 7};
 
     songHistory SH; CreateEmptyStack(&SH);
     CurrentStat CS; CreateEmptyCurrentStat(&CS);
     Queue Q; CreateEmptyQueue(&Q);
     ListofPenyanyi LP; LP = MakeList();
     ListofPlaylist LPl; LPl = CreateListPlaylist();
+    Word filename = toKata("test.txt");
 
     Inisialisasi();
 
@@ -64,7 +67,6 @@ int main() {
     {
         printf(">> "); 
         GetCommand();
-        // DisplayListPenyanyi(LP);
 
         if (IsWordEq(currentWord, word_start)) {
             if (!started)
@@ -83,6 +85,7 @@ int main() {
             if (!started) {
                 ADVCOMM();
                 started = true;
+                filename = currentWord;
                 Load(&LP, &CS, &Q, &SH, &LPl, currentWord, &started);
             } else {
                 printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
@@ -248,6 +251,7 @@ int main() {
         }
 
         else if (IsWordEq(currentWord, word_save)) {
+            ADVCOMM();
             if (!started)
             {
                 printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
@@ -255,15 +259,16 @@ int main() {
             }
             else
             {
-                // SaveFile(&LP,&AP, &QL, &RL, CCommand.TabLine);
+                Save(&LP, &LPl, &Q, &SH, &CS, currentWord);
+                printf("\nSave file berhasil disimpan.\n\n");
             }
         }
 
         else if (IsWordEq(currentWord, word_quit)) {
-            printf("\nApakah kamu ingin menyimpan data sesi sekarang? (Y/N) ");
+            printf("\nApakah kamu ingin menyimpan data sesi sekarang (Y/N) ? ");
             GetInput();
-            if (IsWordEq(currentInput,toKata("Y"))) {
-                
+            if (IsWordEq(currentInput, toKata("Y"))) {
+                Save(&LP, &LPl, &Q, &SH, &CS, filename);
             } else if (IsWordEq(currentInput,toKata("N"))){
                 printf("\nKamu keluar dari WayangWave.\n");
                 printf("Dadah ^_^\n\n");
@@ -273,6 +278,22 @@ int main() {
 
         else if (IsWordEq(currentWord, word_help)) {
             Help(started);
+        }
+
+        else if (IsWordEq(currentWord, word_enhance)) {
+            if (!started)
+            {
+                printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
+                ADVCOMM();
+            }
+            else
+            {
+                Enhance(&LPl, LP);
+            }
+        }
+
+        else if (IsWordEq(currentWord, toKata("display"))) {
+            PrintNode(LPl.list[0]);
         }
 
         else {

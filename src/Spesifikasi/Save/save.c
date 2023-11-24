@@ -4,7 +4,7 @@
 
 static FILE *pita;
 
-void Save(ListofPenyanyi *LP,const char *filename){
+void Save(ListofPenyanyi *LP, ListofPlaylist *listPlaylist, Queue *queueLagu, songHistory *songHistory, CurrentStat *status, const char *filename){
     const char *parent_dir = "../save";
     char path[255];
     snprintf(path,sizeof(path),"%s/%s",parent_dir,filename);
@@ -12,7 +12,7 @@ void Save(ListofPenyanyi *LP,const char *filename){
     pita = fopen(path,"w");
 
     if (pita == NULL){
-        printf("GAGAL MENYIMPAN FILE");        
+        printf("\nGAGAL MENYIMPAN FILE\n\n");        
     }
 
     fprintf(pita,"%d\n",BanyakPenyanyi(*LP));
@@ -38,6 +38,101 @@ void Save(ListofPenyanyi *LP,const char *filename){
             }
         }
     }
+
+    CopyWordToVar(&currentWord,status->currentplay.penyanyi);
+    fprintf(pita,"%s;",currentWord.TabWord);
+    ResetWord();
+
+    
+    CopyWordToVar(&currentWord,status->currentplay.album);
+    fprintf(pita,"%s;",currentWord.TabWord);
+    ResetWord();
+    
+    CopyWordToVar(&currentWord,status->currentplay.judul);
+    fprintf(pita,"%s\n",currentWord.TabWord);
+    ResetWord();
+
+    if (queueLagu->idxTail != IDX_UNDEFQueue){
+        fprintf(pita,"%d\n",queueLagu->idxTail+1);
+    }
+    for (int i = 0 ; i <= queueLagu->idxTail;i ++){
+        CopyWordToVar(&currentWord,queueLagu->singer[i]);
+        fprintf(pita,"%s;",currentWord.TabWord);
+        ResetWord();
+
+        CopyWordToVar(&currentWord,queueLagu->album[i]);
+        fprintf(pita,"%s;",currentWord.TabWord);
+        ResetWord();
+        
+        CopyWordToVar(&currentWord,queueLagu->song[i]);
+        fprintf(pita,"%s\n",currentWord.TabWord);
+        ResetWord();
+
+        
+    }
+
+    if (songHistory->TOP > 0){
+        fprintf(pita,"%d\n",songHistory->TOP+1);
+    }
+
+    for (int j = songHistory->TOP; j >=0;j--){
+        CopyWordToVar(&currentWord,songHistory->singer[j]);
+        fprintf(pita,"%s;",currentWord.TabWord);
+        ResetWord();
+    
+        CopyWordToVar(&currentWord,songHistory->album[j]);
+        fprintf(pita,"%s;",currentWord.TabWord);
+        ResetWord();
+
+        CopyWordToVar(&currentWord,songHistory->song[j]);
+        fprintf(pita,"%s\n",currentWord.TabWord);
+        ResetWord();
+    }
+
+    if (listPlaylist->nEff > 0){
+        fprintf(pita,"%d\n",listPlaylist->nEff);
+    }
+    for(int k = 0; k < listPlaylist->nEff;k++){
+        address p = listPlaylist->list[k].First;
+        int ctr = 0;
+
+        while (p != NilNode){
+            ctr += 1;
+            p = p->next;
+        }
+
+        if (ctr == 0){
+            CopyWordToVar(&currentWord,listPlaylist->namaPlaylist[k]);
+            fprintf(pita,"%d %s ",ctr,currentWord.TabWord);
+            ResetWord();
+        } else{
+            CopyWordToVar(&currentWord,listPlaylist->namaPlaylist[k]);
+            fprintf(pita,"%d %s\n",ctr,currentWord.TabWord);
+            ResetWord();
+        }
+
+        address laguPlaylist = listPlaylist->list[k].First;
+
+        for (int l = 0; l < ctr;l++){
+            
+            CopyWordToVar(&currentWord,laguPlaylist->info.Lagu.penyanyi);
+            fprintf(pita,"%s;",currentWord.TabWord);
+            ResetWord();
+    
+            
+            CopyWordToVar(&currentWord,laguPlaylist->info.Lagu.album);
+            fprintf(pita,"%s;",currentWord.TabWord);
+            ResetWord();
+
+            
+            CopyWordToVar(&currentWord,laguPlaylist->info.Lagu.judul);
+            fprintf(pita,"%s\n",currentWord.TabWord);
+            ResetWord();
+            laguPlaylist = laguPlaylist->next;
+        }
+
+    }
+    fclose(pita);
 }
 
 // int main(){
@@ -120,7 +215,70 @@ void Save(ListofPenyanyi *LP,const char *filename){
 //     mySingers.listpenyanyi[singerIndex2].album.listalbum[0].listlagu = songs2_1;
 //     mySingers.listpenyanyi[singerIndex2].album.listalbum[1].listlagu = songs2_2;
 
-//     Save(&mySingers,"TestSaveMarcell.txt");
+//     // Queue
+//     Queue playlist;
+//     CreateEmptyQueue(&playlist);
+
+//     // Enqueue some songs
+//     enqueueQueue(&playlist, toKata("Alstrukdat"),toKata("STI vs IF"),toKata("Jason"));
+//     enqueueQueue(&playlist, toKata("cimahitypebeat"),toKata("STI"),toKata("Afnan"));
+//     enqueueQueue(&playlist, toKata("Pink Venom"),toKata("BORN PINK"),toKata("BLACKPINK"));
+
+//     // Enqueue more songs
+//     enqueueQueue(&playlist, toKata("R U Mine?"),toKata("AM"),toKata("Arctic Monkeys"));
+//     enqueueQueue(&playlist, toKata("Lagu untuk Dia"),toKata("Cibubur"),toKata("Marcell"));
+
+//     //List Berkait
+//     ListBerkait playlistMarcell,playlistBersama;
+//     CreateEmptyPlaylist(&playlistMarcell);
+//     CreateEmptyPlaylist(&playlistBersama);
+//     infoLagu a = {toKata("Alstrukdat"),toKata("STI vs IF"),toKata("Jason"),0};
+//     infoLagu b = {toKata("cimahitypebeat"),toKata("STI"),toKata("Afnan"),0};
+//     infoLagu c = {toKata("Pink Venom"),toKata("BORN PINK"),toKata("BLACKPINk"),0};
+//     infoLagu d = {toKata("R U Mine?"),toKata("AM"),toKata("Arctic Monkeys"),0};
+//     infoLagu e = {toKata("Lagu untuk Dia"),toKata("Cibubur"),toKata("Marcell"),0};
+//     InsVFirst(&playlistMarcell,a);
+//     InsVLast(&playlistMarcell,b);
+//     InsVLast(&playlistMarcell,c);
+//     InsVLast(&playlistBersama,d);
+//     InsVLast(&playlistBersama,e);
+
+//     ListofPlaylist kumpulanPlaylist = CreateListPlaylist();
+//     kumpulanPlaylist.namaPlaylist[0] = toKata("playlistMarcell");
+//     kumpulanPlaylist.list[0] = playlistMarcell;
+//     kumpulanPlaylist.nEff++;
+
+//     kumpulanPlaylist.namaPlaylist[1] = toKata("playlistBersama");
+//     kumpulanPlaylist.list[1] = playlistBersama;
+//     kumpulanPlaylist.nEff++;
+
+//     // Add playlists to the collection
+
+
+//     // SongHistory
+//     songHistory historyStack;
+//     CreateEmptyStack(&historyStack);
+
+//     // Add songs to the history stack
+//     PushStack(&historyStack, toKata("Song1"), toKata("Album1"), toKata("Singer1"));
+//     PushStack(&historyStack, toKata("Lagu duaaaaa"), toKata("ALBUM DUAAAAAA"), toKata("NYANYI DUAAAAAA"));
+//     PushStack(&historyStack, toKata("505"), toKata("Favourite Worst Nightmare"), toKata("Arctic Monkeys"));
+
+//     // currentStat
+
+//     ListofPenyanyi daftarpenyanyi; // Assume this is initialized with actual data
+//     ListofPlaylist daftarplaylist; // Assume this is initialized with actual data
+//     CurrentStat currentSong;
+//     songHistory history;
+//     Queue queue;
+
+//     CreateEmptyCurrentStat(&currentSong);
+
+//     // Example 1: Play a specific song
+//     // playSong(daftarpenyanyi, &currentSong, &history, &queue);
+
+
+//     Save(&mySingers,&kumpulanPlaylist,&playlist,&historyStack,&currentSong,"TestSaveMarcell.txt");
 
 //     return 0;
 // }

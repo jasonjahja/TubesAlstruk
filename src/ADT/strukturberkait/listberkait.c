@@ -256,11 +256,11 @@ void PrintNode (ListBerkait L){
       if (!isFirst) {
         printf("\n");
       }
-      printf("Nama Penyanyi : ");
+      printf("Nama Penyanyi\t: ");
       TulisWord(P->info.Lagu.penyanyi);    
-      printf("Nama Album : ");
+      printf("Nama Album\t: ");
       TulisWord(P->info.Lagu.album);
-      printf("Nama Judul Lagu Pertama : ");
+      printf("Nama Judul\t: ");
       TulisWord(P->info.Lagu.judul);
       isFirst = false;
       P = Next(P);

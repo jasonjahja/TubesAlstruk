@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "Enhance.h"
 
 void Enhance(ListofPlaylist * LPl, ListofPenyanyi LP)
 {
+    srand(time(NULL));
     if (isEmptyListPlaylist(*LPl)) {
         printf("\nTidak ada playlist yang tersedia!\n\n");
     } else {
@@ -13,26 +15,30 @@ void Enhance(ListofPlaylist * LPl, ListofPenyanyi LP)
         printf("\nMasukkan id playlist yang ingin di-enhance: ");
         STARTINPUT(stdin);
         int ID = WordtoNum(currentInput)-1;
-        Word NamaPL;
-        CopyWordToVar(&NamaPL, LPl->namaPlaylist[ID]);
+        Word NamaPL =  GetListPlaylist(*LPl, ID);
+        // CopyWordToVar(&NamaPL, LPl->namaPlaylist[ID]);
         // Word NamaPL = LPl->namaPlaylist[ID];
 
         while (!isMemberListPlaylist(*LPl, NamaPL)){
+            ResetInput();
             printf("\nID Playlist tidak terdaftar!\n");
             printf("\nMasukkan ID Playlist yang dipilih: ");
             STARTINPUT(stdin);
-            NamaPL = GetListPlaylist(*LPl, WordtoNum(currentInput)-1);
+            int idx = WordtoNum(currentInput)-1;
+            NamaPL = GetListPlaylist(*LPl, idx);
         }
 
         if (isMemberListPlaylist(*LPl, NamaPL)){
             int songAdded = rand() % 3;
             int count = 0;
+            ResetInput();
             
-            while (count < songAdded)
+            while (count <= songAdded)
             {
+                srand(time(NULL));
                 int IDSinger = rand() % BanyakPenyanyi(LP);
-                int IDAlbum = rand() % BanyakAlbum(LP.listpenyanyi->album);
-                int IDSong = rand() % BanyakLagu(LP.listpenyanyi->album.listalbum->listlagu);
+                int IDAlbum = rand() % BanyakAlbum(LP.listpenyanyi[IDSinger].album);
+                int IDSong = rand() % BanyakLagu(LP.listpenyanyi[IDSinger].album.listalbum[IDAlbum].listlagu);
 
                 infoLagu x;
                 x.Lagu.penyanyi = LP.listpenyanyi[IDSinger].namaPenyanyi;
@@ -44,14 +50,19 @@ void Enhance(ListofPlaylist * LPl, ListofPenyanyi LP)
                 {
                     printf("\nMenambahkan lagu rekomendasi: \"");
                     TulisWordNoNL(LP.listpenyanyi[IDSinger].album.listalbum[IDAlbum].listlagu.Lagu[IDSong].judul);
-                    printf("\" ke dalam playlist.\n");                    
+                    printf("\" ke dalam playlist.\n");
+                    printf("\n-----------SEBELUM DI INSERT : -------------\n");
+                    PrintNode(LPl->list[ID]);
+                    // printf("%d\n", ID);
                     InsVLast(&((*LPl).list[ID]), x);
-                    count++;
+
+                    printf("-----------SETELAH DI INSERT : -------------\n");
+                    PrintNode(LPl->list[ID]);
                 }
+                count++;
             }
 
             printf("\nPlaylist \"");
-            TulisWordNoNL(NamaPL);
             printf("\" berhasil di-enhance!\n\n");
         }
     }

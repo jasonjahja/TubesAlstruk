@@ -252,7 +252,7 @@ void playlistRemove(ListofPlaylist *L,int rowsong,int idx){
     ElmtList *p = L->list[idx-1].First;
     ElmtList *prev = NULL;
 
-    for (int i = 0;i < rowsong-1 && p != NULL;i++){
+    for (int i = 0;i < rowsong && p != NULL;i++){
         prev = p;
         p =p->next;
         
@@ -278,7 +278,6 @@ void playlistDelete(ListofPlaylist *L){
 
       printf("\nMasukkan ID Playlist yang dipilih : ");
       STARTINPUT(stdin);
-      // TulisWord(currentInput);
       int IDPlaylist = WordtoNum(currentInput);
       DeleteListPlaylist(L,IDPlaylist);
     }

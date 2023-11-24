@@ -270,10 +270,9 @@ void playlistDelete(ListofPlaylist *L){
       STARTINPUT(stdin);
       // TulisWord(currentInput);
       int IDPlaylist = WordtoNum(currentInput);
-      TulisWord(currentInput); printf("%d\n", IDPlaylist);
       DeleteListPlaylist(L,IDPlaylist);
     }
-    printf("Playlist berhasil dihapus!\n");
+    printf("Playlist berhasil dihapus!\n\n");
 }
 
 

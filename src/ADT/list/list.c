@@ -128,7 +128,7 @@ void DisplayListPenyanyi (ListofPenyanyi L)
 {
     for (int i = 0 ; i < BanyakPenyanyi(L); i++)
     {
-        printf("%d. ", i+1);
+        printf("    %d. ", i+1);
         TulisWord(L.listpenyanyi[i].namaPenyanyi);
     }
 }

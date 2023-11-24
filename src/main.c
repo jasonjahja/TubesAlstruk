@@ -56,7 +56,7 @@ int main() {
     Queue Q; CreateEmptyQueue(&Q);
     ListofPenyanyi LP; LP = MakeList();
     ListofPlaylist LPl; LPl = CreateListPlaylist();
-    Word filename;
+    Word filename = toKata("test.txt");
 
     Inisialisasi();
 
@@ -67,7 +67,6 @@ int main() {
     {
         printf(">> "); 
         GetCommand();
-        // DisplayListPlaylist(&LPl);
 
         if (IsWordEq(currentWord, word_start)) {
             if (!started)
@@ -261,6 +260,7 @@ int main() {
             else
             {
                 Save(&LP, &LPl, &Q, &SH, &CS, currentWord);
+                printf("\nSave file berhasil disimpan.\n\n");
             }
         }
 

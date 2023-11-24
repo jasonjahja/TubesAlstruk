@@ -132,6 +132,7 @@ void Save(ListofPenyanyi *LP, ListofPlaylist *listPlaylist, Queue *queueLagu, so
         }
 
     }
+    fprintf(pita,"\n");
     fclose(pita);
 }
 

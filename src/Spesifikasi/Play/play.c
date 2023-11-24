@@ -96,36 +96,40 @@ void playSong (ListofPenyanyi daftarpenyanyi, CurrentStat * currentSong, songHis
 
 void playPlaylist(ListofPlaylist daftarplaylist, CurrentStat * currentSong, songHistory * history, Queue * queue)
 {
-    printf("\nDaftar Playlist: \n");
-    DisplayListPlaylist(&daftarplaylist);
-    
-    printf("\nMasukkan ID Playlist: ");
-    STARTINPUT(stdin);
-    int IDPlaylist = WordtoNum(currentInput) -1;
-
-    while (IDPlaylist <= -1 && IDPlaylist > (daftarplaylist.nEff - 1))
-    {
-        printf("\nID Playlist tidak terdaftar!\n");
+    if (isEmptyListPlaylist(daftarplaylist)) {
+        printf("\nTidak ada playlist yang tersedia!\n\n");
+    } else {
+        printf("\nDaftar Playlist: \n");
+        DisplayListPlaylist(&daftarplaylist);
+        
         printf("\nMasukkan ID Playlist: ");
         STARTINPUT(stdin);
-        IDPlaylist = WordtoNum(currentInput) - 1;
+        int IDPlaylist = WordtoNum(currentInput) -1;
+
+        while (IDPlaylist <= -1 && IDPlaylist > (daftarplaylist.nEff - 1))
+        {
+            printf("\nID Playlist tidak terdaftar!\n");
+            printf("\nMasukkan ID Playlist: ");
+            STARTINPUT(stdin);
+            IDPlaylist = WordtoNum(currentInput) - 1;
+        }
+
+        address P = daftarplaylist.list[IDPlaylist].First;
+
+        currentSong->playlist = daftarplaylist.namaPlaylist[IDPlaylist];
+        currentSong->statusPL = 1;
+        currentSong->currentplay.judul = daftarplaylist.list[IDPlaylist].First->info.Lagu.judul;
+        currentSong->currentplay.album = daftarplaylist.list[IDPlaylist].First->info.Lagu.album;
+        currentSong->currentplay.penyanyi = daftarplaylist.list[IDPlaylist].First->info.Lagu.penyanyi;
+        currentSong->currentplay.status = 1;
+
+        while (Next(P) != NilNode)
+        {
+            enqueueQueue(queue, Next(P)->info.Lagu.judul, Next(P)->info.Lagu.album, Next(P)->info.Lagu.penyanyi);
+            PushStack(history, Next(P)->info.Lagu.judul, Next(P)->info.Lagu.album, Next(P)->info.Lagu.penyanyi);
+            P = Next(P);
+        }
+        printf("\nMemutar playlist \""); TulisWordNoNL(currentSong->playlist); printf("\".\n\n");
     }
-
-    address P = daftarplaylist.list[IDPlaylist].First;
-
-    currentSong->playlist = daftarplaylist.namaPlaylist[IDPlaylist];
-    currentSong->statusPL = 1;
-    currentSong->currentplay.judul = daftarplaylist.list[IDPlaylist].First->info.Lagu.judul;
-    currentSong->currentplay.album = daftarplaylist.list[IDPlaylist].First->info.Lagu.album;
-    currentSong->currentplay.penyanyi = daftarplaylist.list[IDPlaylist].First->info.Lagu.penyanyi;
-    currentSong->currentplay.status = 1;
-
-    while (Next(P) != NilNode)
-    {
-        enqueueQueue(queue, Next(P)->info.Lagu.judul, Next(P)->info.Lagu.album, Next(P)->info.Lagu.penyanyi);
-        PushStack(history, Next(P)->info.Lagu.judul, Next(P)->info.Lagu.album, Next(P)->info.Lagu.penyanyi);
-        P = Next(P);
-    }
-
-    printf("\nMemutar playlist \""); TulisWordNoNL(currentSong->playlist); printf("\".\n\n");
+    
 }

@@ -94,7 +94,7 @@ void DisplayListAlbum (MapofAlbum M)
 {
     for (int i = 0; i < BanyakAlbum(M); i++)
     {
-        printf("%d. ", i+1);
+        printf("    %d. ", i+1);
         TulisWord(M.listalbum[i].namaAlbum);
     }
 }

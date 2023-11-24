@@ -263,7 +263,7 @@ int main() {
             printf("\nApakah kamu ingin menyimpan data sesi sekarang? (Y/N) ");
             GetInput();
             if (IsWordEq(currentInput,toKata("Y"))) {
-                
+                Save(&LPl, "test.txt");
             } else if (IsWordEq(currentInput,toKata("N"))){
                 printf("\nKamu keluar dari WayangWave.\n");
                 printf("Dadah ^_^\n\n");

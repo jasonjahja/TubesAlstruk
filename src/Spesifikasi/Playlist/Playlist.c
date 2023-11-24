@@ -225,31 +225,29 @@ void playlistSwap(ListofPlaylist *L,int idx,int x,int y){
     ElmtList *p1  =L->list[idx-1].First; 
     ElmtList *p2  =L->list[idx-1].First;
 
-    // printf("-------");
     for (int i = 0; i < x;i ++){
         p1 = p1->next;
-        // printf("i = %d\n",i);
+    
     }
-    // TulisWord(p1->info.Lagu.judul);
-    // printf("-------");
+    
 
     for (int j = 0; j < y;j ++){
         p2 = p2->next;
-        // printf("j = %d\n",j);
     }
-    // TulisWord(p2->info.Lagu. judul);
+    
+    if (p1 != NULL && p2 != NULL){
+        Song temp = p1->info.Lagu;
+        p1->info.Lagu = p2->info.Lagu;
+        p2->info.Lagu = temp;
 
-    Song temp = p1->info.Lagu;
-    p1->info.Lagu = p2->info.Lagu;
-    p2->info.Lagu = temp;
-
-    printf("\nBerhasil menukar lagu dengan nama '");
-    TulisWordNoNL(p1->info.Lagu.judul);
-    printf("' dengan '");
-    TulisWordNoNL(p2->info.Lagu.judul);
-    printf("' di playlist '");
-    TulisWordNoNL(*(L->namaPlaylist));
-    printf("'.\n\n");
+        printf("\nBerhasil menukar lagu dengan nama '");
+        TulisWordNoNL(p1->info.Lagu.judul);
+        printf("' dengan '");
+        TulisWordNoNL(p2->info.Lagu.judul);
+        printf("' di playlist '");
+        TulisWordNoNL(*(L->namaPlaylist));
+        printf("'.\n\n");
+    }
 
 }
 void playlistRemove(ListofPlaylist *L,int rowsong,int idx){

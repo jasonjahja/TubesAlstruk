@@ -9,7 +9,7 @@ void queueSong (ListofPenyanyi daftarpenyanyi, Queue * queue)
         printf("\nDaftar Penyanyi:\n");
         for (int i = 0; i < BanyakPenyanyi(daftarpenyanyi); i++)
         {
-            printf("%d. ", i+1);
+            printf("    %d. ", i+1);
             TulisWord(daftarpenyanyi.listpenyanyi[i].namaPenyanyi);
         }
 
@@ -30,7 +30,7 @@ void queueSong (ListofPenyanyi daftarpenyanyi, Queue * queue)
             printf("\nDaftar Album:\n");
             for (int j = 0; j < BanyakAlbum(daftarpenyanyi.listpenyanyi[IDPenyanyi].album); j++)
             {
-                printf("%d. ", j+1);
+                printf("    %d. ", j+1);
                 TulisWord(daftarpenyanyi.listpenyanyi[IDPenyanyi].album.listalbum[j].namaAlbum);
             }
 
@@ -51,7 +51,7 @@ void queueSong (ListofPenyanyi daftarpenyanyi, Queue * queue)
                 printf("\nDaftar Lagu:\n"); 
                 for (int k = 0; k < BanyakLagu(daftarpenyanyi.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu); k++)
                 {
-                    printf("%d. ", k+1);
+                    printf("    %d. ", k+1);
                     TulisWord(daftarpenyanyi.listpenyanyi[IDPenyanyi].album.listalbum[IDAlbum].listlagu.Lagu[k].judul);
                 }
 

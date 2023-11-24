@@ -208,7 +208,6 @@ int main() {
                     }
                     else if (IsWordEq(currentWord, word_album)) {
                         playlistAddAlbum(LPl,LP);
-                        PrintNode(*LPl.list);
                     }
                     else
                     {

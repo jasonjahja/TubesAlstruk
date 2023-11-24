@@ -90,8 +90,8 @@ void DeleteListPlaylist(ListofPlaylist *l, int idx) {
         // Deallocate the playlist name
         for (i = idx-1; i < l->nEff; i++) {
             l->namaPlaylist[i] = l->namaPlaylist[i + 1];
-            printf(">> ");
-            TulisWord(l->namaPlaylist[i]);
+            // printf(">> ");
+            // TulisWord(l->namaPlaylist[i]);
         }
         // Deallocate the associated linked list
         DeletePlaylist(&(l->list[idx]));

@@ -13,7 +13,7 @@
 #include "../../ADT/listdin/listdin.h"
 
 #include "../Playlist/Playlist.h"
-#include "../Inisialisasi/inisialisasi.h"
+#include "../Inisialisasi/Inisialisasi.h"
 
 void Enhance(ListofPlaylist * LPl, ListofPenyanyi LP);
 

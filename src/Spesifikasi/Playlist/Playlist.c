@@ -224,14 +224,21 @@ void playlistSwap(ListofPlaylist *L, int idx, int x, int y) {
     ElmtList *p2 = L->list[idx - 1].First;
 
     // Move to the x-th node
-    for (int i = 0; i < x && p1 != NULL; i++) {
+    for (int i = 0; i < x-1 && p1 != NULL; i++) {
         p1 = p1->next;
     }
+    // printf("----");
+    // TulisWord(p1->info.Lagu.judul);
+    // printf("----");
 
     // Move to the y-th node
-    for (int j = 0; j < y && p2 != NULL; j++) {
+    for (int j = 0; j < y-1 && p2 != NULL; j++) {
         p2 = p2->next;
     }
+    // printf("----");
+    // TulisWord(p2->info.Lagu.judul);
+    // printf("----");
+
 
     // Check if both pointers are not NULL before swapping
     if (p1 != NULL && p2 != NULL) {

@@ -19,8 +19,8 @@ void Status (CurrentStat stat, Queue QL)
                 TulisWordNoNL(QL.song[i]);
                 printf(" - ");
                 TulisWord(QL.album[i]);
-                printf("\n");
             }
+            printf("\n");
         }
         else //kondisi tidak ada queue
         {
@@ -31,7 +31,8 @@ void Status (CurrentStat stat, Queue QL)
    else // kondisi ada lagu
    {
         if (stat.statusPL == 1) {
-            printf("\nCurrent Playlist: %s\n", stat.playlist.TabWord);
+            printf("\nCurrent Playlist:\n");
+            TulisWord(stat.playlist);
         }
 
         printf("\nNow Playing:\n");
@@ -40,7 +41,6 @@ void Status (CurrentStat stat, Queue QL)
         TulisWordNoNL(stat.currentplay.judul);
         printf(" - ");
         TulisWord(stat.currentplay.album);
-        printf("\n");
 
         printf("\nQueue:\n");
         if (QL.idxHead == IDX_UNDEFQueue && QL.idxTail == IDX_UNDEFQueue) {
@@ -54,8 +54,8 @@ void Status (CurrentStat stat, Queue QL)
                 TulisWordNoNL(QL.song[i]);
                 printf(" - ");
                 TulisWord(QL.album[i]);
-                printf("\n");
             }
+            printf("\n");
         }
    }
 }

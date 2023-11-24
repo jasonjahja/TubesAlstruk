@@ -17,6 +17,8 @@ Program ini merupakan hasil tugas besar Alstrukdat STI. Program "WayangWave" ini
 
     ./main
 
+
+## STRUKTUR PROGRAM
 ```
 ├───docs
 ├───save    # file-file yang disimpan oleh user

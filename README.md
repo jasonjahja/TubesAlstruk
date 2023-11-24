@@ -10,4 +10,9 @@ Program ini merupakan hasil tugas besar Alstrukdat STI. Program "WayangWave" ini
 - Hanan Fitra Salam / 18222133
 
 ## HOW TO USE (´･ω･`)?
-- 
+- Buka terminal
+- Ketik "cd src" jika belum masuk ke src directory
+- Ketik kode ini:
+    gcc -o main Spesifikasi/Start/Start.c Spesifikasi/Help/Help.c Spesifikasi/List/List.c Spesifikasi/Play/Play.c Spesifikasi/Queue/Queue.c Spesifikasi/Save/Save.c Spesifikasi/Song/Song.c Spesifikasi/Load/Load.c ADT/list/list.c ADT/listdin/listdin.c ADT/map/map.c ADT/mesinbaris/mesinbaris.c ADT/mesinkata/mesinkata.c ADT/mesinkarakter/mesinkarakter.c ADT/queue/queue.c ADT/set/set.c ADT/stack/stack.c ADT/strukturberkait/listberkait.c main.c Spesifikasi/Status/status.c Spesifikasi/Inisialisasi/Inisialisasi.c Spesifikasi/Playlist/Playlist.c
+
+    ./main

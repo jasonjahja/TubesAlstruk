@@ -96,7 +96,7 @@ void list_default(ListofPenyanyi L)
 
 void list_playlist(ListofPlaylist L)
 {
-    printf("Daftar playlist yang kamu miliki: \n");
+    printf("\nDaftar playlist yang kamu miliki: \n");
     if (LengthListPlaylist(L) > 0)
     {
         DisplayListPlaylist(&L);
@@ -104,6 +104,6 @@ void list_playlist(ListofPlaylist L)
     }
     else
     {
-        printf("Kamu tidak memiliki playlist.\n\n");
+        printf("\nKamu tidak memiliki playlist.\n\n");
     }
 }

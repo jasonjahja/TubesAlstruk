@@ -14,8 +14,6 @@
 #include "../../ADT/stack/stack.h"
 #include "../../ADT/listdin/listdin.h"
 
-
-void Save(ListofPenyanyi *LP,ListofPlaylist *listPlaylist,Queue *queueLagu,songHistory *songHistory,CurrentStat *status,const char *filename);
-
+void Save(ListofPenyanyi *LP,ListofPlaylist *listPlaylist,Queue *queueLagu,songHistory *songHistory,CurrentStat *status, Word fileName);
 
 #endif

@@ -21,7 +21,7 @@ boolean IsEmptyAlbum(MapofAlbum M)
 
 boolean IsFullAlbum(MapofAlbum M)
 {
-    return (!IsWordEq(M.listalbum[BanyakAlbum(M)-1].namaAlbum, Mark));
+    return (!IsWordEq(M.listalbum[MaxElMap-1].namaAlbum, Mark));
 }
 
 int BanyakAlbum(MapofAlbum M)

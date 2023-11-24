@@ -23,18 +23,16 @@ typedef struct
 
 /* ********** KONSTRUKTOR ********** */
 SetofSong CreateEmptySet();
-/* I.S. Sembarang */
 /* F.S. Membuat sebuah set SetofSong kosong berkapasitar MaxelSet */
-/* Ciri Set kosong : count bernilai Nil */
 
 //* ********** FUNGSI-FUNGSI ********** */
 boolean IsEmptySet(SetofSong S);
 /* Mengirim true jika Set SetofSong kosong */
-/* Ciri Set kosong : count bernilai Nil */
+/* Ciri Set kosong : elemen pertama bernilai Mark */
 
 boolean IsFullSet(SetofSong S);
 /* Mengirim true jika Set SetofSong penuh */
-/* Ciri Set penuh : count bernilai MaxElSet */
+/* Ciri Set penuh : elemen terisi sampai MaxElSet */
 
 int BanyakLagu(SetofSong S);
 /* Mengirim jumlah lagu atau jumlah Elmt di SetofSong */
@@ -54,9 +52,6 @@ void DeleteLagu(SetofSong *S, Word Elmt);
 
 boolean IsMemberLagu(SetofSong S, Word Elmt);
 /* Mengirim true jika Elmt termasuk ke SetofSong */
-/* I.S. Menerima input Elmt */
-/* F.S. Mengirimkan true jika nama lagu terdapat dalam SetofSong
-		Mengirimkan false jika nama lagu tidak terdapat dalam SetofSong */
 
 void DisplayListLagu(SetofSong S);
 /* Menampilkan judul lagu yang ada di SetofSong S */

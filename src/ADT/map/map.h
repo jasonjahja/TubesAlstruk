@@ -25,18 +25,16 @@ typedef struct
 
 /* ********** KONSTRUKTOR ********** */
 MapofAlbum CreateEmptyAlbum();
-/* I.S. Sembarang */
-/* F.S. Membuat sebuah MapofAlbum kosong berkapasitas MaxElMap */
-/* Ciri Map kosong : count bernilai Nil */
+/* Membuat sebuah MapofAlbum kosong berkapasitas MaxElMap */
 
 /* ********** FUNGSI-FUNGSI ********** */
 boolean IsEmptyAlbum(MapofAlbum M);
 /* Mengirim true jika Map MapofAlbum kosong */
-/* Ciri MapofAlbum kosong : count bernilai Nil */
+/* Ciri MapofAlbum kosong : elemen pertama berisi Mark */
 
 boolean IsFullAlbum(MapofAlbum M);
 /* Mengirim true jika MapofAlbum penuh */
-/* Ciri MapofAlbum penuh : count bernilai MaxElMap */
+/* Ciri MapofAlbum penuh : banyak elemennya mencapai MaxElMap */
 
 int BanyakAlbum(MapofAlbum M);
 /* Mengirimkan nilai banyaknya album pada MapofAlbum */

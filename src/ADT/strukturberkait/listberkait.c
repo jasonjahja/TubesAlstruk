@@ -78,12 +78,12 @@ boolean isAlbumAvail (ListBerkait L, infoLagu X){
 }
 
 
-boolean isSongAvail (ListBerkait L, infoLagu X){
+boolean isSongAvail (ListBerkait *L, infoLagu X){
   address P;
   boolean bFound = false;
 
-  if (!IsEmpty(L)) {
-    P = First(L);
+  if (!IsEmpty(*L)) {
+    P = First(*L);
     while (!bFound && P != NilNode) {
       if (IsWordEq(X.Lagu.penyanyi,P->info.Lagu.penyanyi)) {
         bFound = true;
@@ -160,7 +160,6 @@ void InsertAfter (ListBerkait *L, address P, address Prec)
 }
 
 void InsertLast (ListBerkait *L, address P)
-
 {
   address Last;
 

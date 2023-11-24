@@ -23,7 +23,7 @@ boolean IsEmptySet(SetofSong S)
 
 boolean IsFullSet(SetofSong S)
 {
-    return (IsWordEq(S.Lagu[BanyakLagu(S)-1].judul, Mark));
+    return (!IsWordEq(S.Lagu[MaxElSet-1].judul, Mark));
 }
 
 boolean IsMemberLagu(SetofSong S, Word Elmt)

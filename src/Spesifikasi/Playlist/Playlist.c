@@ -207,8 +207,6 @@ void playlistAddAlbum(ListofPlaylist L,ListofPenyanyi LP){
 
                     }
 
-                    PrintNode(L.list[IDPlaylist]);
-
                     printf("\nAlbum dengan judul ");
                     printf("'");
                     TulisWordNoNL(namaAlbum);
@@ -268,10 +266,11 @@ void playlistDelete(ListofPlaylist *L){
       printf("\nDaftar Playlist Pengguna : \n");
       DisplayListPlaylist(L);
 
-      printf("\n\nMasukkan ID Playlist yang dipilih : ");
+      printf("\nMasukkan ID Playlist yang dipilih : ");
       STARTINPUT(stdin);
       // TulisWord(currentInput);
       int IDPlaylist = WordtoNum(currentInput);
+      TulisWord(currentInput); printf("%d\n", IDPlaylist);
       DeleteListPlaylist(L,IDPlaylist);
     }
 }

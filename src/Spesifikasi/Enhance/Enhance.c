@@ -44,11 +44,8 @@ void Enhance(ListofPlaylist * LPl, ListofPenyanyi LP)
                 {
                     printf("\nMenambahkan lagu rekomendasi: \"");
                     TulisWordNoNL(LP.listpenyanyi[IDSinger].album.listalbum[IDAlbum].listlagu.Lagu[IDSong].judul);
-                    printf("\" ke dalam playlist.\n");
-                    printf("%d\n", ID);
-                    PrintNode(LPl->list[ID]);
+                    printf("\" ke dalam playlist.\n");                    
                     InsVLast(&((*LPl).list[ID]), x);
-                    PrintNode(LPl->list[ID]);
                     count++;
                 }
             }

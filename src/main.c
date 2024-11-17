@@ -279,17 +279,17 @@ int main() {
             Help(started);
         }
 
-        else if (IsWordEq(currentWord, word_enhance)) {
-            if (!started)
-            {
-                printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
-                ADVCOMM();
-            }
-            else
-            {
-                Enhance(&LPl, LP);
-            }
-        }
+        // else if (IsWordEq(currentWord, word_enhance)) {
+        //     if (!started)
+        //     {
+        //         printf("\nERROR: Command tidak dapat dieksekusi!\n\n");
+        //         ADVCOMM();
+        //     }
+        //     else
+        //     {
+        //         Enhance(&LPl, LP);
+        //     }
+        // }
 
         else if (IsWordEq(currentWord, toKata("display"))) {
             PrintNode(LPl.list[0]);

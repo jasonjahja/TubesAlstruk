@@ -11,7 +11,7 @@ void Help (boolean entered) {
 
     // Ketika perintah dipanggil setelah memasuki sesi
     else {
-    printf("=====[ Menu Help WayangWave ]=====\n");
+    // printf("=====[ Menu Help WayangWave ]=====\n");
     printf("1a. LIST DEFAULT -> Untuk melihat list penyanyi, album, dan lagu yang ada\n");
     printf("1b. LIST PLAYLIST -> Untuk menampilkan playlist yang ada pada pengguna\n");
     printf("2a. PLAY SONG -> Untuk memainkan lagu berdasarkan masukan nama penyanyi, nama album, dan id lagu\n");
